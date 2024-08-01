@@ -10,13 +10,34 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
       perSystem = { pkgs, ... }: {
-        packages.default = pkgs.writeShellScriptBin "dafny-test-all" ''
-            for f in *.dfy
+        packages = rec {
+          dafny-check = pkgs.writeShellScriptBin "dafny-check" ''
+            DIR=''${1:-.}
+            for f in "$DIR"/*.dfy
             do
                 echo "Testing $f"
                 ${pkgs.dafny}/bin/dafny verify --allow-warnings --verification-time-limit 10 $f
             done
-        '';
+          '';
+
+          dafny-namecheck = pkgs.writeShellScriptBin "dafny-namecheck" ''
+            # Directory to check, use current directory if not specified
+            DIR=''${1:-.}
+
+            for file in "$DIR"/*.dfy; do
+              if [[ -e $file ]]; then
+                filename=$(basename "$file")
+
+                if ! [[ $filename =~ ^[0-9]{3} ]]; then
+                  echo "File $file does not start with three digits. (this is needed for better sorting)"
+                  exit 1
+                fi
+              fi
+            done
+
+            echo "All dafny files start with three digits."
+          '';
+        };
       };
     };
 }

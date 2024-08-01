@@ -9,4 +9,4 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@v20
       - name: Run Dafny Tests
-        run: nix shell nixpkgs#dafny -c "scripts/dafny-test-all.sh"
+        run: nix run

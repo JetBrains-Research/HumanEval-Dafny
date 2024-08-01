@@ -53,15 +53,15 @@ Current status:
 - [ ] 48. is_palindrome
 - [ ] 49. modp
 - [ ] 50. encode_shift
-- [ ] 51. remove_vowels
-- [ ] 52. below_threshold
-- [ ] 53. add
-- [ ] 54. same_chars
+- [x] 51. remove_vowels
+- [x] 52. below_threshold
+- [x] 53. add
+- [x] 54. same_chars
 - [ ] 55. fib
 - [ ] 56. correct_bracketing
 - [ ] 57. monotonic
-- [ ] 58. common
-- [ ] 59. largest_prime_factor
+- [x] 58. common
+- [x] 59. largest_prime_factor
 - [ ] 60. sum_to_n
 - [ ] 61. correct_bracketing
 - [ ] 62. derivative

@@ -1,0 +1,14 @@
+name: Test All Dafny Files
+
+on: [push]
+jobs:
+  test:
+    runs-on: nixery.dev/shell/dafny
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test All Dafny Files
+        run: |
+          for file in $(find . -name '*.dfy'); do
+            echo "Testing $file"
+            $DAFNY_HOME/dafny /compile:0 /noVerify /timeLimit:30 /vcsCores:1 /compileTarget:cs "$file"
+          done

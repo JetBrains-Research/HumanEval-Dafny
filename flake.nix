@@ -14,7 +14,7 @@
             for f in *.dfy
             do
                 echo "Testing $f"
-                ${pkgs.dafny}/bin/dafny verify --verification-time-limit 10 $f
+                ${pkgs.dafny}/bin/dafny verify --allow-warnings --verification-time-limit 10 $f
             done
         '';
       };

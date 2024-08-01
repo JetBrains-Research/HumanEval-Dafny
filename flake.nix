@@ -13,7 +13,7 @@
         packages = rec {
           dafny-check = pkgs.writeShellScriptBin "dafny-check" ''
             DIR=''${1:-.}
-            for f in DIR/*.dfy
+            for f in "$DIR"/*.dfy
             do
                 echo "Testing $f"
                 ${pkgs.dafny}/bin/dafny verify --allow-warnings --verification-time-limit 10 $f

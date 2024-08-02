@@ -104,11 +104,11 @@ Current status:
 - [ ] 99. closest_integer
 - [ ] 100. make_a_pile
 - [ ] 101. words_string
-- [ ] 102. choose_num
+- [x] 102. choose_num
 - [ ] 103. rounded_avg
 - [ ] 104. unique_digits
 - [ ] 105. by_length
-- [ ] 106. f
+- [x] 106. f
 - [ ] 107. even_odd_palindrome
 - [ ] 108. count_nums
 - [ ] 109. move_one_ball
@@ -159,10 +159,10 @@ Current status:
 - [ ] 154. cycpattern_check
 - [ ] 155. even_odd_count
 - [ ] 156. int_to_mini_roman
-- [ ] 157. right_angle_triangle
+- [x] 157. right_angle_triangle
 - [ ] 158. find_max
-- [ ] 159. eat
+- [x] 159. eat
 - [ ] 160. do_algebra
 - [ ] 161. solve
 - [ ] 162. string_to_md5
-- [ ] 163. generate_integers
+- [x] 163. generate_integers

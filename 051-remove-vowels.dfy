@@ -1,4 +1,3 @@
-
 method remove_vowels(text : string) returns (s : string) 
     ensures forall i : int :: i >= 0 && i < |s| ==> s[i] != 'a' && s[i] != 'e' && s[i] != 'i' && s[i] != 'o' && s[i] != 'u'
     ensures forall i : int :: i >= 0 && i < |s| ==> s[i] in text

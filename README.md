@@ -94,10 +94,10 @@ Current status:
 - [ ] 89. encrypt
 - [ ] 90. next_smallest
 - [ ] 91. is_bored
-- [ ] 92. any_int
+- [x] 92. any_int
 - [ ] 93. encode
 - [ ] 94. skjkasdkd
-- [ ] 95. check_dict_case
+- [x] 95. check_dict_case
 - [ ] 96. count_up_to
 - [ ] 97. multiply
 - [ ] 98. count_upper
@@ -154,7 +154,7 @@ Current status:
 - [ ] 149. sorted_list_sum
 - [ ] 150. x_or_y
 - [ ] 151. double_the_difference
-- [ ] 152. compare
+- [x] 152. compare
 - [ ] 153. Strongest_Extension
 - [ ] 154. cycpattern_check
 - [ ] 155. even_odd_count

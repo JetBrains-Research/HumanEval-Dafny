@@ -10,7 +10,7 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
       perSystem = { pkgs, ... }: {
-        packages = rec {
+        packages = {
           dafny-check = pkgs.writeShellScriptBin "dafny-check" ''
             DIR=''${1:-.}
             for f in "$DIR"/*.dfy

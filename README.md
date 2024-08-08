@@ -10,7 +10,11 @@ Current status:
 - [x] 5. intersperse
 - [x] 6. parse_nested_parens
 - [x] 7. filter_by_substring
+<<<<<<< HEAD
 - [x] 8. sum_product
+=======
+- [*] 8. sum_product
+>>>>>>> 8f13a4d (2, 3, 8, 20, 21, 23, 24)
 - [x] 9. rolling_max
 - [x] 10. is_palindrome
 - [x] 11. string_xor

@@ -4,13 +4,13 @@ Current status:
 
 - [x] 0. has_close_elements
 - [x] 1. separate_paren_groups
-- [ ] 2. truncate
-- [ ] 3. below_zero
+- [x] 2. truncate
+- [x] 3. below_zero
 - [ ] 4. mean_absolute_derivation
 - [x] 5. intersperse
 - [x] 6. parse_nested_parens
 - [x] 7. filter_by_substring
-- [ ] 8. sum_product
+- [*] 8. sum_product
 - [x] 9. rolling_max
 - [x] 10. is_palindrome
 - [x] 11. string_xor
@@ -22,11 +22,11 @@ Current status:
 - [ ] 17. parse_music
 - [ ] 18. how_many_times
 - [ ] 19. sort_numbers
-- [ ] 20. find_closest_elements
-- [ ] 21. rescale_to_unit
+- [x] 20. find_closest_elements
+- [x] 21. rescale_to_unit
 - [ ] 22. filter_integers
-- [ ] 23. strlen
-- [ ] 24. largest_divisor
+- [x] 23. strlen
+- [x] 24. largest_divisor
 - [ ] 25. factorize
 - [ ] 26. remove_duplicates
 - [ ] 27. flip_case

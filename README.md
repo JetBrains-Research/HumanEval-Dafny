@@ -132,7 +132,7 @@ Current status:
 - [ ] 127. intersection
 - [ ] 128. prod_signs
 - [ ] 129. minPath
-- [ ] 130. tri
+- [x] 130. tri
 - [ ] 131. digits
 - [ ] 132. is_nested
 - [ ] 133. sum_squares
@@ -141,7 +141,7 @@ Current status:
 - [ ] 136. largest_smallest_integers
 - [ ] 137. compare_one
 - [ ] 138. is_equal_to_sum_even
-- [ ] 139. special_factorial
+- [x] 139. special_factorial
 - [ ] 140. fix_spaces
 - [ ] 141. file_name_check
 - [ ] 142. sum_squares
@@ -150,13 +150,13 @@ Current status:
 - [ ] 145. order_by_points
 - [ ] 146. specialFilter
 - [ ] 147. get_max_triples
-- [ ] 148. bf
+- [x] 148. bf
 - [ ] 149. sorted_list_sum
-- [ ] 150. x_or_y
+- [x] 150. x_or_y
 - [ ] 151. double_the_difference
 - [x] 152. compare
-- [ ] 153. Strongest_Extension
-- [ ] 154. cycpattern_check
+- [x] 153. Strongest_Extension
+- [x] 154. cycpattern_check
 - [ ] 155. even_odd_count
 - [ ] 156. int_to_mini_roman
 - [x] 157. right_angle_triangle

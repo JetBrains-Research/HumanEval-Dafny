@@ -98,11 +98,11 @@ Current status:
 - [ ] 93. encode
 - [ ] 94. skjkasdkd
 - [x] 95. check_dict_case
-- [ ] 96. count_up_to
-- [ ] 97. multiply
+- [x] 96. count_up_to
+- [x] 97. multiply
 - [ ] 98. count_upper
 - [ ] 99. closest_integer
-- [ ] 100. make_a_pile
+- [x] 100. make_a_pile
 - [ ] 101. words_string
 - [x] 102. choose_num
 - [ ] 103. rounded_avg
@@ -112,7 +112,7 @@ Current status:
 - [ ] 107. even_odd_palindrome
 - [ ] 108. count_nums
 - [ ] 109. move_one_ball
-- [ ] 110. exchange
+- [x] 110. exchange
 - [ ] 111. histogram
 - [ ] 112. reverse_delete
 - [ ] 113. odd_count
@@ -120,16 +120,16 @@ Current status:
 - [ ] 115. max_fill
 - [ ] 116. sort_array
 - [ ] 117. select_words
-- [ ] 118. get_closest_vowel
+- [x] 118. get_closest_vowel
 - [ ] 119. match_parens
 - [ ] 120. maximum
 - [ ] 121. solution
-- [ ] 122. add_elements
+- [x] 122. add_elements
 - [ ] 123. get_odd_collatz
 - [ ] 124. valid_date
 - [ ] 125. split_words
 - [ ] 126. is_sorted
-- [ ] 127. intersection
+- [x] 127. intersection
 - [ ] 128. prod_signs
 - [ ] 129. minPath
 - [x] 130. tri

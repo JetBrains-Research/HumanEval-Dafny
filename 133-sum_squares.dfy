@@ -12,13 +12,18 @@ lemma sum_prop(s: seq<int>)
     }
 }
 
-function square_seq(lst: seq<int>) : (sq : seq<int>) 
-        ensures |sq| == |lst|
+function ceil(f: real) : (c : int)
     {
-        seq(|lst|, i requires 0 <= i < |lst| => if i % 3 == 0 then lst[i] * lst[i] else (if i % 4 == 0 then lst[i] * lst[i] * lst[i] else lst[i]))
+        (f + 1.0).Floor
     }
 
-method sum_squares(lst: seq<int>) returns (r : int)
+function square_seq(lst: seq<real>) : (sq : seq<int>) 
+        ensures |sq| == |lst|
+    {
+        seq(|lst|, i requires 0 <= i < |lst| => ceil(lst[i]) * ceil(lst[i]))
+    }
+
+method sum_squares(lst: seq<real>) returns (r : int)
     ensures r == sum(square_seq(lst))
     {
         r := 0;

@@ -32,19 +32,19 @@ Current status:
 - [ ] 27. flip_case
 - [ ] 28. concatenate
 - [ ] 29. filter_by_prefix
-- [ ] 30. get_positive
-- [ ] 31. is_prime
+- [x] 30. get_positive
+- [x] 31. is_prime
 - [ ] 32. poly
 - [ ] 33. sort_third
 - [ ] 34. unique
-- [ ] 35. max_element
+- [x] 35. max_element
 - [ ] 36. fizz_buzz
 - [ ] 37. sort_even
 - [ ] 38. encode_cyclic
 - [ ] 39. prime_fib
-- [ ] 40. triples_sum_to_zero
+- [x] 40. triples_sum_to_zero
 - [ ] 41. car_race_collision
-- [ ] 42. incr_list
+- [x] 42. incr_list
 - [ ] 43. pairs_sum_to_zero
 - [ ] 44. change_base
 - [ ] 45. triangle_area

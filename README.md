@@ -79,13 +79,13 @@ Current status:
 - [ ] 74. total_match
 - [ ] 75. is_multiply_prime
 - [ ] 76. is_simple_power
-- [ ] 77. iscube
-- [ ] 78. hex_key
+- [x] 77. iscube
+- [x] 78. hex_key
 - [ ] 79. decimal_to_binary
 - [ ] 80. is_happy
 - [ ] 81. numerical_letter_grade
-- [ ] 82. prime_length
-- [ ] 83. starts_one_ends
+- [x] 82. prime_length
+- [x] 83. starts_one_ends
 - [ ] 84. solve
 - [x] 85. add
 - [ ] 86. anti_shuffle

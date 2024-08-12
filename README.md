@@ -45,12 +45,12 @@ Current status:
 - [x] 40. triples_sum_to_zero
 - [ ] 41. car_race_collision
 - [x] 42. incr_list
-- [ ] 43. pairs_sum_to_zero
+- [x] 43. pairs_sum_to_zero
 - [ ] 44. change_base
 - [ ] 45. triangle_area
 - [ ] 46. fib4
 - [ ] 47. median
-- [ ] 48. is_palindrome
+- [x] 48. is_palindrome
 - [ ] 49. modp
 - [ ] 50. encode_shift
 - [x] 51. remove_vowels

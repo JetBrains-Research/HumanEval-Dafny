@@ -10,11 +10,7 @@ Current status:
 - [x] 5. intersperse
 - [x] 6. parse_nested_parens
 - [x] 7. filter_by_substring
-<<<<<<< HEAD
 - [x] 8. sum_product
-=======
-- [*] 8. sum_product
->>>>>>> 8f13a4d (2, 3, 8, 20, 21, 23, 24)
 - [x] 9. rolling_max
 - [x] 10. is_palindrome
 - [x] 11. string_xor
@@ -66,7 +62,7 @@ Current status:
 - [ ] 57. monotonic
 - [x] 58. common
 - [x] 59. largest_prime_factor
-- [ ] 60. sum_to_n
+- [x] 60. sum_to_n
 - [ ] 61. correct_bracketing
 - [ ] 62. derivative
 - [ ] 63. fibfib
@@ -91,7 +87,7 @@ Current status:
 - [ ] 82. prime_length
 - [ ] 83. starts_one_ends
 - [ ] 84. solve
-- [ ] 85. add
+- [x] 85. add
 - [ ] 86. anti_shuffle
 - [ ] 87. get_row
 - [ ] 88. sort_array
@@ -139,7 +135,7 @@ Current status:
 - [x] 130. tri
 - [ ] 131. digits
 - [ ] 132. is_nested
-- [ ] 133. sum_squares
+- [x] 133. sum_squares
 - [ ] 134. check_if_last_char_is_a_letter
 - [ ] 135. can_arrange
 - [ ] 136. largest_smallest_integers
@@ -148,7 +144,7 @@ Current status:
 - [x] 139. special_factorial
 - [ ] 140. fix_spaces
 - [ ] 141. file_name_check
-- [ ] 142. sum_squares
+- [x] 142. sum_squares
 - [ ] 143. words_in_sentence
 - [ ] 144. simplify
 - [ ] 145. order_by_points
@@ -157,7 +153,7 @@ Current status:
 - [x] 148. bf
 - [ ] 149. sorted_list_sum
 - [x] 150. x_or_y
-- [ ] 151. double_the_difference
+- [x] 151. double_the_difference
 - [x] 152. compare
 - [x] 153. Strongest_Extension
 - [x] 154. cycpattern_check

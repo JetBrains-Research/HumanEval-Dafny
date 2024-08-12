@@ -12,24 +12,26 @@ lemma sum_prop(s: seq<int>)
     }
 }
 
-function square_seq(lst: seq<int>) : (sq : seq<int>) 
-        ensures |sq| == |lst|
+function number_seq(n: int) : (r : seq<int>) 
+        requires n >= 0
+        ensures |r| == n
     {
-        seq(|lst|, i requires 0 <= i < |lst| => if i % 3 == 0 then lst[i] * lst[i] else (if i % 4 == 0 then lst[i] * lst[i] * lst[i] else lst[i]))
+        seq(n, i => i + 1)
     }
 
-method sum_squares(lst: seq<int>) returns (r : int)
-    ensures r == sum(square_seq(lst))
+method sum_squares(n: int) returns (r : int)
+    requires n >= 1
+    ensures r == sum(number_seq(n))
     {
         r := 0;
         var k := 0;
-        var v := square_seq(lst);
-        while(k < |lst|) 
-            invariant 0 <= k <= |lst|
+        ghost var v := number_seq(n);
+        while(k < n) 
+            invariant 0 <= k <= |v|
             invariant r == sum(v[..k])
         {
             assert v[..k + 1][..k] == v[..k];
-            r := r + v[k];
+            r := r + (k + 1);
             k := k + 1;
             assert sum(v[..k]) == r by { sum_prop(v[..k]); }
         }

@@ -70,13 +70,13 @@ Current status:
 - [ ] 65. circular_shift
 - [ ] 66. digitSum
 - [ ] 67. fruit_distribution
-- [ ] 68. pluck
-- [ ] 69. search
-- [ ] 70. strange_sort_list
+- [x] 68. pluck
+- [x] 69. search
+- [x] 70. strange_sort_list
 - [ ] 71. triangle_area
-- [ ] 72. will_it_fly
+- [x] 72. will_it_fly
 - [ ] 73. smallest_change
-- [ ] 74. total_match
+- [x] 74. total_match
 - [ ] 75. is_multiply_prime
 - [ ] 76. is_simple_power
 - [x] 77. iscube

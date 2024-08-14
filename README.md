@@ -57,18 +57,18 @@ Current status:
 - [x] 52. below_threshold
 - [x] 53. add
 - [x] 54. same_chars
-- [ ] 55. fib
+- [x] 55. fib
 - [ ] 56. correct_bracketing
-- [ ] 57. monotonic
+- [x] 57. monotonic
 - [x] 58. common
 - [x] 59. largest_prime_factor
 - [x] 60. sum_to_n
 - [ ] 61. correct_bracketing
-- [ ] 62. derivative
-- [ ] 63. fibfib
-- [ ] 64. vowels_count
+- [x] 62. derivative
+- [x] 63. fibfib
+- [x] 64. vowels_count
 - [ ] 65. circular_shift
-- [ ] 66. digitSum
+- [x] 66. digitSum
 - [ ] 67. fruit_distribution
 - [x] 68. pluck
 - [x] 69. search

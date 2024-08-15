@@ -29,7 +29,7 @@ Current status:
 - [x] 24. largest_divisor
 - [ ] 25. factorize
 - [ ] 26. remove_duplicates
-- [ ] 27. flip_case
+- [x] 27. flip_case
 - [ ] 28. concatenate
 - [ ] 29. filter_by_prefix
 - [x] 30. get_positive
@@ -77,12 +77,12 @@ Current status:
 - [x] 72. will_it_fly
 - [ ] 73. smallest_change
 - [x] 74. total_match
-- [ ] 75. is_multiply_prime
-- [ ] 76. is_simple_power
+- [x] 75. is_multiply_prime
+- [x] 76. is_simple_power
 - [x] 77. iscube
 - [x] 78. hex_key
 - [ ] 79. decimal_to_binary
-- [ ] 80. is_happy
+- [x] 80. is_happy
 - [ ] 81. numerical_letter_grade
 - [x] 82. prime_length
 - [x] 83. starts_one_ends

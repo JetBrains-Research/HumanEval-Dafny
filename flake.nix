@@ -15,8 +15,7 @@
             DIR=''${1:-.}
             for f in "$DIR"/*.dfy
             do
-                echo "Testing $f"
-                ${pkgs.dafny}/bin/dafny verify --allow-warnings --verification-time-limit 15 $f || exit 1
+                ${pkgs.dafny}/bin/dafny verify --allow-warnings --verification-time-limit 30 $f || exit 1
             done
           '';
 

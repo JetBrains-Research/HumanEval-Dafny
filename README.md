@@ -151,7 +151,7 @@ Current status:
 - [ ] 146. specialFilter
 - [ ] 147. get_max_triples
 - [x] 148. bf
-- [ ] 149. sorted_list_sum
+- [x] 149. sorted_list_sum
 - [x] 150. x_or_y
 - [x] 151. double_the_difference
 - [x] 152. compare
@@ -160,7 +160,7 @@ Current status:
 - [ ] 155. even_odd_count
 - [ ] 156. int_to_mini_roman
 - [x] 157. right_angle_triangle
-- [ ] 158. find_max
+- [x] 158. find_max
 - [x] 159. eat
 - [ ] 160. do_algebra
 - [ ] 161. solve

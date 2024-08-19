@@ -1,7 +1,7 @@
 predicate HasNoEvenDigit(n: int)
   decreases n
 {
-  n >= 0 && (n < 10 || (n % 10 % 2 != 0 && HasNoEvenDigit(n / 10)))
+  n >= 0 && ((n < 10 && n % 2 == 1) || (n % 2 == 1 && HasNoEvenDigit(n / 10)))
 }
 
 method UniqueDigits(x: seq<int>) returns (result: seq<int>)

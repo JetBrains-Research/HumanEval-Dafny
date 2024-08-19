@@ -36,7 +36,7 @@ Current status:
 - [x] 31. is_prime
 - [ ] 32. poly
 - [ ] 33. sort_third
-- [ ] 34. unique
+- [x] 34. unique
 - [x] 35. max_element
 - [ ] 36. fizz_buzz
 - [ ] 37. sort_even

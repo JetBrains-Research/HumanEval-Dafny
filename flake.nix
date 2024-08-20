@@ -13,8 +13,12 @@
         packages = {
           dafny-check = pkgs.writeShellScriptBin "dafny-check" ''
             DIR=''${1:-.}
+            file_count=$(find "$DIR" -maxdepth 1 -name "*.dfy" -printf '.' | wc -m | sed 's/ //g')
+            file_no=0
             for f in "$DIR"/*.dfy
             do
+                file_no=$((file_no+1))
+                echo "Running dafny on $(basename "$f") ($file_no/$file_count)"
                 ${pkgs.dafny}/bin/dafny verify --allow-warnings --verification-time-limit 2400 $f || exit 1
             done
           '';

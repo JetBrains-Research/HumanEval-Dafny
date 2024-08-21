@@ -1,20 +1,23 @@
 name: Test New Dafny Files
 
 on:
-  push:
+  pull_request:
     branches:
-      - '*'
-      - '*/*'
-      - '**'
-      - '!main'
+      - main
 jobs:
-  test:
+  test-changed:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
       - name: Install Nix
         uses: cachix/install-nix-action@v20
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v45
       - name: Test that all dafny files are named correctly
         run: nix run .#dafny-namecheck
+
       - name: Run Dafny on all files
-        run: nix run .#dafny-check-new
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+        run: nix run .#dafny-check-new "${ALL_CHANGED_FILES}"

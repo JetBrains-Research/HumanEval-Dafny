@@ -1,0 +1,17 @@
+name: Test All Dafny Files
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Nix
+        uses: cachix/install-nix-action@v20
+      - name: Test that all dafny files are named correctly
+        run: nix run .#dafny-namecheck
+      - name: Run Dafny on all files
+        run: nix run .#dafny-check

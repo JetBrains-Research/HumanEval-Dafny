@@ -17,14 +17,14 @@ Current status:
 - [x] 12. longest
 - [x] 13. greatest_common_divisor
 - [x] 14. all_prefixes
-- [ ] 15. string_sequence
+- [ ] 15. string_sequence - complex strings
 - [ ] 16. count_distinct_characters
-- [ ] 17. parse_music
-- [ ] 18. how_many_times
-- [ ] 19. sort_numbers
+- [ ] 17. parse_music - complex strings
+- [ ] 18. how_many_times - complex strings
+- [ ] 19. sort_numbers - complex strings
 - [x] 20. find_closest_elements
 - [x] 21. rescale_to_unit
-- [ ] 22. filter_integers
+- [ ] 22. filter_integers - ill-typed
 - [x] 23. strlen
 - [x] 24. largest_divisor
 - [ ] 25. factorize
@@ -35,11 +35,11 @@ Current status:
 - [x] 30. get_positive
 - [x] 31. is_prime
 - [ ] 32. poly
-- [ ] 33. sort_third
+- [x] 33. sort_third
 - [x] 34. unique
 - [x] 35. max_element
 - [ ] 36. fizz_buzz
-- [ ] 37. sort_even
+- [ ] 37. sort_even - sorting
 - [ ] 38. encode_cyclic
 - [ ] 39. prime_fib
 - [x] 40. triples_sum_to_zero
@@ -69,7 +69,7 @@ Current status:
 - [x] 64. vowels_count
 - [ ] 65. circular_shift
 - [x] 66. digitSum
-- [ ] 67. fruit_distribution
+- [ ] 67. fruit_distribution - complex strings, possibly doable
 - [x] 68. pluck
 - [x] 69. search
 - [x] 70. strange_sort_list
@@ -88,12 +88,12 @@ Current status:
 - [x] 83. starts_one_ends
 - [ ] 84. solve
 - [x] 85. add
-- [ ] 86. anti_shuffle
-- [ ] 87. get_row
-- [ ] 88. sort_array
+- [ ] 86. anti_shuffle - complex strings
+- [ ] 87. get_row - sorting
+- [ ] 88. sort_array - sorting
 - [ ] 89. encrypt
-- [ ] 90. next_smallest
-- [ ] 91. is_bored
+- [ ] 90. next_smallest - nullable
+- [ ] 91. is_bored - complex strings
 - [x] 92. any_int
 - [ ] 93. encode
 - [ ] 94. skjkasdkd
@@ -101,13 +101,13 @@ Current status:
 - [x] 96. count_up_to
 - [x] 97. multiply
 - [ ] 98. count_upper
-- [ ] 99. closest_integer
+- [ ] 99. closest_integer - complex strings
 - [x] 100. make_a_pile
-- [ ] 101. words_string
+- [ ] 101. words_string - complex strings
 - [x] 102. choose_num
 - [ ] 103. rounded_avg
-- [ ] 104. unique_digits
-- [ ] 105. by_length
+- [ ] 104. unique_digits - sorting
+- [ ] 105. by_length - sorting
 - [x] 106. f
 - [ ] 107. even_odd_palindrome
 - [ ] 108. count_nums
@@ -118,16 +118,16 @@ Current status:
 - [ ] 113. odd_count
 - [ ] 114. minSubArraySum
 - [ ] 115. max_fill
-- [ ] 116. sort_array
-- [ ] 117. select_words
+- [ ] 116. sort_array - sorting
+- [ ] 117. select_words - complex strings
 - [x] 118. get_closest_vowel
 - [ ] 119. match_parens
-- [ ] 120. maximum
-- [ ] 121. solution
+- [ ] 120. maximum - sorting
+- [ ] 121. solution - sum
 - [x] 122. add_elements
-- [ ] 123. get_odd_collatz
+- [ ] 123. get_odd_collatz - sorting
 - [ ] 124. valid_date
-- [ ] 125. split_words
+- [ ] 125. split_words - complex strings
 - [ ] 126. is_sorted
 - [x] 127. intersection
 - [ ] 128. prod_signs
@@ -139,15 +139,15 @@ Current status:
 - [ ] 134. check_if_last_char_is_a_letter
 - [ ] 135. can_arrange
 - [ ] 136. largest_smallest_integers
-- [ ] 137. compare_one
+- [ ] 137. compare_one - ill-typed
 - [ ] 138. is_equal_to_sum_even
 - [x] 139. special_factorial
-- [ ] 140. fix_spaces
+- [ ] 140. fix_spaces - complex strings
 - [ ] 141. file_name_check
 - [x] 142. sum_squares
-- [ ] 143. words_in_sentence
+- [ ] 143. words_in_sentence - complex strings
 - [ ] 144. simplify
-- [ ] 145. order_by_points
+- [ ] 145. order_by_points - sorting
 - [ ] 146. specialFilter
 - [ ] 147. get_max_triples
 - [x] 148. bf
@@ -162,7 +162,7 @@ Current status:
 - [x] 157. right_angle_triangle
 - [x] 158. find_max
 - [x] 159. eat
-- [ ] 160. do_algebra
+- [ ] 160. do_algebra - complex strings
 - [ ] 161. solve
-- [ ] 162. string_to_md5
+- [ ] 162. string_to_md5 - needs hash
 - [x] 163. generate_integers

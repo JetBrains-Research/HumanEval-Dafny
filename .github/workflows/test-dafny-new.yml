@@ -17,7 +17,7 @@ jobs:
       - name: Test that all dafny files are named correctly
         run: nix run .#dafny-namecheck
 
-      - name: Run Dafny on all files
+      - name: Run Dafny on new files
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: nix run .#dafny-check-new "${ALL_CHANGED_FILES}"

@@ -26,12 +26,16 @@
 
           dafny-check-new = pkgs.writeShellScriptBin "dafny-check" ''
             file_count=0
+
+            echo "New files found:"
             for f in $1; do
               if [[ $f == *.dfy ]]; then
                 echo $f
                 file_count=$((file_count+1))
               fi
             done
+
+            echo "Staring the check"
             for f in $1
             do
               if [[ $f == *.dfy ]]; then

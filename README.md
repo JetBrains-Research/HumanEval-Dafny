@@ -6,7 +6,7 @@ Current status:
 - [x] 1. separate_paren_groups
 - [x] 2. truncate
 - [x] 3. below_zero
-- [ ] 4. mean_absolute_derivation
+- [x] 4. mean_absolute_derivation
 - [x] 5. intersperse
 - [x] 6. parse_nested_parens
 - [x] 7. filter_by_substring
@@ -18,7 +18,7 @@ Current status:
 - [x] 13. greatest_common_divisor
 - [x] 14. all_prefixes
 - [ ] 15. string_sequence - complex strings
-- [ ] 16. count_distinct_characters
+- [x] 16. count_distinct_characters
 - [ ] 17. parse_music - complex strings
 - [ ] 18. how_many_times - complex strings
 - [ ] 19. sort_numbers - complex strings
@@ -28,10 +28,10 @@ Current status:
 - [x] 23. strlen
 - [x] 24. largest_divisor
 - [ ] 25. factorize
-- [ ] 26. remove_duplicates
+- [x] 26. remove_duplicates
 - [x] 27. flip_case
 - [ ] 28. concatenate
-- [ ] 29. filter_by_prefix
+- [x] 29. filter_by_prefix
 - [x] 30. get_positive
 - [x] 31. is_prime
 - [ ] 32. poly
@@ -41,7 +41,7 @@ Current status:
 - [ ] 36. fizz_buzz
 - [ ] 37. sort_even - sorting
 - [ ] 38. encode_cyclic
-- [ ] 39. prime_fib
+- [ ] 39. ~prime_fib~ -- unbounded loop, probably impossible
 - [x] 40. triples_sum_to_zero
 - [ ] 41. car_race_collision
 - [x] 42. incr_list

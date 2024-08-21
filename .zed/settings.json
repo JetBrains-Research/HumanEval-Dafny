@@ -1,3 +1,4 @@
 {
-  "tab_size": 2
+  "tab_size": 2,
+  "format_on_save": "off"
 }

@@ -128,7 +128,7 @@ Current status:
 - [ ] 123. get_odd_collatz - sorting
 - [ ] 124. valid_date
 - [ ] 125. split_words - complex strings
-- [ ] 126. is_sorted
+- [x] 126. is_sorted
 - [x] 127. intersection
 - [ ] 128. prod_signs
 - [ ] 129. minPath
@@ -148,7 +148,7 @@ Current status:
 - [ ] 143. words_in_sentence - complex strings
 - [ ] 144. simplify
 - [ ] 145. order_by_points - sorting
-- [ ] 146. specialFilter
+- [x] 146. specialFilter
 - [ ] 147. get_max_triples
 - [x] 148. bf
 - [x] 149. sorted_list_sum

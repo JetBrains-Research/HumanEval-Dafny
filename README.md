@@ -43,12 +43,12 @@ Current status:
 - [ ] 38. encode_cyclic
 - [ ] 39. ~prime_fib~ -- unbounded loop, probably impossible
 - [x] 40. triples_sum_to_zero
-- [ ] 41. car_race_collision
+- [x] 41. car_race_collision
 - [x] 42. incr_list
 - [x] 43. pairs_sum_to_zero
 - [ ] 44. change_base
-- [ ] 45. triangle_area
-- [ ] 46. fib4
+- [x] 45. triangle_area
+- [x] 46. fib4
 - [ ] 47. median
 - [x] 48. is_palindrome
 - [ ] 49. modp
@@ -137,10 +137,10 @@ Current status:
 - [ ] 132. is_nested
 - [x] 133. sum_squares
 - [ ] 134. check_if_last_char_is_a_letter
-- [ ] 135. can_arrange
-- [ ] 136. largest_smallest_integers
+- [x] 135. can_arrange
+- [x] 136. largest_smallest_integers
 - [ ] 137. compare_one - ill-typed
-- [ ] 138. is_equal_to_sum_even
+- [x] 138. is_equal_to_sum_even
 - [x] 139. special_factorial
 - [ ] 140. fix_spaces - complex strings
 - [ ] 141. file_name_check

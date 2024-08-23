@@ -39,7 +39,7 @@ Current status:
 - [x] 34. unique
 - [x] 35. max_element
 - [ ] 36. fizz_buzz
-- [ ] 37. sort_even - sorting
+- [x] 37. sort_even - sorting
 - [ ] 38. encode_cyclic
 - [ ] 39. ~prime_fib~ -- unbounded loop, probably impossible
 - [x] 40. triples_sum_to_zero
@@ -90,7 +90,7 @@ Current status:
 - [x] 85. add
 - [ ] 86. anti_shuffle - complex strings
 - [ ] 87. get_row - sorting
-- [ ] 88. sort_array - sorting
+- [x] 88. sort_array - sorting
 - [ ] 89. encrypt
 - [ ] 90. next_smallest - nullable
 - [ ] 91. is_bored - complex strings
@@ -106,8 +106,8 @@ Current status:
 - [ ] 101. words_string - complex strings
 - [x] 102. choose_num
 - [ ] 103. rounded_avg
-- [ ] 104. unique_digits - sorting
-- [ ] 105. by_length - sorting
+- [x] 104. unique_digits - sorting
+- [x] 105. by_length - sorting
 - [x] 106. f
 - [ ] 107. even_odd_palindrome
 - [ ] 108. count_nums
@@ -118,14 +118,14 @@ Current status:
 - [ ] 113. odd_count
 - [ ] 114. minSubArraySum
 - [ ] 115. max_fill
-- [ ] 116. sort_array - sorting
+- [x] 116. sort_array - sorting
 - [ ] 117. select_words - complex strings
 - [x] 118. get_closest_vowel
 - [ ] 119. match_parens
 - [ ] 120. maximum - sorting
 - [ ] 121. solution - sum
 - [x] 122. add_elements
-- [ ] 123. get_odd_collatz - sorting
+- [x] 123. get_odd_collatz - sorting
 - [ ] 124. valid_date
 - [ ] 125. split_words - complex strings
 - [x] 126. is_sorted
@@ -157,7 +157,7 @@ Current status:
 - [x] 152. compare
 - [x] 153. Strongest_Extension
 - [x] 154. cycpattern_check
-- [ ] 155. even_odd_count
+- [x] 155. even_odd_count
 - [ ] 156. int_to_mini_roman
 - [x] 157. right_angle_triangle
 - [x] 158. find_max

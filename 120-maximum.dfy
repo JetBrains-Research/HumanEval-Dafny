@@ -12,7 +12,7 @@ method maximum(s: seq<int>, k: int) returns (result: seq<int>)
   result := sorted[|s| - k..];
 
   // I can't make this a postcondition because it relies on an internal variable
-  assert forall i, j :: 0 <= i < |s| - k && 0 <= j < k ==> sorted[i] <= result[j]; 
+  assert forall i, j :: 0 <= i < |s| - k && 0 <= j < k ==> sorted[i] <= result[j];
 }
 
 method SortSeq(s: seq<int>) returns (sorted: seq<int>)
@@ -51,12 +51,8 @@ method SortSeq(s: seq<int>) returns (sorted: seq<int>)
     i := i + 1;
   }
 
-  assert forall i :: 0 <= i < |s| ==> exists j :: 0 <= j < |sorted| && s[i] == sorted[j] by {
-    assert forall i :: 0 <= i < |s| ==> s[i] in multiset(sorted);
-  }
+  assert forall i :: 0 <= i < |s| ==> exists j :: 0 <= j < |sorted| && s[i] == sorted[j] by { assert forall i :: 0 <= i < |s| ==> s[i] in multiset(sorted); }
   assert forall x :: x in s ==> x in sorted;
-  assert forall i :: 0 <= i < |s| ==> exists j :: 0 <= j < |sorted| && sorted[i] == s[j] by {
-    assert forall i :: 0 <= i < |s| ==> sorted[i] in multiset(s);
-  }
+  assert forall i :: 0 <= i < |s| ==> exists j :: 0 <= j < |sorted| && sorted[i] == s[j] by { assert forall i :: 0 <= i < |s| ==> sorted[i] in multiset(s); }
   assert forall x :: x in sorted ==> x in s;
 }

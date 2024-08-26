@@ -26,10 +26,7 @@ method will_it_fly(s: seq<int>, w: int) returns (result: bool)
         invariant total == sum(s[..i])
     {
         total := total + s[i];
-        assert sum(s[..i + 1]) == sum(s[..i]) + s[i] by {
-            assert s[..i+1][..i] == s[..i];
-            sum_prop(s[..i + 1]);
-        }
+        assert sum(s[..i + 1]) == sum(s[..i]) + s[i] by { assert s[..i+1][..i] == s[..i]; sum_prop(s[..i + 1]); }
         i := i + 1;
     }
 

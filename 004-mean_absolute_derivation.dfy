@@ -35,10 +35,7 @@ method mean_absolute_derivation(numbers: seq<real>) returns (derivation: real)
     invariant s == sum(numbers[..i])
   {
     s := s + numbers[i];
-    assert sum(numbers[..i + 1]) == sum(numbers[..i]) + numbers[i] by {
-      assert numbers[..i+1][..i] == numbers[..i];
-      sum_prop(numbers[..i + 1]);
-    }
+    assert sum(numbers[..i + 1]) == sum(numbers[..i]) + numbers[i] by { assert numbers[..i+1][..i] == numbers[..i]; sum_prop(numbers[..i + 1]); }
     i := i + 1;
   }
 
@@ -61,10 +58,7 @@ method mean_absolute_derivation(numbers: seq<real>) returns (derivation: real)
 
     pref_seq := pref_seq + [abs(numbers[i] - m)];
 
-    assert sum(pref_seq[..i + 1]) == sum(pref_seq[..i]) + pref_seq[i] by {
-      assert pref_seq[..i+1][..i] == pref_seq[..i];
-      sum_prop(pref_seq[..i + 1]);
-    }
+    assert sum(pref_seq[..i + 1]) == sum(pref_seq[..i]) + pref_seq[i] by { assert pref_seq[..i+1][..i] == pref_seq[..i]; sum_prop(pref_seq[..i + 1]); }
 
     t := t + abs(numbers[i] - m);
     i := i + 1;

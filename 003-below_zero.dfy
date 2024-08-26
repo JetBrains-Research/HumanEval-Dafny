@@ -11,7 +11,9 @@ lemma psum_property(s: seq<int>, i: int)
     calc == {
         psum(s[..(i+1)]);
         psum(s[..(i+1)][..(i+1)-1]) + s[..(i+1)][(i+1) - 1];
-        { assert s[..(i+1)][..(i+1)-1] == s[..i]; }
+        { 
+            assert s[..(i+1)][..(i+1)-1] == s[..i];
+        }
         psum(s[..i]) + s[i];
     }
 }
@@ -28,9 +30,7 @@ method below_zero(ops: seq<int>) returns (res : bool)
             invariant balance == psum(ops[..i])
             invariant forall j : int :: 0 <= j <= i ==> psum(ops[..j]) >= 0
         {
-            assert psum(ops[..(i + 1)]) == psum(ops[..i]) + ops[i] by {
-                psum_property(ops, i);
-            }
+            assert psum(ops[..(i + 1)]) == psum(ops[..i]) + ops[i] by { psum_property(ops, i); }
             balance := balance + ops[i];
             if (balance < 0) {
                 return false;

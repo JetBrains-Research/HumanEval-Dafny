@@ -33,10 +33,7 @@ method select_at_most_two_digits(arr: seq<int>) returns (result: seq<int>)
     if 0 <= arr[i] < 100 {
       result := result + [arr[i]];
     }
-    assert select_at_most_two_digits_rec(arr[..i + 1]) == select_at_most_two_digits_rec(arr[..i]) + if 0 <= arr[i] < 100 then [arr[i]] else [] by {
-      assert arr[..i+1][..i] == arr[..i];
-      select_prop(arr[..i + 1]);
-    }
+    assert select_at_most_two_digits_rec(arr[..i + 1]) == select_at_most_two_digits_rec(arr[..i]) + if 0 <= arr[i] < 100 then [arr[i]] else [] by { assert arr[..i+1][..i] == arr[..i]; select_prop(arr[..i + 1]); }
     i := i + 1;
   }
   assert arr[..|arr|] == arr;
@@ -69,10 +66,7 @@ method SumElementsWithAtMostTwoDigits(arr: seq<int>, k: int) returns (s: int)
     invariant s == sum(two_digits[..i])
   {
     s := s + two_digits[i];
-    assert sum(two_digits[..i + 1]) == sum(two_digits[..i]) + two_digits[i] by {
-      assert two_digits[..i+1][..i] == two_digits[..i];
-      sum_prop(two_digits[..i + 1]); 
-    }
+    assert sum(two_digits[..i + 1]) == sum(two_digits[..i]) + two_digits[i] by { assert two_digits[..i+1][..i] == two_digits[..i]; sum_prop(two_digits[..i + 1]); }
     i := i + 1;
   }
   assert two_digits[..|two_digits|] == two_digits;

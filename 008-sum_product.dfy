@@ -37,16 +37,10 @@ method sum_product(numbers: seq<int>) returns (s : int, p : int)
         invariant s == sum(numbers[..i])
         invariant p == prod(numbers[..i])
     {
-        assert sum(numbers[..i + 1]) == sum(numbers[..i]) + numbers[i] by {
-            assert numbers[..i+1][..i] == numbers[..i];
-            sum_prop(numbers[..i + 1]); 
-        }
+        assert sum(numbers[..i + 1]) == sum(numbers[..i]) + numbers[i] by { assert numbers[..i+1][..i] == numbers[..i]; sum_prop(numbers[..i + 1]); }
         s := s + numbers[i];
 
-        assert prod(numbers[..i + 1]) == prod(numbers[..i]) * numbers[i] by {
-            assert numbers[..i+1][..i] == numbers[..i];
-            prod_prop(numbers[..i + 1]); 
-        }
+        assert prod(numbers[..i + 1]) == prod(numbers[..i]) * numbers[i] by { assert numbers[..i+1][..i] == numbers[..i]; prod_prop(numbers[..i + 1]); }
         p := p * numbers[i];
 
         i := i + 1;

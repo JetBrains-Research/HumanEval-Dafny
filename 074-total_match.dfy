@@ -40,10 +40,7 @@ method SumChars(list: seq<string>) returns (sum: nat)
         invariant sum == sum_chars_rec(list[..i])
     {
         sum := sum + |list[i]|;
-        assert sum_chars_rec(list[..i + 1]) == sum_chars_rec(list[..i]) + |list[i]| by {
-            assert list[..i+1][..i] == list[..i];
-            sum_prop(list[..i + 1]); 
-        }
+        assert sum_chars_rec(list[..i + 1]) == sum_chars_rec(list[..i]) + |list[i]| by { assert list[..i+1][..i] == list[..i]; sum_prop(list[..i + 1]); }
 
         i := i + 1;
     }

@@ -16,13 +16,9 @@ method SortReverseAndName(arr: seq<int>) returns (result: seq<string>)
 
   ghost var unsorted := validNumbers;
   validNumbers := SortSeq(validNumbers);
-  assert forall j :: 0 <= j < |validNumbers| ==> 1 <= validNumbers[j] <= 9 by {
-    assert forall j :: 0 <= j < |validNumbers| ==> validNumbers[j] in multiset(unsorted);
-  }
+  assert forall j :: 0 <= j < |validNumbers| ==> 1 <= validNumbers[j] <= 9 by { assert forall j :: 0 <= j < |validNumbers| ==> validNumbers[j] in multiset(unsorted); }
   validNumbers := reverse(validNumbers);
-  assert forall j :: 0 <= j < |validNumbers| ==> 1 <= validNumbers[j] <= 9 by {
-    assert forall j :: 0 <= j < |validNumbers| ==> validNumbers[j] in multiset(unsorted);
-  }
+  assert forall j :: 0 <= j < |validNumbers| ==> 1 <= validNumbers[j] <= 9 by { assert forall j :: 0 <= j < |validNumbers| ==> validNumbers[j] in multiset(unsorted); }
 
   assert forall i, j :: 0 <= i < j < |validNumbers| ==> validNumbers[i] >= validNumbers[j];
   result := [];

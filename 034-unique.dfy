@@ -27,12 +27,8 @@ method unique(s: seq<int>) returns (result: seq<int>)
 {
     var sorted := SortSeq(s);
     result := uniqueSorted(sorted);
-    assert forall x :: x in sorted ==> x in s by {
-        assert forall x :: x in multiset(sorted) ==> x in s;
-    }
-    assert forall x :: x in s ==> x in sorted by {
-        assert forall x :: x in multiset(s) ==> x in sorted;
-    }
+    assert forall x :: x in sorted ==> x in s by { assert forall x :: x in multiset(sorted) ==> x in s; }
+    assert forall x :: x in s ==> x in sorted by { assert forall x :: x in multiset(s) ==> x in sorted; }
 }
 
 method SortSeq(s: seq<int>) returns (sorted: seq<int>)

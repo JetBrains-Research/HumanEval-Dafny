@@ -53,7 +53,5 @@ method UniqueDigits(x: seq<int>) returns (result: seq<int>)
 
   assert forall e :: e in result ==> HasNoEvenDigit(e);
   assert forall e :: e in result ==> e in x;
-  assert forall e :: e in x && HasNoEvenDigit(e) ==> e in result by {
-    assert forall e :: e in unsorted ==> e in multiset(result);
-  }
+  assert forall e :: e in x && HasNoEvenDigit(e) ==> e in result by { assert forall e :: e in unsorted ==> e in multiset(result); }
 }

@@ -34,10 +34,7 @@ method upper_sum(s: string) returns (res: int)
         invariant res == upper_sum_rec(s[..i])
     {
         res := res + to_int(s[i]);
-        assert upper_sum_rec(s[..i + 1]) == upper_sum_rec(s[..i]) + to_int(s[i]) by {
-            assert s[..i+1][..i] == s[..i];
-            upper_sum_rec_prop(s[..i + 1]);
-        }
+        assert upper_sum_rec(s[..i + 1]) == upper_sum_rec(s[..i]) + to_int(s[i]) by { assert s[..i+1][..i] == s[..i]; upper_sum_rec_prop(s[..i + 1]); }
         i := i + 1;
     }
     assert s == s[..|s|];

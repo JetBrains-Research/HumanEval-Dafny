@@ -51,10 +51,7 @@ method count(a: seq<int>, x: int) returns (cnt: int)
       cnt := cnt + 1;
       positions := positions + {i};
     }
-    assert count_rec(a[..i + 1], x) == count_rec(a[..i], x) + (if a[i] == x then 1 else 0) by {
-        assert a[..i+1][..i] == a[..i];
-        count_prop(a[..i + 1], x);
-    }
+    assert count_rec(a[..i + 1], x) == count_rec(a[..i], x) + (if a[i] == x then 1 else 0) by { assert a[..i+1][..i] == a[..i]; count_prop(a[..i + 1], x); }
     i := i + 1;
   }
   assert a == a[..|a|];

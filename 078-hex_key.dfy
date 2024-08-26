@@ -31,12 +31,7 @@ method count_prime_hex_digits(s: seq<char>) returns (count : int)
         invariant 0 <= i <= |s|
         invariant count == count_prime_hex_digits_rec(s[..i])
     {
-        assert count_prime_hex_digits_rec(s[..i + 1]) == count_prime_hex_digits_rec(s[..i]) + (
-            if IsPrimeHexDigit(s[ i ]) then 1 else 0
-        ) by {
-            assert s[..i+1][..i] == s[..i];
-            count_prop(s[..i + 1]);
-        }
+        assert count_prime_hex_digits_rec(s[..i + 1]) == count_prime_hex_digits_rec(s[..i]) + (if IsPrimeHexDigit(s[ i ]) then 1 else 0) by { assert s[..i+1][..i] == s[..i]; count_prop(s[..i + 1]); }
         count := count + if IsPrimeHexDigit(s[i]) then 1 else 0;
         i := i + 1;
     }

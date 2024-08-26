@@ -35,9 +35,7 @@ method add(v: seq<int>) returns (r : int)
             assert p[..k + 1][..k] == p[..k];
             r := r + if p[k] then v[k] else 0;
             k := k + 1;
-            assert sumc(v[..k], p[..k]) == r by {
-                sum_prop(v[..k], p[..k]);
-            }
+            assert sumc(v[..k], p[..k]) == r by { sum_prop(v[..k], p[..k]); }
         }
         assert v[..k] == v;
         assert p[..k] == p;

@@ -100,7 +100,7 @@ Current status:
 - [x] 95. check_dict_case
 - [x] 96. count_up_to
 - [x] 97. multiply
-- [ ] 98. count_upper
+- [x] 98. count_upper
 - [ ] 99. closest_integer - complex strings
 - [x] 100. make_a_pile
 - [ ] 101. words_string - complex strings

@@ -21,7 +21,6 @@ Current status:
 - [ ] 89. encrypt
 - [ ] 90. next_smallest - nullable
 - [ ] 93. encode
-- [ ] 98. count_upper
 - [ ] 103. rounded_avg
 - [ ] 107. even_odd_palindrome
 - [ ] 108. count_nums

@@ -14,7 +14,6 @@ Current status:
 - [ ] 56. correct_bracketing
 - [ ] 61. correct_bracketing
 - [ ] 65. circular_shift
-- [ ] 71. triangle_area
 - [ ] 73. smallest_change
 - [ ] 79. decimal_to_binary
 - [ ] 81. numerical_letter_grade
@@ -22,7 +21,6 @@ Current status:
 - [ ] 89. encrypt
 - [ ] 90. next_smallest - nullable
 - [ ] 93. encode
-- [ ] 94. skjkasdkd
 - [ ] 98. count_upper
 - [ ] 103. rounded_avg
 - [ ] 107. even_odd_palindrome
@@ -32,7 +30,6 @@ Current status:
 - [ ] 112. reverse_delete
 - [ ] 113. odd_count
 - [ ] 114. minSubArraySum
-- [ ] 115. max_fill
 - [ ] 119. match_parens
 - [ ] 121. solution - sum
 - [ ] 124. valid_date

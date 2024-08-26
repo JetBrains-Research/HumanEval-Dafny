@@ -73,7 +73,7 @@ Current status:
 - [x] 68. pluck
 - [x] 69. search
 - [x] 70. strange_sort_list
-- [ ] 71. triangle_area
+- [ ] 71. ~triangle_area~ -- requires real square root
 - [x] 72. will_it_fly
 - [ ] 73. smallest_change
 - [x] 74. total_match
@@ -96,11 +96,11 @@ Current status:
 - [ ] 91. is_bored - complex strings
 - [x] 92. any_int
 - [ ] 93. encode
-- [ ] 94. skjkasdkd
+- [x] 94. skjkasdkd
 - [x] 95. check_dict_case
 - [x] 96. count_up_to
 - [x] 97. multiply
-- [ ] 98. count_upper
+- [x] 98. count_upper
 - [ ] 99. closest_integer - complex strings
 - [x] 100. make_a_pile
 - [ ] 101. words_string - complex strings
@@ -117,7 +117,7 @@ Current status:
 - [ ] 112. reverse_delete
 - [ ] 113. odd_count
 - [ ] 114. minSubArraySum
-- [ ] 115. max_fill
+- [x] 115. max_fill
 - [x] 116. sort_array - sorting
 - [ ] 117. select_words - complex strings
 - [x] 118. get_closest_vowel

@@ -51,7 +51,7 @@ Current status:
 - [x] 46. fib4
 - [ ] 47. median
 - [x] 48. is_palindrome
-- [ ] 49. modp
+- [x] 49. modp
 - [ ] 50. encode_shift
 - [x] 51. remove_vowels
 - [x] 52. below_threshold
@@ -75,7 +75,7 @@ Current status:
 - [x] 70. strange_sort_list
 - [ ] 71. ~triangle_area~ -- requires real square root
 - [x] 72. will_it_fly
-- [ ] 73. smallest_change
+- [x] 73. smallest_change
 - [x] 74. total_match
 - [x] 75. is_multiply_prime
 - [x] 76. is_simple_power
@@ -83,7 +83,7 @@ Current status:
 - [x] 78. hex_key
 - [ ] 79. decimal_to_binary
 - [x] 80. is_happy
-- [ ] 81. numerical_letter_grade
+- [x] 81. numerical_letter_grade
 - [x] 82. prime_length
 - [x] 83. starts_one_ends
 - [ ] 84. solve
@@ -91,7 +91,7 @@ Current status:
 - [ ] 86. anti_shuffle - complex strings
 - [ ] 87. get_row - sorting
 - [x] 88. sort_array - sorting
-- [ ] 89. encrypt
+- [x] 89. encrypt
 - [ ] 90. next_smallest - nullable
 - [ ] 91. is_bored - complex strings
 - [x] 92. any_int
@@ -110,7 +110,7 @@ Current status:
 - [x] 105. by_length - sorting
 - [x] 106. f
 - [ ] 107. even_odd_palindrome
-- [ ] 108. count_nums
+- [x] 108. count_nums
 - [ ] 109. move_one_ball
 - [x] 110. exchange
 - [ ] 111. histogram
@@ -130,7 +130,7 @@ Current status:
 - [ ] 125. split_words - complex strings
 - [x] 126. is_sorted
 - [x] 127. intersection
-- [ ] 128. prod_signs
+- [x] 128. prod_signs
 - [ ] 129. minPath
 - [x] 130. tri
 - [ ] 131. digits

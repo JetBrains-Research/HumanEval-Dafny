@@ -2,30 +2,25 @@
 
 Current status:
 
+## Priority
 - [ ] 25. factorize
-- [ ] 28. concatenate
-- [ ] 32. poly
 - [ ] 36. fizz_buzz
+
+## Other
+
+- [ ] 32. poly
 - [ ] 38. encode_cyclic
 - [ ] 44. change_base
 - [ ] 47. median
-- [ ] 50. encode_shift
-- [ ] 56. correct_bracketing
-- [ ] 61. correct_bracketing
 - [ ] 65. circular_shift
 - [ ] 79. decimal_to_binary
 - [ ] 84. solve
 - [ ] 90. next_smallest - nullable
-- [ ] 93. encode
 - [ ] 103. rounded_avg
 - [ ] 107. even_odd_palindrome
-- [ ] 109. move_one_ball
 - [ ] 111. histogram
-- [ ] 112. reverse_delete
 - [ ] 113. odd_count
-- [ ] 114. minSubArraySum
 - [ ] 119. match_parens
-- [ ] 121. solution - sum
 - [ ] 124. valid_date
 - [ ] 129. minPath
 - [ ] 131. digits
@@ -38,11 +33,15 @@ Current status:
 - [ ] 161. solve
 - [ ] 162. string_to_md5 - needs hash
 
+
 ## Complex strings
 - [ ] 15. string_sequence
 - [ ] 17. parse_music
 - [ ] 18. how_many_times
 - [ ] 19. sort_numbers
+- [ ] 28. concatenate
+- [ ] 56. correct_bracketing
+- [ ] 61. correct_bracketing
 - [ ] 67. fruit_distribution
 - [ ] 86. anti_shuffle
 - [ ] 91. is_bored

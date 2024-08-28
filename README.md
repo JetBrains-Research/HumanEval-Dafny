@@ -52,7 +52,7 @@ Current status:
 - [ ] 47. median
 - [x] 48. is_palindrome
 - [x] 49. modp
-- [ ] 50. encode_shift
+- [x] 50. encode_shift
 - [x] 51. remove_vowels
 - [x] 52. below_threshold
 - [x] 53. add
@@ -95,7 +95,7 @@ Current status:
 - [ ] 90. next_smallest - nullable
 - [ ] 91. is_bored - complex strings
 - [x] 92. any_int
-- [ ] 93. encode
+- [x] 93. encode
 - [x] 94. skjkasdkd
 - [x] 95. check_dict_case
 - [x] 96. count_up_to
@@ -111,19 +111,19 @@ Current status:
 - [x] 106. f
 - [ ] 107. even_odd_palindrome
 - [x] 108. count_nums
-- [ ] 109. move_one_ball
+- [x] 109. move_one_ball
 - [x] 110. exchange
 - [ ] 111. histogram
-- [ ] 112. reverse_delete
+- [x] 112. reverse_delete
 - [ ] 113. odd_count
-- [ ] 114. minSubArraySum
+- [x] 114. minSubArraySum
 - [x] 115. max_fill
 - [x] 116. sort_array - sorting
 - [ ] 117. select_words - complex strings
 - [x] 118. get_closest_vowel
 - [ ] 119. match_parens
 - [ ] 120. maximum - sorting
-- [ ] 121. solution - sum
+- [x] 121. solution - sum
 - [x] 122. add_elements
 - [x] 123. get_odd_collatz - sorting
 - [ ] 124. valid_date

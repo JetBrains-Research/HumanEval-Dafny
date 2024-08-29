@@ -30,8 +30,11 @@ function PlanetIndex(p: Planet): int
 }
 
 function GetPlanetsBetween(planet1: string, planet2: string): seq<string>
+  // post-conditions-start
   ensures |GetPlanetsBetween(planet1, planet2)| <= 6
+  // post-conditions-end
 {
+  // impl-start
   var p1 := PlanetFromString(planet1);
   var p2 := PlanetFromString(planet2);
   if p1.None? || p2.None? then
@@ -45,13 +48,19 @@ function GetPlanetsBetween(planet1: string, planet2: string): seq<string>
       GetPlanetsBetweenIndices(i2 + 1, i1 - 1)
     else
       []
+  // impl-end
 }
 
 function GetPlanetsBetweenIndices(start: int, end: int): seq<string>
+  // pre-conditions-start
   requires 0 <= start <= 7 && 0 <= end <= 7
+  // pre-conditions-end
+  // post-conditions-start
   ensures |GetPlanetsBetweenIndices(start, end)| <= (if start <= end then end - start + 1 else 0)
+  // post-conditions-end
   decreases if start <= end then end - start + 1 else 0
 {
+  // impl-start
   if start > end then
     []
   else
@@ -64,4 +73,5 @@ function GetPlanetsBetweenIndices(start: int, end: int): seq<string>
     case 5 => ["Saturn"] + GetPlanetsBetweenIndices(6, end)
     case 6 => ["Uranus"] + GetPlanetsBetweenIndices(7, end)
     case 7 => ["Neptune"]
+  // impl-end
 }

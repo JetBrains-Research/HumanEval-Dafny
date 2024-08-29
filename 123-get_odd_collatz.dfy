@@ -13,10 +13,15 @@ function next_odd_collatz(n: nat): nat
 }
 
 method next_odd_collatz_iter(n: nat) returns (next: nat)
+  // pre-conditions-start
   requires n > 0
+  // pre-conditions-end
+  // post-conditions-start
   ensures next % 2 == 1
   ensures next == next_odd_collatz(n)
+  // post-conditions-end
 {
+  // impl-start
   next := n;
   if next % 2 == 1 {
     next := 3 * next + 1;
@@ -24,13 +29,16 @@ method next_odd_collatz_iter(n: nat) returns (next: nat)
   ghost var start := next;
   while next % 2 == 0
     decreases next
+    // invariants-start
     invariant next > 0
     invariant next % 2 == 0 ==> next_odd_collatz(next) == next_odd_collatz(n)
     invariant next % 2 == 0 ==> iterate_to_odd(next) == iterate_to_odd(start)
     invariant next % 2 == 1 ==> next == iterate_to_odd(start)
+    // invariants-end
   {
     next := next / 2;
   }
+  // impl-end
 }
 
 method get_odd_collatz_unsorted(n: nat) returns (odd_collatz: seq<nat>)

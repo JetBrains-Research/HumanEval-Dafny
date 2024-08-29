@@ -5,7 +5,11 @@ predicate IsPrime(n: int)
 }
 
 function PrimeLength(s: string): bool
+  // post-conditions-start
   ensures PrimeLength(s) <==> IsPrime(|s|)
+  // post-conditions-end
 {
+  // impl-start
   IsPrime(|s|)
+  // impl-end
 }

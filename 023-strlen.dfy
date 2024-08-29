@@ -1,7 +1,5 @@
-
-
-function strlen(s: string) : (len : int) 
-    ensures len == |s|
+function strlen(s: string) : (len: int)
+  ensures len == |s|
 {
-    |s|
+  |s|
 }

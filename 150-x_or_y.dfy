@@ -5,12 +5,16 @@ predicate IsPrime(n: nat)
 }
 
 method x_or_y(n: nat, x: int, y: int) returns (result: int)
+  // post-conditions-start
   ensures IsPrime(n) ==> result == x
   ensures !IsPrime(n) ==> result == y
+  // post-conditions-end
 {
+  // impl-start
   if IsPrime(n) {
     return x;
   } else {
     return y;
   }
+  // impl-end
 }

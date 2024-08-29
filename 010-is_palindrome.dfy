@@ -1,15 +1,22 @@
 method is_palindrome(s: string) returns (result: bool)
+    // pre-conditions-start
     requires |s| > 0
+    // pre-conditions-end
+    // post-conditions-start
     ensures result == (forall k :: 0 <= k < |s| ==> s[k] == s[|s| - 1 - k])
+    // post-conditions-end
 {
+    // impl-start
     result := true;
     var i := 0;
     var j := |s| - 1;
     while (i < j)
+        // invariants-start
         invariant 0 <= i < |s|
         invariant 0 <= j < |s|
         invariant j == |s| - i - 1
         invariant forall k :: 0 <= k < i ==> s[k] == s[|s| - 1 - k]
+        // invariants-end
     {
         if (s[i] != s[j]) {
             result := false;
@@ -18,6 +25,7 @@ method is_palindrome(s: string) returns (result: bool)
         i := i + 1;
         j := j - 1;
     }
+    // impl-end
 }
 
 function is_palindrome_fun(s : string) : bool {
@@ -33,6 +41,7 @@ method make_palindrome(s: string) returns (result: string)
     ensures is_palindrome_fun(result)
     ensures starts_with(result, s)
 {
+    // impl-start
     if (|s| == 0) {
         return "";
     }
@@ -41,11 +50,12 @@ method make_palindrome(s: string) returns (result: string)
     var longest_palindrome := "";
     var flag := is_palindrome(s[beginning_of_suffix..]);
 
-
     while (!flag)
+        // invariants-start
         invariant (beginning_of_suffix >= 0 && beginning_of_suffix + 1 < |s|) || (flag && (beginning_of_suffix >= 0 && beginning_of_suffix < |s|))
         decreases |s| - beginning_of_suffix
         invariant flag ==> is_palindrome_fun(s[beginning_of_suffix..])
+        // invariants-end
     {
         beginning_of_suffix := beginning_of_suffix + 1;
         flag := is_palindrome(s[beginning_of_suffix..]);
@@ -54,20 +64,27 @@ method make_palindrome(s: string) returns (result: string)
     var prefix_to_reverse := s[..beginning_of_suffix];
     var reversed := reverse(prefix_to_reverse);
     result := s + reversed;
+    // impl-end
 }
 
 method reverse(str: string) returns (rev: string)
+    // post-conditions-start
     ensures |rev| == |str|
     ensures forall k :: 0 <= k < |str| ==> rev[k] == str[|str| - 1 - k]
+    // post-conditions-end
 {
+    // impl-start
     rev := "";
     var i := 0;
     while (i < |str|)
+        // invariants-start
         invariant i >= 0 && i <= |str|
         invariant |rev| == i
         invariant forall k :: 0 <= k < i ==> rev[k] == str[|str| - 1 - k]
+        // invariants-end
     {
         rev := rev + [str[|str| - i - 1]];
         i := i + 1;
     }
+    // impl-end
 }

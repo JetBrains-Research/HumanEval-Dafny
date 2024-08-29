@@ -10,15 +10,19 @@ function getVal(mx : Option<int>) : int
 }
 
 method rolling_max(numbers: seq<int>) returns (result : seq<int>)
+    // post-conditions-start
     ensures |numbers| == |result|
     ensures forall i : int :: i >= 0 && i < |numbers| ==> numbers[i] <= result[i]
     ensures forall i : int :: i >= 0 && i + 1 < |numbers| ==> result[i] <= result[i + 1]
+    // post-conditions-end
 {
+    // impl-start
     var running_max: Option<int> := None;
     result := [];
 
     var i : int := 0;
     while (i < |numbers|)
+        // invariants-start
         invariant i >= 0 && i <= |numbers|
         invariant |result| == i
         invariant forall i1 : int :: i1 >= 0 && i1 < i ==> numbers[i1] <= result[i1]
@@ -26,6 +30,7 @@ method rolling_max(numbers: seq<int>) returns (result : seq<int>)
         invariant |result| > 0 ==> exists i : int :: running_max == Some(i)
         invariant |result| > 0 ==> result[|result| - 1] == getVal(running_max)
         invariant forall i1 : int :: i1 >= 0 && i1 + 1 < i ==> result[i1] <= result[i1 + 1]
+        // invariants-end
     {
         var n : int := numbers[i];
         match running_max {
@@ -42,4 +47,5 @@ method rolling_max(numbers: seq<int>) returns (result : seq<int>)
         }
         i := i + 1;
     }
+    // impl-end
 }

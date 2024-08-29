@@ -7,8 +7,11 @@ function fib4_rec(n: nat): nat
 }
 
 method fib4(n: nat) returns (result: nat)
+  // post-conditions-start
   ensures result == fib4_rec(n)
+  // post-conditions-end
 {
+  // impl-start
   if n == 0 || n == 1 || n == 2 {
     return 0;
   }
@@ -21,11 +24,13 @@ method fib4(n: nat) returns (result: nat)
   var i := 4;
 
   while i <= n
+    // invariants-start
     invariant 4 <= i <= n + 1
     invariant a == fib4_rec(i-4)
     invariant b == fib4_rec(i-3)
     invariant c == fib4_rec(i-2)
     invariant d == fib4_rec(i-1)
+    // invariants-end
   {
     var temp := d + c + b + a;
     a := b;
@@ -36,4 +41,5 @@ method fib4(n: nat) returns (result: nat)
   }
 
   return d;
+  // impl-end
 }

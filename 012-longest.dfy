@@ -9,17 +9,21 @@ function getVal(mx : Option<string>) : string
 }
 
 method longest(strings: seq<string>) returns (result : Option<string>)
+  // post-conditions-start
   ensures result == None <==> |strings| == 0
   ensures result != None ==> (forall s :: s in strings ==> |getVal(result)| >= |s|)
   ensures result != None ==> (exists s :: s in strings && |s| == |getVal(result)|)
   ensures result != None ==> (exists i :: 0 <= i < |strings| && strings[i] == getVal(result) && forall j :: 0 <= j < i ==> |strings[j]| < |getVal(result)|)
+  // post-conditions-end
 {
+    // impl-start
     result := None;
     if (|strings| != 0)
     {
         var i : int := 0;
         var mx : int := -1;
         while (i < |strings|)
+            // invariants-start
             invariant i >= 0 && i <= |strings|
             invariant (mx == -1) == (result == None)
             invariant i == 0 ==> mx == -1
@@ -27,6 +31,7 @@ method longest(strings: seq<string>) returns (result : Option<string>)
             invariant i > 0 ==> (exists s :: s in strings && mx == |s|)
             invariant i > 0 ==> mx == |getVal(result)|
             invariant result != None ==> (exists i :: 0 <= i < |strings| && strings[i] == getVal(result) && forall j :: 0 <= j < i ==> |strings[j]| < |getVal(result)|)
+            // invariants-end
         {
             if (|strings[i]| > mx) {
                 mx := |strings[i]|;
@@ -35,4 +40,5 @@ method longest(strings: seq<string>) returns (result : Option<string>)
             i := i + 1;
         }
     }
+    // impl-end
 }

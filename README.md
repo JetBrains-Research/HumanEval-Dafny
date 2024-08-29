@@ -86,7 +86,7 @@ Current status:
 - [x] 81. numerical_letter_grade
 - [x] 82. prime_length
 - [x] 83. starts_one_ends
-- [ ] 84. solve
+- [x] 84. solve
 - [x] 85. add
 - [ ] 86. anti_shuffle - complex strings
 - [ ] 87. get_row - sorting
@@ -136,7 +136,7 @@ Current status:
 - [ ] 131. digits
 - [ ] 132. is_nested
 - [x] 133. sum_squares
-- [ ] 134. check_if_last_char_is_a_letter
+- [x] 134. check_if_last_char_is_a_letter
 - [x] 135. can_arrange
 - [x] 136. largest_smallest_integers
 - [ ] 137. compare_one - ill-typed

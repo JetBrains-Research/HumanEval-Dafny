@@ -5,6 +5,7 @@ Current status:
 ## Priority
 - [ ] 25. factorize
 - [ ] 36. fizz_buzz
+- [ ] 147. get_max_triples
 
 ## Other
 
@@ -14,7 +15,6 @@ Current status:
 - [ ] 47. median
 - [ ] 65. circular_shift
 - [ ] 79. decimal_to_binary
-- [ ] 84. solve
 - [ ] 90. next_smallest - nullable
 - [ ] 103. rounded_avg
 - [ ] 107. even_odd_palindrome
@@ -25,10 +25,7 @@ Current status:
 - [ ] 129. minPath
 - [ ] 131. digits
 - [ ] 132. is_nested
-- [ ] 134. check_if_last_char_is_a_letter
 - [ ] 141. file_name_check
-- [ ] 144. simplify
-- [ ] 147. get_max_triples
 - [ ] 156. int_to_mini_roman
 - [ ] 161. solve
 - [ ] 162. string_to_md5 - needs hash
@@ -50,6 +47,7 @@ Current status:
 - [ ] 117. select_words
 - [ ] 125. split_words
 - [ ] 140. fix_spaces
+- [ ] 144. simplify
 - [ ] 143. words_in_sentence
 - [ ] 160. do_algebra
 

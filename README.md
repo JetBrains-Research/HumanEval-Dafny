@@ -38,7 +38,7 @@ Current status:
 - [x] 33. sort_third
 - [x] 34. unique
 - [x] 35. max_element
-- [ ] 36. fizz_buzz
+- [x] 36. fizz_buzz
 - [x] 37. sort_even - sorting
 - [ ] 38. encode_cyclic
 - [ ] 39. ~prime_fib~ -- unbounded loop, probably impossible
@@ -89,7 +89,7 @@ Current status:
 - [x] 84. solve
 - [x] 85. add
 - [ ] 86. anti_shuffle - complex strings
-- [ ] 87. get_row - sorting
+- [x] 87. get_row - sorting
 - [x] 88. sort_array - sorting
 - [x] 89. encrypt
 - [ ] 90. next_smallest - nullable
@@ -122,7 +122,7 @@ Current status:
 - [ ] 117. select_words - complex strings
 - [x] 118. get_closest_vowel
 - [ ] 119. match_parens
-- [ ] 120. maximum - sorting
+- [x] 120. maximum - sorting
 - [x] 121. solution - sum
 - [x] 122. add_elements
 - [x] 123. get_odd_collatz - sorting
@@ -147,7 +147,7 @@ Current status:
 - [x] 142. sum_squares
 - [ ] 143. words_in_sentence - complex strings
 - [ ] 144. simplify
-- [ ] 145. order_by_points - sorting
+- [x] 145. order_by_points - sorting
 - [x] 146. specialFilter
 - [ ] 147. get_max_triples
 - [x] 148. bf

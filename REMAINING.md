@@ -4,14 +4,12 @@ Current status:
 
 ## Priority
 - [ ] 25. factorize
-- [ ] 36. fizz_buzz
 - [ ] 147. get_max_triples
 
 ## Other
 
 - [ ] 32. poly
 - [ ] 38. encode_cyclic
-- [ ] 44. change_base
 - [ ] 47. median
 - [ ] 65. circular_shift
 - [ ] 79. decimal_to_binary
@@ -19,24 +17,20 @@ Current status:
 - [ ] 103. rounded_avg
 - [ ] 107. even_odd_palindrome
 - [ ] 111. histogram
-- [ ] 113. odd_count
 - [ ] 119. match_parens
 - [ ] 124. valid_date
 - [ ] 129. minPath
 - [ ] 131. digits
 - [ ] 132. is_nested
-- [ ] 141. file_name_check
-- [ ] 156. int_to_mini_roman
-- [ ] 161. solve
-- [ ] 162. string_to_md5 - needs hash
 
 
-## Complex strings
+## Strings
 - [ ] 15. string_sequence
 - [ ] 17. parse_music
 - [ ] 18. how_many_times
 - [ ] 19. sort_numbers
 - [ ] 28. concatenate
+- [ ] 44. change_base
 - [ ] 56. correct_bracketing
 - [ ] 61. correct_bracketing
 - [ ] 67. fruit_distribution
@@ -44,18 +38,17 @@ Current status:
 - [ ] 91. is_bored
 - [ ] 99. closest_integer
 - [ ] 101. words_string
+- [ ] 113. odd_count
 - [ ] 117. select_words
 - [ ] 125. split_words
 - [ ] 140. fix_spaces
+- [ ] 141. file_name_check
 - [ ] 144. simplify
 - [ ] 143. words_in_sentence
+- [ ] 156. int_to_mini_roman
 - [ ] 160. do_algebra
+- [ ] 162. string_to_md5 - needs hash
 
 ## Ill-typed
 - [ ] 22. filter_integers
 - [ ] 137. compare_one
-
-## Sorting
-- [ ] 87. get_row - sorting
-- [ ] 120. maximum - sorting
-- [ ] 145. order_by_points - sorting

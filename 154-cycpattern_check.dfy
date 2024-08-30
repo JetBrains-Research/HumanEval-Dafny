@@ -10,13 +10,18 @@ function RotateString(s: string, n: nat): string
 }
 
 method CycpatternCheck(word: string, pattern: string) returns (result: bool)
+  // post-conditions-start
   ensures result ==> exists i :: 0 <= i <= |pattern| && IsSubstring(word, RotateString(pattern, i))
   ensures !result ==> forall i :: 0 <= i <= |pattern| ==> !IsSubstring(word, RotateString(pattern, i))
+  // post-conditions-end
 {
+  // impl-start
   var i := 0;
   while i <= |pattern|
+    // invariants-start
     invariant 0 <= i <= |pattern| + 1
     invariant forall j :: 0 <= j < i ==> !IsSubstring(word, RotateString(pattern, j))
+    // invariants-end
   {
     if IsSubstring(word, RotateString(pattern, i)) {
       return true;
@@ -24,4 +29,5 @@ method CycpatternCheck(word: string, pattern: string) returns (result: bool)
     i := i + 1;
   }
   return false;
+  // impl-end
 }

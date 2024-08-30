@@ -1,7 +1,12 @@
 method monotonic(xs: seq<int>) returns (result: bool)
+  // pre-conditions-start
   requires |xs| > 0
-  ensures result <==> (forall i, j :: 0 <= i < j < |xs| ==> xs[i] < xs[j]) || (forall i, j :: 0 <= i < j < |xs| ==> xs[i] > xs[j])  
+  // pre-conditions-end
+  // post-conditions-start
+  ensures result <==> (forall i, j :: 0 <= i < j < |xs| ==> xs[i] < xs[j]) || (forall i, j :: 0 <= i < j < |xs| ==> xs[i] > xs[j])
+  // post-conditions-end
 {
+    // impl-start
     if |xs| == 1 {
         return true;
     }
@@ -11,9 +16,11 @@ method monotonic(xs: seq<int>) returns (result: bool)
     var i := 1;
 
     while i < |xs|
+        // invariants-start
         invariant 1 <= i <= |xs|
         invariant increasing <==> (forall j, k :: 0 <= j < k < i ==> xs[j] < xs[k])
         invariant decreasing <==> (forall j, k :: 0 <= j < k < i ==> xs[j] > xs[k])
+        // invariants-end
     {
         if xs[i - 1] >= xs[i] {
             increasing := false;
@@ -25,4 +32,5 @@ method monotonic(xs: seq<int>) returns (result: bool)
     }
 
     result := increasing || decreasing;
+    // impl-end
 }

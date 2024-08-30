@@ -1,21 +1,26 @@
-
-
-
 method largest_divisor(n: int) returns (d : int)
-    requires n > 1
-    ensures 1 <= d < n
-    ensures n % d == 0
-    ensures forall k :: d < k < n ==> n % k != 0
+  // pre-conditions-start
+  requires n > 1
+  // pre-conditions-end
+  // post-conditions-start
+  ensures 1 <= d < n
+  ensures n % d == 0
+  ensures forall k :: d < k < n ==> n % k != 0
+  // post-conditions-end
+{
+    // impl-start
+    d := n - 1;
+    while (d >= 1)
+        // invariants-start
+        invariant 1 <= d < n
+        invariant forall k :: d < k < n ==> n % k != 0
+        // invariants-end
     {
-        d := n - 1;
-        while (d >= 1)
-            invariant 1 <= d < n
-            invariant forall k :: d < k < n ==> n % k != 0
-        {
-            if (n % d == 0) {
-                return d;
-            }
-            d := d - 1;
+        if (n % d == 0) {
+            return d;
         }
-        return 1;
+        d := d - 1;
     }
+    return 1;
+    // impl-end
+}

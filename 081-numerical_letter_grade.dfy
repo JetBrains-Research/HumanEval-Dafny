@@ -1,5 +1,8 @@
 method numerical_letter_grade(grades: seq<real>) returns (letters: seq<string>)
+  // pre-conditions-start
   requires forall i :: 0 <= i < |grades| ==> 0.0 <= grades[i] <= 4.0
+  // pre-conditions-end
+  // post-conditions-start
   ensures |letters| == |grades|
   ensures forall i :: 0 <= i < |grades| && grades[i] == 4.0 ==> letters[i] == "A+"
   ensures forall i :: 0 <= i < |grades| && grades[i] < 4.0 && grades[i] > 3.7 ==> letters[i] == "A"
@@ -14,10 +17,13 @@ method numerical_letter_grade(grades: seq<real>) returns (letters: seq<string>)
   ensures forall i :: 0 <= i < |grades| && grades[i] <= 1.0 && grades[i] > 0.7 ==> letters[i] == "D"
   ensures forall i :: 0 <= i < |grades| && grades[i] <= 0.7 && grades[i] > 0.0 ==> letters[i] == "D-"
   ensures forall i :: 0 <= i < |grades| && grades[i] == 0.0 ==> letters[i] == "E"
+  // post-conditions-end
 {
+  // impl-start
   letters := [];
   var i := 0;
   while i < |grades|
+    // invariants-start
     invariant 0 <= i <= |grades|
     invariant |letters| == i
     invariant forall j :: 0 <= j < i && grades[j] == 4.0 ==> letters[j] == "A+"
@@ -33,6 +39,7 @@ method numerical_letter_grade(grades: seq<real>) returns (letters: seq<string>)
     invariant forall j :: 0 <= j < i && grades[j] <= 1.0 && grades[j] > 0.7 ==> letters[j] == "D"
     invariant forall j :: 0 <= j < i && grades[j] <= 0.7 && grades[j] > 0.0 ==> letters[j] == "D-"
     invariant forall j :: 0 <= j < i && grades[j] == 0.0 ==> letters[j] == "E"
+    // invariants-end
   {
     if grades[i] == 4.0 {
       letters := letters + ["A+"];
@@ -64,4 +71,5 @@ method numerical_letter_grade(grades: seq<real>) returns (letters: seq<string>)
 
     i := i + 1;
   }
+  // impl-end
 }

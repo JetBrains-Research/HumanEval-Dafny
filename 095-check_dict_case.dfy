@@ -9,10 +9,13 @@ predicate IsUpperCase(s: string)
 }
 
 method CheckDictCase(dict: map<string, string>) returns (result: bool)
+  // post-conditions-start
   ensures dict == map[] ==> !result
   ensures result ==> (forall k :: k in dict ==> IsLowerCase(k)) || (forall k :: k in dict ==> IsUpperCase(k))
   ensures !result ==> dict == map[] || ((exists k :: k in dict && !IsLowerCase(k)) && (exists k :: k in dict && !IsUpperCase(k)))
+  // post-conditions-end
 {
+  // impl-start
   if |dict| == 0 {
     return false;
   }
@@ -22,10 +25,12 @@ method CheckDictCase(dict: map<string, string>) returns (result: bool)
 
   var keys := dict.Keys;
   while keys != {}
+    // invariants-start
     invariant allLower ==> forall j :: j in dict.Keys - keys ==> IsLowerCase(j)
     invariant allUpper ==> forall j :: j in dict.Keys - keys ==> IsUpperCase(j)
     invariant !allLower ==> exists j :: j in dict.Keys - keys && !IsLowerCase(j)
     invariant !allUpper ==> exists j :: j in dict.Keys - keys && !IsUpperCase(j)
+    // invariants-end
   {
     var k :| k in keys;
     if !IsLowerCase(k) {
@@ -41,4 +46,5 @@ method CheckDictCase(dict: map<string, string>) returns (result: bool)
   }
 
   result := allLower || allUpper;
+  // impl-end
 }

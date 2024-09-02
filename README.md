@@ -113,7 +113,7 @@ Current status:
 - [x] 108. count_nums
 - [x] 109. move_one_ball
 - [x] 110. exchange
-- [ ] 111. histogram
+- [x] 111. histogram
 - [x] 112. reverse_delete
 - [ ] 113. odd_count
 - [x] 114. minSubArraySum

@@ -15,8 +15,7 @@ Current status:
 - [ ] 79. decimal_to_binary
 - [ ] 90. next_smallest - nullable
 - [ ] 103. rounded_avg
-- [ ] 107. even_odd_palindrome
-- [ ] 111. histogram
+- [ ] 113. odd_count
 - [ ] 119. match_parens
 - [ ] 124. valid_date
 - [ ] 129. minPath

@@ -27,7 +27,7 @@ Current status:
 - [ ] 22. filter_integers - ill-typed
 - [x] 23. strlen
 - [x] 24. largest_divisor
-- [ ] 25. factorize
+- [x] 25. factorize
 - [x] 26. remove_duplicates
 - [x] 27. flip_case
 - [ ] 28. concatenate

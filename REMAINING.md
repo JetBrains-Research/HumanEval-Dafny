@@ -3,7 +3,6 @@
 Current status:
 
 ## Priority
-- [ ] 25. factorize
 - [ ] 147. get_max_triples
 
 ## Other

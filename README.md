@@ -109,7 +109,7 @@ Current status:
 - [x] 104. unique_digits - sorting
 - [x] 105. by_length - sorting
 - [x] 106. f
-- [ ] 107. even_odd_palindrome
+- [x] 107. even_odd_palindrome
 - [x] 108. count_nums
 - [x] 109. move_one_ball
 - [x] 110. exchange

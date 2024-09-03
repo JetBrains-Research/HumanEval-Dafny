@@ -10,8 +10,6 @@ Current status:
 - [ ] 32. poly
 - [ ] 38. encode_cyclic
 - [ ] 47. median
-- [ ] 65. circular_shift
-- [ ] 79. decimal_to_binary
 - [ ] 90. next_smallest - nullable
 - [ ] 103. rounded_avg
 - [ ] 113. odd_count

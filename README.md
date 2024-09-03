@@ -67,7 +67,7 @@ Current status:
 - [x] 62. derivative
 - [x] 63. fibfib
 - [x] 64. vowels_count
-- [ ] 65. circular_shift
+- [x] 65. circular_shift
 - [x] 66. digitSum
 - [ ] 67. fruit_distribution - complex strings, possibly doable
 - [x] 68. pluck
@@ -81,7 +81,7 @@ Current status:
 - [x] 76. is_simple_power
 - [x] 77. iscube
 - [x] 78. hex_key
-- [ ] 79. decimal_to_binary
+- [x] 79. decimal_to_binary
 - [x] 80. is_happy
 - [x] 81. numerical_letter_grade
 - [x] 82. prime_length

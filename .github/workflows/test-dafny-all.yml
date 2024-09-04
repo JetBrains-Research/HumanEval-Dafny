@@ -13,5 +13,7 @@ jobs:
         uses: cachix/install-nix-action@v20
       - name: Test that all dafny files are named correctly
         run: nix run .#dafny-namecheck
+      - name: Test that all dafny files contain an impl
+        run: nix run .#check-contains-impl
       - name: Run Dafny on all files
         run: nix run .#dafny-check

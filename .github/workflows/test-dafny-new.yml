@@ -16,6 +16,8 @@ jobs:
         uses: tj-actions/changed-files@v45
       - name: Test that all dafny files are named correctly
         run: nix run .#dafny-namecheck
+      - name: Test that all dafny files contain an impl
+        run: nix run .#check-contains-impl
 
       - name: Run Dafny on new files
         env:

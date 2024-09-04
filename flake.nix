@@ -24,6 +24,23 @@
             done
           '';
 
+          check-contains-impl = pkgs.writeShellScriptBin "check-contains-impl" ''
+            DIR=''${1:-.}
+
+            for file in "$DIR"/*.dfy; do
+              if [[ -e $file ]]; then
+                filename=$(basename "$file")
+
+                if ! ${pkgs.gnugrep}/bin/grep -q "// impl-start" "$file"; then
+                  echo "File $file does not contain an impl, please recheck if it was marked"
+                  exit 1
+                fi
+              fi
+            done
+
+            echo "All dafny files contain an impl."
+          '';
+
           dafny-check-new = pkgs.writeShellScriptBin "dafny-check" ''
             file_count=0
 

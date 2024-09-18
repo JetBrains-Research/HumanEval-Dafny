@@ -3,7 +3,7 @@ function contains_char(s: string, c: char): bool
   requires forall i :: 0 <= i < |s| ==> 'a' <= s[i] <= 'z' || 'A' <= s[i] <= 'Z'
   requires 'a' <= c <= 'z'
 {
-  if |s| == 0 then false else s[0] == c || contains_char(s[1..], c)
+  if |s| == 0 then false else s[0] == c || s[0] == upper_char(c) || contains_char(s[1..], c)
 }
 
 function upper_char(c: char) : (C: char)

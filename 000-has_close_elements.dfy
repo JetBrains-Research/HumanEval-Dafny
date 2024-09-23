@@ -1,17 +1,9 @@
-method abs(val : int) returns (res : int)
-    ensures val < 0 ==> res == -val
-    ensures val >= 0 ==> res == val
+function abs(val : int): int
 {
-    if (val < 0) {
-        res := -val;
-    } else {
-        res := val;
-    }
-}
-
-function abs1(x : int, threshold : int): bool
-{
-    x >= threshold || x <= -threshold
+  if (val < 0) then
+    -val
+  else
+    val
 }
 
 method has_close_elements(numbers: seq<int>, threshold: int) returns (flag : bool)
@@ -19,7 +11,7 @@ method has_close_elements(numbers: seq<int>, threshold: int) returns (flag : boo
   requires threshold > 0
   // pre-conditions-end
   // post-conditions-start
-  ensures flag == (exists i: int, j: int :: i >= 0 && j >= 0 && i < |numbers| && j < |numbers| && i != j && !abs1(numbers[i] - numbers[j], threshold))
+  ensures flag == (exists i: int, j: int :: i >= 0 && j >= 0 && i < |numbers| && j < |numbers| && i != j && abs(numbers[i] - numbers[j]) < threshold)
   // post-conditions-end
 {
   // impl-start
@@ -28,7 +20,7 @@ method has_close_elements(numbers: seq<int>, threshold: int) returns (flag : boo
   while (i < |numbers|)
     // invariants-start
     invariant 0 <= i && i <= |numbers|
-    invariant flag == (exists i1: int, j1: int :: i1 >= 0 && j1 >= 0 && i1 < i && j1 < |numbers| && i1 != j1 && !abs1(numbers[i1] - numbers[j1], threshold))
+    invariant flag == (exists i1: int, j1: int :: i1 >= 0 && j1 >= 0 && i1 < i && j1 < |numbers| && i1 != j1 && abs(numbers[i1] - numbers[j1]) < threshold)
     // invariants-end
   {
     var j: int := 0;
@@ -36,7 +28,7 @@ method has_close_elements(numbers: seq<int>, threshold: int) returns (flag : boo
       // invariants-start
       invariant 0 <= i && i < |numbers|
       invariant 0 <= j && j <= |numbers|
-      invariant flag == (exists i1: int, j1: int :: i1 >= 0 && j1 >= 0 && ((i1 < i && j1 < |numbers|) || (i1 == i && j1 < j)) && i1 != j1 && !abs1(numbers[i1] - numbers[j1], threshold))
+      invariant flag == (exists i1: int, j1: int :: i1 >= 0 && j1 >= 0 && ((i1 < i && j1 < |numbers|) || (i1 == i && j1 < j)) && i1 != j1 && abs(numbers[i1] - numbers[j1]) < threshold)
       // invariants-end
     {
       if (i != j)

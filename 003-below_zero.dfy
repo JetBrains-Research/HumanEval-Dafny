@@ -24,10 +24,8 @@ method below_zero(ops: seq<int>) returns (res : bool)
     {
         // impl-start
         var balance : int := 0;
-        var i : int := 0;
-        while (i < |ops|)
+        for i := 0 to |ops|
             // invariants-start
-            invariant 0 <= i <= |ops|
             invariant balance == psum(ops[..i])
             invariant forall j : int :: 0 <= j <= i ==> psum(ops[..j]) >= 0
             // invariants-end
@@ -41,7 +39,6 @@ method below_zero(ops: seq<int>) returns (res : bool)
             if (balance < 0) {
                 return false;
             }
-            i := i + 1;
         }
         return true;
         // impl-end

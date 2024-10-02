@@ -8,19 +8,17 @@ method is_prime(k: int) returns (result: bool)
   // post-conditions-end
 {
   // impl-start
-  var i := 2;
   result := true;
-  while i < k
+  for i := 2 to k
     // invariants-start
-    invariant 2 <= i <= k
     invariant !result ==> exists j :: 2 <= j < i && k % j == 0
     invariant result ==> forall j :: 2 <= j < i ==> k % j != 0
     // invariants-end
   {
     if k % i == 0 {
       result := false;
+      return;
     }
-    i := i + 1;
   }
   // impl-end
 }

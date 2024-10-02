@@ -106,11 +106,8 @@ method separate_paren_groups(paren_string: string) returns (res : seq<string>)
     var current_string: string := "";
     var current_depth: int := 0;
 
-    var i: int := 0;
-
-    while (i < |paren_string|)
+    for i := 0 to |paren_string|
         // invariants-start
-        invariant 0 <= i <= |paren_string|
         invariant forall k :: 0 <= k < |res| ==> ParenthesesDepth(res[k], 0, |res[k]|) == 0
         invariant forall k :: 0 <= k < |res| ==> InnerDepthsPositive(res[k])
         invariant ParenthesesDepth(paren_string, 0, |paren_string|) == 0
@@ -149,7 +146,6 @@ method separate_paren_groups(paren_string: string) returns (res : seq<string>)
                 current_string := "";
             }
         }
-        i := i + 1;
     }
     // impl-end
 }

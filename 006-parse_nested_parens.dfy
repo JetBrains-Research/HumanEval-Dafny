@@ -9,8 +9,7 @@ method parse_paren_group(s : string) returns (max_depth : int)
     // impl-start
     var depth: int := 0;
     max_depth := 0;
-    var i: int := 0;
-    while (i < |s|)
+    for i := 0 to |s|
     {
         var c: char := s[i];
         if (c == '(') {
@@ -22,7 +21,6 @@ method parse_paren_group(s : string) returns (max_depth : int)
         else {
             depth := depth - 1;
         }
-        i := i + 1;
     }
     // impl-end
 }
@@ -38,10 +36,8 @@ method split(s : string) returns (res : seq<string>)
     // impl-start
     res := [];
     var current_string : string := "";
-    var i : int := 0;
-    while (i < |s|)
+    for i := 0 to |s|
         // invariants-start
-        invariant i >= 0 && i <= |s|
         invariant forall j :: j >= 0 && j < |current_string| ==> current_string[j] == '(' || current_string[j] == ')'
         invariant forall s1 :: s1 in res ==> (forall j :: j >= 0 && j < |s1| ==> s1[j] == '(' || s1[j] == ')') && |s1| > 0
         // invariants-end
@@ -57,7 +53,6 @@ method split(s : string) returns (res : seq<string>)
         {
             current_string := current_string + [s[i]];
         }
-        i := i + 1;
     }
     if (current_string != "") {
         res := res + [current_string];
@@ -76,16 +71,14 @@ method parse_nested_parens(paren_string: string) returns (res : seq<int>)
 {
     // impl-start
     var strings : seq<string> := split(paren_string);
-    var i : int := 0;
     res := [];
-    while (i < |strings|)
+    for i := 0 to |strings|
         // invariants-start
         invariant forall x :: x in res ==> x >= 0
         // invariants-end
     {
         var cur : int := parse_paren_group(strings[i]);
         res := res + [cur];
-        i := i + 1;
     }
     // impl-end
 }

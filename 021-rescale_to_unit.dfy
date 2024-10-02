@@ -1,6 +1,5 @@
-function affine(x: real, shift: real, scale: real) : (y : real)
+function affine(x: real, shift: real, scale: real) : real
     requires scale > 0.0
-    ensures y == (x + shift) / scale
 {
     (x + shift) / scale
 }
@@ -45,10 +44,8 @@ method rescale_to_unit(s: seq<real>) returns (r : seq<real>)
     // impl-start
     var mni : int := if s[0] < s[1] then 0 else 1;
     var mxi : int := if s[0] < s[1] then 1 else 0;
-    var i : int := 2;
-    while (i < |s|)
+    for i := 2 to |s|
         // invariants-start
-        invariant 0 <= i <= |s|
         invariant 0 <= mni < |s|
         invariant 0 <= mxi < |s|
         invariant forall j : int :: (0 <= j < i) ==> s[mni] <= s[j] <= s[mxi]
@@ -61,30 +58,25 @@ method rescale_to_unit(s: seq<real>) returns (r : seq<real>)
         if (s[i] > s[mxi]) {
             mxi := i;
         }
-        i := i + 1;
     }
     var shift := -s[mni];
     var scale := s[mxi] - s[mni];
     assert scale > 0.0; // assert-line
     r := [];
-    var j := 0;
-    while (j < |s|)
+    for j := 0 to |s|
         // invariants-start
-        invariant 0 <= j <= |s|
         invariant |r| == j
         invariant forall k : int :: 0 <= k < j ==> 0.0 <= r[k] <= 1.0
         invariant affine_seq(s[..j], r, shift, scale)
         // invariants-end
     {
-        var rj : real := s[j] + shift;
-        rj := rj / scale;
+        var rj : real := affine(s[j], shift, scale);
         // assert-start
         assert rj <= 1.0 by {
             div_unit(s[j] + shift, scale);
         }
         // assert-end
         r := r + [rj];
-        j := j + 1;
     }
     assert s[..|s|] == s; // assert-line
     // assert-start
@@ -97,6 +89,5 @@ method rescale_to_unit(s: seq<real>) returns (r : seq<real>)
         affine_unit(s[mxi], shift, scale);
     }
     // assert-end
-    return r;
     // impl-end
 }

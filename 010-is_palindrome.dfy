@@ -75,16 +75,13 @@ method reverse(str: string) returns (rev: string)
 {
     // impl-start
     rev := "";
-    var i := 0;
-    while (i < |str|)
+    for i := 0 to |str|
         // invariants-start
-        invariant i >= 0 && i <= |str|
         invariant |rev| == i
         invariant forall k :: 0 <= k < i ==> rev[k] == str[|str| - 1 - k]
         // invariants-end
     {
         rev := rev + [str[|str| - i - 1]];
-        i := i + 1;
     }
     // impl-end
 }

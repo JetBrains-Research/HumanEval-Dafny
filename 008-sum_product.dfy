@@ -32,9 +32,7 @@ method sum_product(numbers: seq<int>) returns (s : int, p : int)
     assert numbers[..|numbers|] == numbers; // assert-line
     s := 0;
     p := 1;
-    var i := 0;
-    while (i < |numbers|)
-        invariant 0 <= i <= |numbers|
+    for i := 0 to |numbers|
         invariant s == sum(numbers[..i])
         invariant p == prod(numbers[..i])
     {
@@ -53,8 +51,6 @@ method sum_product(numbers: seq<int>) returns (s : int, p : int)
         }
         // assert-end
         p := p * numbers[i];
-
-        i := i + 1;
     }
 
     return s, p;

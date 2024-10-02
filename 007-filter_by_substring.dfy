@@ -9,14 +9,12 @@ method checkSubstring(s: string, sub: string) returns (result: bool)
     }
     else if (|s| >= |sub|)
     {
-        var i: int := 0;
-        while (i <= |s| - |sub|)
+        for i := 0 to |s| - |sub|
         {
             if (s[i..i + |sub|] == sub)
             {
                 result := true;
             }
-            i := i + 1;
         }
     }
     // impl-end
@@ -30,10 +28,8 @@ method filter_by_substring(strings: seq<string>, substring: string) returns (res
 {
     // impl-start
     res := [];
-    var i : int := 0;
-    while (i < |strings|)
+    for i := 0 to |strings|
         // invariants-start
-        invariant 0 <= i && i <= |strings|
         invariant |res| <= i
         invariant (forall s :: s in res ==> s in strings)
         // invariants-end
@@ -43,7 +39,6 @@ method filter_by_substring(strings: seq<string>, substring: string) returns (res
         {
             res := res + [strings[i]];
         }
-        i := i + 1;
     }
     // impl-end
 }

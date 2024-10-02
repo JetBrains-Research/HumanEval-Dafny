@@ -9,10 +9,8 @@ method remove_duplicates(a: seq<int>) returns (result: seq<int>)
 {
   // impl-start
   var res: seq<int> := [];
-  var i := 0;
-  while i < |a|
+  for i := 0 to |a|
     // invariants-start
-    invariant 0 <= i <= |a|
     invariant forall j :: 0 <= j < |res| ==> count_rec(a, res[j]) == 1
     invariant forall j :: 0 <= j < i ==> (a[j] in res <==> count_rec(a, a[j]) == 1)
     invariant forall j :: 0 <= j < |res| ==> res[j] in a[..i]
@@ -22,7 +20,6 @@ method remove_duplicates(a: seq<int>) returns (result: seq<int>)
     if cnt == 1 {
       res := res + [a[i]];
     }
-    i := i + 1;
   }
   result := res;
   // impl-end
@@ -51,10 +48,8 @@ method count(a: seq<int>, x: int) returns (cnt: int)
   // impl-start
   cnt := 0;
   ghost var positions: set<int> := {};
-  var i := 0;
-  while i < |a|
+  for i := 0 to |a|
     // invariants-start
-    invariant 0 <= i <= |a|
     invariant cnt == |positions|
     invariant positions == set k | 0 <= k < i && a[k] == x
     invariant cnt == count_rec(a[..i], x)
@@ -70,7 +65,6 @@ method count(a: seq<int>, x: int) returns (cnt: int)
         count_prop(a[..i + 1], x);
     }
     // assert-end
-    i := i + 1;
   }
   assert a == a[..|a|]; // assert-line
   // impl-end

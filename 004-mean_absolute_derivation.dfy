@@ -34,10 +34,8 @@ method mean_absolute_derivation(numbers: seq<real>) returns (derivation: real)
 {
   // impl-start
   var s: real := 0.0;
-  var i := 0;
-  while i < |numbers|
+  for i := 0 to |numbers|
     // invariants-start
-    invariant 0 <= i <= |numbers|
     invariant s == sum(numbers[..i])
     // invariants-end
   {
@@ -48,7 +46,6 @@ method mean_absolute_derivation(numbers: seq<real>) returns (derivation: real)
       sum_prop(numbers[..i + 1]);
     }
     // assert-end
-    i := i + 1;
   }
 
   var m := s / |numbers| as real;
@@ -56,12 +53,10 @@ method mean_absolute_derivation(numbers: seq<real>) returns (derivation: real)
   assert m == mean(numbers); // assert-line
 
   var t: real := 0.0;
-  i := 0;
 
   ghost var pref_seq := [];
-  while i < |numbers|
+  for i := 0 to |numbers|
     // invariants-start
-    invariant 0 <= i <= |numbers|
     invariant |pref_seq| == i
     invariant pref_seq == seq(i, j requires 0 <= j < i => abs(numbers[j] - m))
     invariant t == sum(pref_seq[..i])
@@ -80,7 +75,6 @@ method mean_absolute_derivation(numbers: seq<real>) returns (derivation: real)
     // assert-end
 
     t := t + abs(numbers[i] - m);
-    i := i + 1;
   }
 
   assert pref_seq[..|pref_seq|] == pref_seq; // assert-line

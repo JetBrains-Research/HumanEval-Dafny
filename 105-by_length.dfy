@@ -2,7 +2,7 @@ method SortReverseAndName(arr: seq<int>) returns (result: seq<string>)
   // post-conditions-start
   ensures |result| <= |arr|
   ensures forall i :: 0 <= i < |result| ==>
-    result[i] in {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"}
+    result[i] in ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
   // post-conditions-end
 {
   // impl-start

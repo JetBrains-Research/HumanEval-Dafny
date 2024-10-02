@@ -3,6 +3,7 @@ method how_many_times(s: string, substr: string) returns (times: int)
     ensures times == |set i {:trigger} | 0 <= i <= |s| - |substr| && s[i..i+|substr|] == substr|
     // post-condition-end
 {
+    // impl-start
     times := 0;
     if (|substr| > |s|) {
         return;
@@ -21,4 +22,5 @@ method how_many_times(s: string, substr: string) returns (times: int)
         }
     }
     assert starts == set i {:trigger} | 0 <= i <= |s| - |substr| && s[i..i+|substr|] == substr; // assert-line
+    // impl-end
 }

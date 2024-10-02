@@ -17,11 +17,9 @@ method longest(strings: seq<string>) returns (result : Option<string>)
 {
     // impl-start
     result := None;
-    var i : int := 0;
     var mx : int := -1;
-    while (i < |strings|)
+    for i := 0 to |strings|
         // invariants-start
-        invariant 0 <= i <= |strings|
         invariant i == 0 <==> mx == -1
         invariant forall s :: s in strings[0..i] ==> mx >= |s|
         invariant result == None <==> mx == -1
@@ -33,7 +31,6 @@ method longest(strings: seq<string>) returns (result : Option<string>)
             mx := |strings[i]|;
             result := Some(strings[i]);
         }
-        i := i + 1;
     }
     // impl-end
 }

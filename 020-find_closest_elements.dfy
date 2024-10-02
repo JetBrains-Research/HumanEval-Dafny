@@ -25,19 +25,15 @@ method find_closest_elements(s: seq<real>) returns (l : real, h : real)
         l := s[0];
         h := s[1];
         var d : real := dist(l, h);
-        var i : int := 0;
-        while (i < |s|)
+        for i := 0 to |s|
             // invariants-start
-            invariant 0 <= i <= |s|
             invariant d == dist(l, h)
             invariant exists a, b :: des(s, a, b) && l == s[a] && h == s[b]
             invariant forall a, b :: a < i && des(s, a, b) ==> d <= dist(s[a], s[b])
             // invariants-end
         {
-            var j : int := i + 1;
-            while (j < |s|)
+            for j := i + 1 to |s|
                 // invariants-start
-                invariant 0 <= j <= |s|
                 invariant d == dist(l, h)
                 invariant exists a, b :: des(s, a, b) && l == s[a] && h == s[b]
                 invariant forall a, b :: (a < i || (a == i && b < j)) && des(s, a, b) ==> d <= dist(s[a], s[b])
@@ -48,9 +44,7 @@ method find_closest_elements(s: seq<real>) returns (l : real, h : real)
                     h := s[j];
                     d := dist(l, h);
                 }
-                j := j + 1;
             }
-            i := i + 1;
         }
         if (l <= h) {
             return l, h;

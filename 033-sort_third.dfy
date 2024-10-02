@@ -12,16 +12,13 @@ method sort_third(a: seq<int>) returns (sorted_even: seq<int>)
 {
   // impl-start
   var p := [];
-  var i := 0;
-  while i < |a|
+  for i := 0 to |a|
     // invariants-start
-    invariant 0 <= i <= |a|
     invariant |p| == i
     invariant forall j :: 0 <= j < i ==> p[j] == (j % 3 == 0)
     // invariants-end
   {
     p := p + [i % 3 == 0];
-    i := i + 1;
   }
 
   sorted_even := SortSeqPred(a, p);
@@ -41,10 +38,8 @@ method SortSeqPred(s: seq<int>, p: seq<bool>) returns (sorted: seq<int>)
 {
   // impl-start
   sorted := s;
-  var i := 0;
-  while i < |sorted|
+  for i := 0 to |sorted|
     // invariants-start
-    invariant 0 <= i <= |sorted|
     invariant |sorted| == |s|
     invariant forall j, k :: 0 <= j < k < i && p[j] && p[k] ==> sorted[j] <= sorted[k]
     invariant multiset(s) == multiset(sorted)
@@ -55,8 +50,7 @@ method SortSeqPred(s: seq<int>, p: seq<bool>) returns (sorted: seq<int>)
   {
     if p[i] {
       var minIndex := i;
-      var j := i + 1;
-      while j < |sorted|
+      for j := i + 1 to |sorted|
         // invariants-start
         invariant i <= minIndex < j <= |sorted|
         invariant p[minIndex]
@@ -66,14 +60,12 @@ method SortSeqPred(s: seq<int>, p: seq<bool>) returns (sorted: seq<int>)
         if p[j] && sorted[j] < sorted[minIndex] {
           minIndex := j;
         }
-        j := j + 1;
       }
       if minIndex != i {
         var temp := sorted[i];
         sorted := sorted[i := sorted[minIndex]][minIndex := temp];
       }
     }
-    i := i + 1;
   }
   // impl-end
 }

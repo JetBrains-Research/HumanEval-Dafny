@@ -20,10 +20,8 @@ method rolling_max(numbers: seq<int>) returns (result : seq<int>)
     var running_max: Option<int> := None;
     result := [];
 
-    var i : int := 0;
-    while (i < |numbers|)
+    for i := 0 to |numbers|
         // invariants-start
-        invariant i >= 0 && i <= |numbers|
         invariant |result| == i
         invariant forall i1 : int :: i1 >= 0 && i1 < i ==> numbers[i1] <= result[i1]
         invariant old(running_max) == None || (exists i : int :: old(running_max) == Some(i) && getVal(old(running_max)) <= getVal(running_max))
@@ -45,7 +43,6 @@ method rolling_max(numbers: seq<int>) returns (result : seq<int>)
         match running_max {
             case Some(n1) => result := result + [n1];
         }
-        i := i + 1;
     }
     // impl-end
 }

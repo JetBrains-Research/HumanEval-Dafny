@@ -10,10 +10,8 @@ method intersperse(numbers: seq<int>, delimeter: int) returns (res: seq<int>)
   res := [];
   if (|numbers| != 0)
   {
-    var i : int := 0;
-    while (i + 1 < |numbers|)
+    for i := 0 to |numbers| - 1
       // invariants-start
-      invariant 0 <= i && i < |numbers|
       invariant |res| == 2 * i
       invariant forall i1 : int :: i1 >= 0 && i1 < |res| && i1 % 2 == 0 ==> res[i1] == numbers[i1 / 2]
       invariant forall i1 : int :: i1 >= 0 && i1 < |res| && i1 % 2 == 1 ==> res[i1] == delimeter
@@ -21,9 +19,8 @@ method intersperse(numbers: seq<int>, delimeter: int) returns (res: seq<int>)
     {
       res := res + [numbers[i]];
       res := res + [delimeter];
-      i := i + 1;
     }
-    res := res + [numbers[i]];
+    res := res + [numbers[|numbers|-1]];
   }
   // impl-end
 }

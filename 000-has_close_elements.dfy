@@ -16,18 +16,13 @@ method has_close_elements(numbers: seq<real>, threshold: real) returns (flag : b
 {
   // impl-start
   flag := false;
-  var i: int := 0;
-  while (i < |numbers|)
+  for i := 0 to |numbers|
     // invariants-start
-    invariant 0 <= i && i <= |numbers|
     invariant flag == (exists i1: int, j1: int :: i1 >= 0 && j1 >= 0 && i1 < i && j1 < |numbers| && i1 != j1 && abs(numbers[i1] - numbers[j1]) < threshold)
     // invariants-end
   {
-    var j: int := 0;
-    while (j < |numbers|)
+    for j := 0 to |numbers|
       // invariants-start
-      invariant 0 <= i && i < |numbers|
-      invariant 0 <= j && j <= |numbers|
       invariant flag == (exists i1: int, j1: int :: i1 >= 0 && j1 >= 0 && ((i1 < i && j1 < |numbers|) || (i1 == i && j1 < j)) && i1 != j1 && abs(numbers[i1] - numbers[j1]) < threshold)
       // invariants-end
     {
@@ -39,9 +34,7 @@ method has_close_elements(numbers: seq<real>, threshold: real) returns (flag : b
           flag := true;
         }
       }
-      j := j + 1;
     }
-    i := i + 1;
   }
   // impl-end
 }

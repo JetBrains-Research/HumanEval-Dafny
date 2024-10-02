@@ -27,10 +27,8 @@ method string_xor(a: string, b: string) returns (result: string)
 {
     // impl-start
     result := "";
-    var i : int := 0;
-    while (i < |a|)
+    for i := 0 to |a|
         // invariants-start
-        invariant 0 <= i <= |a|
         invariant |result| == i
         invariant forall i :: 0 <= i < |a| ==> represents_byte(a[i])
         invariant forall i :: 0 <= i < |b| ==> represents_byte(b[i])
@@ -39,7 +37,6 @@ method string_xor(a: string, b: string) returns (result: string)
     {
         var bitResult := char_xor(a[i], b[i]);
         result := result + [bitResult];
-        i := i + 1;
     }
     // impl-end
 }

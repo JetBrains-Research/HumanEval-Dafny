@@ -1,4 +1,6 @@
-method get_row(lst: seq<seq<int>>, x: int) returns (pos: seq<(int, int)>)
+type SortSeqState = seq<(int, int)>
+
+method get_row(lst: seq<seq<int>>, x: int) returns (pos: SortSeqState)
   // post-conditions-start
   ensures forall i :: 0 <= i < |pos| ==> (
     var (a, b) := pos[i];
@@ -50,7 +52,7 @@ method get_row(lst: seq<seq<int>>, x: int) returns (pos: seq<(int, int)>)
     assert forall i, j :: 0 <= i < |lst| && 0 <= j < |lst[i]| && lst[i][j] == x ==> (i, j) in multiset(pos);
   }
   // assert-end
-  
+
   // assert-start
   assert forall i :: 0 <= i < |pos| ==> (
     var (a, b) := pos[i]; 0 <= a < |lst| && 0 <= b < |lst[a]| && lst[a][b] == x
@@ -71,7 +73,7 @@ function less_eq(a: (int, int), b: (int, int)): bool {
   (x == u && y == v) || less(a, b)
 }
 
-method SortSeq(s: seq<(int, int)>) returns (sorted: seq<(int, int)>)
+method SortSeq(s: SortSeqState) returns (sorted: SortSeqState)
   // post-conditions-start
   ensures forall i, j :: 0 <= i < j < |sorted| ==> less_eq(sorted[i], sorted[j])
   ensures |sorted| == |s|

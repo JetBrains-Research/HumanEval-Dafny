@@ -8,7 +8,9 @@ predicate IsUpperCase(s: string)
   forall i :: 0 <= i < |s| ==> 'A' <= s[i] <= 'Z'
 }
 
-method CheckDictCase(dict: map<string, string>) returns (result: bool)
+type DictCase = map<string, string>
+
+method CheckDictCase(dict: DictCase) returns (result: bool)
   // post-conditions-start
   ensures dict == map[] ==> !result
   ensures result ==> (forall k :: k in dict ==> IsLowerCase(k)) || (forall k :: k in dict ==> IsUpperCase(k))

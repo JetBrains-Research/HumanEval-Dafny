@@ -1,13 +1,13 @@
-method sorted_even(a: seq<int>) returns (sorted_even: seq<int>)
+method sorted_even(a: seq<int>) returns (sorted: seq<int>)
   // pre-conditions-start
   requires |a| > 0
   // pre-conditions-end
   // post-conditions-start
-  ensures |sorted_even| == |a|
-  ensures forall i, j :: 0 <= i < j && 2 * i < |sorted_even| && 2 * j < |sorted_even| ==>
-      sorted_even[2 * i] <= sorted_even[2 * j]
-  ensures forall i :: 0 <= i < |a| && i % 2 == 1 ==> sorted_even[i] == a[i]
-  ensures multiset(a) == multiset(sorted_even)
+  ensures |sorted| == |a|
+  ensures forall i, j :: 0 <= i < j && 2 * i < |sorted| && 2 * j < |sorted| ==>
+      sorted[2 * i] <= sorted[2 * j]
+      ensures forall i :: 0 <= i < |a| && i % 2 == 1 ==> sorted[i] == a[i]
+      ensures multiset(a) == multiset(sorted)
   // post-conditions-end
 {
   // impl-start
@@ -24,7 +24,7 @@ method sorted_even(a: seq<int>) returns (sorted_even: seq<int>)
     i := i + 1;
   }
 
-  sorted_even := SortSeqPred(a, p);
+  sorted := SortSeqPred(a, p);
   // impl-end
 }
 

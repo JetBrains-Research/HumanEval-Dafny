@@ -24,16 +24,16 @@ method factorize(n: nat) returns (factors: seq<nat>)
   {
     ghost var pre := cur;
     ghost var temp := 1;
-    while cur % i == 0 
+    while cur % i == 0
       // invariants-start
       invariant cur >= 1
       invariant temp * cur == pre
-      invariant prod(factors) == taken * temp 
+      invariant prod(factors) == taken * temp
       // invariants-end
       decreases cur - 1
     {
       factors := factors + [i];
-      
+
       cur := cur / i;
       temp := temp * i;
       assert 2 <= i && 2 * cur <= i * cur; // assert-line

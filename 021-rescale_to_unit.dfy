@@ -1,6 +1,5 @@
-function affine(x: real, shift: real, scale: real) : (y : real)
+function affine(x: real, shift: real, scale: real) : real
     requires scale > 0.0
-    ensures y == (x + shift) / scale
 {
     (x + shift) / scale
 }
@@ -71,8 +70,7 @@ method rescale_to_unit(s: seq<real>) returns (r : seq<real>)
         invariant affine_seq(s[..j], r, shift, scale)
         // invariants-end
     {
-        var rj : real := s[j] + shift;
-        rj := rj / scale;
+        var rj : real := affine(s[j], shift, scale);
         // assert-start
         assert rj <= 1.0 by {
             div_unit(s[j] + shift, scale);
@@ -91,6 +89,5 @@ method rescale_to_unit(s: seq<real>) returns (r : seq<real>)
         affine_unit(s[mxi], shift, scale);
     }
     // assert-end
-    return r;
     // impl-end
 }

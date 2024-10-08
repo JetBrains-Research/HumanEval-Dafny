@@ -25,16 +25,20 @@ lemma prod_prop(s: seq<int>)
 }
 
 method sum_product(numbers: seq<int>) returns (s : int, p : int)
+    // post-condition-start
     ensures s == sum(numbers)
     ensures p == prod(numbers)
+    // post-condition-end
  {
     // impl-start
     assert numbers[..|numbers|] == numbers; // assert-line
     s := 0;
     p := 1;
     for i := 0 to |numbers|
+        // invariants-start
         invariant s == sum(numbers[..i])
         invariant p == prod(numbers[..i])
+        // invariants-end
     {
         // assert-start
         assert sum(numbers[..i + 1]) == sum(numbers[..i]) + numbers[i] by {

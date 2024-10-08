@@ -1,6 +1,8 @@
-method count(a: seq<int>) returns (biggest: map<int, int>)
+type BiggestMap = map<int, int>
+
+method count(a: seq<int>) returns (biggest: BiggestMap)
   // post-conditions-start
-  ensures forall i :: 0 <= i < |a| && a[i] in biggest ==> 
+  ensures forall i :: 0 <= i < |a| && a[i] in biggest ==>
     biggest[a[i]] == |set j | 0 <= j < |a| && a[j] == a[i]|
   ensures forall i, j :: 0 <= i < |a| && 0 <= j < |a| && a[i] in biggest ==>
     biggest[a[i]] >= |set k | 0 <= k < |a| && a[k] == a[j]|
@@ -44,8 +46,8 @@ method count(a: seq<int>) returns (biggest: map<int, int>)
     // invariants-start
     invariant 0 <= i <= |a|
     invariant forall j :: 0 <= j < |a| ==> a[j] in cnt
-    invariant forall j :: 0 <= j < i ==> a[j] in cnt && maxCount >= cnt[a[j]] 
-    invariant exists j :: 0 <= j < i && a[j] in cnt && cnt[a[j]] == maxCount 
+    invariant forall j :: 0 <= j < i ==> a[j] in cnt && maxCount >= cnt[a[j]]
+    invariant exists j :: 0 <= j < i && a[j] in cnt && cnt[a[j]] == maxCount
     invariant forall j :: 0 <= j < i ==> cnt[a[j]] == maxCount ==> a[j] in biggest
     invariant forall x :: x in biggest ==> x in cnt && cnt[x] == maxCount
     invariant forall x :: x in biggest ==> biggest[x] == cnt[x]

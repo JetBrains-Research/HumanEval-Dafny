@@ -118,7 +118,6 @@ method sorted_list_sum(list: seq<string>) returns (sorted: seq<string>)
     {
         if |init[i]| % 2 == 0 {
             sorted := sorted + [init[i]];
-            assert multiset(sorted) <= multiset(init[0..i]);
             assert multiset(sorted) <= multiset(init[0..i + 1]); // assert-line
         } else {
             assert init[0..i + 1] == init[0..i] + [init[i]]; // assert-line

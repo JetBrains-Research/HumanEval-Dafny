@@ -1,15 +1,15 @@
-predicate IsPrime(n: int)
+function IsPrime(n: int) : bool
 {
   n > 1 &&
   forall k :: 2 <= k < n ==> n % k != 0
 }
 
-function PrimeLength(s: string): bool
+method PrimeLength(s: string) returns (p : bool)
   // post-conditions-start
-  ensures PrimeLength(s) <==> IsPrime(|s|)
+  ensures p <==> IsPrime(|s|)
   // post-conditions-end
 {
   // impl-start
-  IsPrime(|s|)
+  return IsPrime(|s|);
   // impl-end
 }

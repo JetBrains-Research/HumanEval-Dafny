@@ -1,4 +1,4 @@
-predicate IsSubstring(s: string, sub: string)
+function IsSubstring(s: string, sub: string) : bool
 {
   |s| >= |sub| && exists i {:trigger s[i..i+|sub|]} :: 0 <= i <= |s| - |sub| && s[i..i+|sub|] == sub
 }

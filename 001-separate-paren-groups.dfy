@@ -12,12 +12,12 @@ function ParenthesesDepth(s: string, i: int, j: int): int
         ParenthesesDepth(s, i+1, j)
 }
 
-predicate InnerDepthsPositive(s: string)
+function InnerDepthsPositive(s: string) : bool
 {
     forall i :: 0 < i < |s| ==> ParenthesesDepth(s, 0, i) > 0
 }
 
-predicate InnerDepthsNonnegative(s: string)
+function InnerDepthsNonnegative(s: string) : bool
 {
     forall i :: 0 < i < |s| ==> ParenthesesDepth(s, 0, i) >= 0
 }

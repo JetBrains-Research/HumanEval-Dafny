@@ -49,7 +49,7 @@ method will_it_fly(s: seq<int>, w: int) returns (result: bool)
     // impl-end
 }
 
-predicate is_palindrome_pred(s : seq<int>) {
+function is_palindrome_pred(s : seq<int>) : bool {
     forall k :: 0 <= k < |s| ==> s[k] == s[|s| - 1 - k]
 }
 

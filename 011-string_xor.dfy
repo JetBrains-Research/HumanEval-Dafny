@@ -1,4 +1,4 @@
-predicate represents_byte(a: char)
+function represents_byte(a: char) : bool
 {
     a in "01"
 }

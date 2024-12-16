@@ -1,9 +1,9 @@
-predicate IsLowerCase(s: string)
+function IsLowerCase(s: string) : bool
 {
   forall i :: 0 <= i < |s| ==> 'a' <= s[i] <= 'z'
 }
 
-predicate IsUpperCase(s: string)
+function IsUpperCase(s: string) : bool
 {
   forall i :: 0 <= i < |s| ==> 'A' <= s[i] <= 'Z'
 }

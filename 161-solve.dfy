@@ -56,7 +56,7 @@ method reverse(s: string) returns (rev: string)
   // impl-end
 }
 
-predicate is_alpha(c: char) {
+function is_alpha(c: char) : bool {
   'a' <= c <= 'z' || 'A' <= c <= 'Z'
 }
 

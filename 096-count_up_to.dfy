@@ -1,4 +1,4 @@
-predicate IsPrime(n: int)
+function IsPrime(n: int) : bool
 {
   n > 1 && forall k :: 2 <= k < n ==> n % k != 0
 }

@@ -15,7 +15,7 @@ lemma affine_unit(x: real, shift: real, scale: real)
     ensures affine(x, shift, scale) == 1.0 {}
 
 
-predicate affine_seq(s: seq<real>, r: seq<real>, shift: real, scale: real)
+function affine_seq(s: seq<real>, r: seq<real>, shift: real, scale: real) : bool
   requires scale > 0.0
   requires |r| == |s|
 {

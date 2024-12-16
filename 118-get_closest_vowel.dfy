@@ -1,10 +1,10 @@
-predicate IsVowel(c: char)
+function IsVowel(c: char) : bool
 {
   c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
   c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'
 }
 
-predicate IsConsonant(c: char)
+function IsConsonant(c: char) : bool
 {
   ('A' <= c <= 'Z' || 'a' <= c <= 'z') && !IsVowel(c)
 }

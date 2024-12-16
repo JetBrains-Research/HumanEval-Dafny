@@ -25,7 +25,7 @@ method is_prime(k: int) returns (result: bool)
   // impl-end
 }
 
-predicate is_prime_pred(k: int)
+function is_prime_pred(k: int) : bool
 {
   forall i :: 2 <= i < k ==> k % i != 0
 }

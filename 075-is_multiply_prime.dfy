@@ -1,4 +1,4 @@
-predicate Prime(p: nat)
+function Prime(p: nat) : bool
     {
         p > 1 &&
         forall k :: 1 < k < p ==> p % k != 0

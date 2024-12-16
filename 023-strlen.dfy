@@ -1,9 +1,9 @@
-function strlen(s: string) : (len: int)
+method strlen(s: string) returns (len: int)
   // post-conditions-start
   ensures len == |s|
   // post-conditions-end
 {
   // impl-start
-  |s|
+  return |s|;
   // impl-end
 }

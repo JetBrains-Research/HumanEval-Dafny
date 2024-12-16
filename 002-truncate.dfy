@@ -1,6 +1,6 @@
 
 
-function truncate(x : real) : (i : real)
+method truncate(x : real) returns (i : real)
     // pre-conditions-start
     requires x >= 0.0
     // pre-conditions-end
@@ -9,6 +9,6 @@ function truncate(x : real) : (i : real)
     // post-conditions-end
     {
       // impl-start
-        x.Floor as real
+      return x.Floor as real;
       // impl-end
     }

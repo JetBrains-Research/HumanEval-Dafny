@@ -1,4 +1,4 @@
-predicate is_palindrome(n: nat) {
+function is_palindrome(n: nat) : bool {
   var s := natToString(n);
   forall i | 0 <= i < |s| :: s[i] == s[|s|-1-i]
 }

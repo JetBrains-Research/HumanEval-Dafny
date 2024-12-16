@@ -118,6 +118,6 @@ function max(a: int, b: int): int
   if a > b then a else b
 }
 
-predicate is_prime(k: int) {
+function is_prime(k: int) : bool {
   k != 1 && forall i :: 2 <= i < k ==> k % i != 0
 }

@@ -57,6 +57,6 @@ method check_palindrome(s: string) returns (result: bool)
   // impl-end
 }
 
-predicate is_palindrome_pred(s : string) {
+function is_palindrome_pred(s : string) : bool {
   forall k :: 0 <= k < |s| ==> s[k] == s[|s| - 1 - k]
 }

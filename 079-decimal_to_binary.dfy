@@ -3,7 +3,7 @@ type stringBin = s: string |
   forall i | 0 <= i < |s| :: s[i] in "01"
   witness "1"
 
-function decimal_to_binary(n: nat): (s: string)
+method decimal_to_binary(n: nat) returns (s: string)
   // post-conditions-start
   ensures |s| == |decimal_to_binary_helper(n)| + 4
   ensures s[..2] == "db"
@@ -12,7 +12,7 @@ function decimal_to_binary(n: nat): (s: string)
   // post-conditions-end
 {
   // impl-start
-  "db" + decimal_to_binary_helper(n) + "db"
+  return "db" + decimal_to_binary_helper(n) + "db";
   // impl-end
 }
 

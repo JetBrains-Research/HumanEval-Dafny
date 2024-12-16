@@ -53,7 +53,7 @@ function rot2(c: char): char
     (c as int + 2) as char
 }
 
-predicate is_vowel(c: char) {
+function is_vowel(c: char) : bool {
     (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
     || (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')
 }

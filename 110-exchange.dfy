@@ -1,4 +1,4 @@
-predicate IsEven(n: int)
+function IsEven(n: int) : bool
 {
   n % 2 == 0
 }

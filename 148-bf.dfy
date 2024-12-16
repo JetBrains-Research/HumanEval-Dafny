@@ -75,3 +75,16 @@ function GetPlanetsBetweenIndices(start: int, end: int): seq<string>
     case 7 => ["Neptune"]
   // impl-end
 }
+
+method bf(start: int, end: int) returns (planets: seq<string>)
+    // pre-conditions-start
+    requires 0 <= start <= 7 && 0 <= end <= 7
+    // pre-conditions-end
+    // post-conditions-start
+    ensures |planets| <= (if start <= end then end - start + 1 else 0)
+    // post-conditions-end
+    {
+        // impl-start
+        return GetPlanetsBetweenIndices(start, end);
+        // impl-end
+    }

@@ -8,6 +8,6 @@ method check_if_last_char_is_a_letter(s: string) returns (b: bool)
   // impl-end
 }
 
-predicate is_alpha(c: char) {
+function is_alpha(c: char) : bool {
     'a' <= c <= 'z' || 'A' <= c <= 'Z'
 }

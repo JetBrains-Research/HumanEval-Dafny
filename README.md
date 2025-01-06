@@ -40,7 +40,7 @@ Current status:
 - [x] 35. max_element
 - [x] 36. fizz_buzz
 - [x] 37. sort_even - sorting
-- [ ] 38. encode_cyclic
+- [x] 38. encode_cyclic
 - [ ] 39. ~prime_fib~ -- unbounded loop, probably impossible
 - [x] 40. triples_sum_to_zero
 - [x] 41. car_race_collision
@@ -58,7 +58,7 @@ Current status:
 - [x] 53. add
 - [x] 54. same_chars
 - [x] 55. fib
-- [ ] 56. correct_bracketing
+- [x] 56. correct_bracketing
 - [x] 57. monotonic
 - [x] 58. common
 - [x] 59. largest_prime_factor
@@ -92,7 +92,7 @@ Current status:
 - [x] 87. get_row - sorting
 - [x] 88. sort_array - sorting
 - [x] 89. encrypt
-- [ ] 90. next_smallest - nullable
+- [x] 90. next_smallest - nullable
 - [ ] 91. is_bored - complex strings
 - [x] 92. any_int
 - [x] 93. encode
@@ -121,7 +121,7 @@ Current status:
 - [x] 116. sort_array - sorting
 - [ ] 117. select_words - complex strings
 - [x] 118. get_closest_vowel
-- [ ] 119. match_parens
+- [x] 119. match_parens
 - [x] 120. maximum - sorting
 - [x] 121. solution - sum
 - [x] 122. add_elements

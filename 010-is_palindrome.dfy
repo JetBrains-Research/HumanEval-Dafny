@@ -1,45 +1,17 @@
-method is_palindrome(s: string) returns (result: bool)
-    // pre-conditions-start
-    requires |s| > 0
-    // pre-conditions-end
-    // post-conditions-start
-    ensures result == (forall k :: 0 <= k < |s| ==> s[k] == s[|s| - 1 - k])
-    // post-conditions-end
-{
-    // impl-start
-    result := true;
-    var i := 0;
-    var j := |s| - 1;
-    while (i < j)
-        // invariants-start
-        invariant 0 <= i < |s|
-        invariant 0 <= j < |s|
-        invariant j == |s| - i - 1
-        invariant forall k :: 0 <= k < i ==> s[k] == s[|s| - 1 - k]
-        // invariants-end
-    {
-        if (s[i] != s[j]) {
-            result := false;
-            break;
-        }
-        i := i + 1;
-        j := j - 1;
-    }
-    // impl-end
-}
-
-function is_palindrome_fun(s : string) : bool {
+function is_palindrome(s : string) : bool {
     forall k :: 0 <= k < |s| ==> s[k] == s[|s| - 1 - k]
 }
-
+// pure-end
 function starts_with(result : string, s : string) : bool {
     |result| >= |s| && forall k :: 0 <= k < |s| ==> result[k] == s[k]
 }
-
+// pure-end
 method make_palindrome(s: string) returns (result: string)
+    // post-conditions-start
     ensures |result| <= 2 * |s|
-    ensures is_palindrome_fun(result)
+    ensures is_palindrome(result)
     ensures starts_with(result, s)
+    // post-conditions-end
 {
     // impl-start
     if (|s| == 0) {
@@ -54,7 +26,7 @@ method make_palindrome(s: string) returns (result: string)
         // invariants-start
         invariant (beginning_of_suffix >= 0 && beginning_of_suffix + 1 < |s|) || (flag && (beginning_of_suffix >= 0 && beginning_of_suffix < |s|))
         decreases |s| - beginning_of_suffix
-        invariant flag ==> is_palindrome_fun(s[beginning_of_suffix..])
+        invariant flag ==> is_palindrome(s[beginning_of_suffix..])
         // invariants-end
     {
         beginning_of_suffix := beginning_of_suffix + 1;

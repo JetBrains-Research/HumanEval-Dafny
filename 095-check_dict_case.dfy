@@ -2,12 +2,12 @@ function IsLowerCase(s: string) : bool
 {
   forall i :: 0 <= i < |s| ==> 'a' <= s[i] <= 'z'
 }
-
+// pure-end
 function IsUpperCase(s: string) : bool
 {
   forall i :: 0 <= i < |s| ==> 'A' <= s[i] <= 'Z'
 }
-
+// pure-end
 type DictCase = map<string, string>
 
 method CheckDictCase(dict: DictCase) returns (result: bool)

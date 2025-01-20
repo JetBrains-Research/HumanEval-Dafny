@@ -2,16 +2,17 @@ function lower(c: char) : bool
     {
         'a' <= c <= 'z'
     }
-
+// pure-end
 function upper(c: char) : bool
     {
         'A' <= c <= 'Z'
     }
+// pure-end
 function alpha(c: char) : bool
     {
         lower(c) || upper(c)
     }
-
+// pure-end
 function flip_char(c: char) : (C: char)
         ensures lower(c) <==> upper(C)
         ensures upper(c) <==> lower(C)
@@ -19,7 +20,7 @@ function flip_char(c: char) : (C: char)
         if lower(c) then c - 'a' + 'A' else
         if upper(c) then c + 'a' - 'A' else c
     }
-
+// pure-end
 method flip_case(s: string) returns (S: string)
     // post-conditions-start
     ensures |S| == |s|

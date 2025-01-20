@@ -29,10 +29,11 @@ function digits_sum(x: int): int
 {
   if abs(x) < 10 then x else x % 10 + digits_sum(x / 10)
 }
-
+// pure-end
 function abs(x: int): int
   ensures abs(x) >= 0
   ensures abs(x) == x || abs(x) == -x
 {
   if x >= 0 then x else -x
 }
+// pure-end

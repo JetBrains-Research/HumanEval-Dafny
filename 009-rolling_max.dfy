@@ -8,7 +8,7 @@ function getVal(mx : Option<int>) : int
         case Some(n) => n
     }
 }
-
+// pure-end
 method rolling_max(numbers: seq<int>) returns (result : seq<int>)
     // post-conditions-start
     ensures |numbers| == |result|

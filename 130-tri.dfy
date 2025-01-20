@@ -5,7 +5,7 @@ function tri(n: nat): nat
   else if n % 2 == 0 then 1 + n / 2
   else tri(n - 1) + tri(n - 2) + tri(n + 1)
 }
-
+// pure-end
 method Tribonacci(n: nat) returns (result: seq<nat>)
   // post-conditions-start
   ensures |result| == n + 1

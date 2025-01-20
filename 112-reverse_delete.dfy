@@ -60,3 +60,4 @@ method check_palindrome(s: string) returns (result: bool)
 function is_palindrome_pred(s : string) : bool {
   forall k :: 0 <= k < |s| ==> s[k] == s[|s| - 1 - k]
 }
+// pure-end

@@ -8,7 +8,7 @@ function getVal(mx : Option<int>) : int
         case Some(n) => n
     }
 }
-
+// pure-end
 method rolling_max(s: seq<int>) returns (res: Option<int>) 
     // post-conditions-start
     ensures res == None <==> |s| < 2

@@ -2,7 +2,7 @@ function IsEven(n: int) : bool
 {
   n % 2 == 0
 }
-
+// pure-end
 function CountEvens(lst: seq<int>): nat
 {
   // impl-start
@@ -10,7 +10,7 @@ function CountEvens(lst: seq<int>): nat
   else (if IsEven(lst[0]) then 1 else 0) + CountEvens(lst[1..])
   // impl-end
 }
-
+// pure-end
 method Exchange(lst1: seq<int>, lst2: seq<int>) returns (result: string)
   // pre-conditions-start
   requires |lst1| > 0 && |lst2| > 0

@@ -2,7 +2,7 @@ function represents_byte(a: char) : bool
 {
     a in "01"
 }
-
+// pure-end
 function char_xor(a: char, b: char): char
     requires represents_byte(a)
     requires represents_byte(b)
@@ -12,7 +12,7 @@ function char_xor(a: char, b: char): char
     else
         '1'
 }
-
+// pure-end
 method string_xor(a: string, b: string) returns (result: string)
     // pre-conditions-start
     requires |a| == |b|

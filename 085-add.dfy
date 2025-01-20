@@ -3,7 +3,7 @@ function sumc(s: seq<int>, p: seq<bool>) : int
     {
         if |s| == 0 then 0 else (if p[0] then s[0] else 0) + sumc(s[1..], p[1..])
     }
-
+// pure-end
 lemma sum_prop(s: seq<int>, p: seq<bool>)
     requires |s| > 0
     requires |s| == |p|
@@ -14,7 +14,7 @@ lemma sum_prop(s: seq<int>, p: seq<bool>)
         assert (p[1..][..|s[1..]| - 1]) == p[1..|s| - 1];
     }
 }
-
+// pure-end
 function add_conditon(lst: seq<int>) : (p : seq<bool>)
     ensures |lst| == |p|
     {
@@ -51,3 +51,4 @@ function add_conditon(lst: seq<int>) : (p : seq<bool>)
             return r;
             // impl-end
         }
+// pure-end

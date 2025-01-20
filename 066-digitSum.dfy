@@ -20,14 +20,14 @@ lemma upper_sum_rec_prop(s: string)
         assert (s[1..][..|s[1..]| - 1]) == s[1..|s| - 1];
     }
 }
-
+// pure-end
 function to_int(c: char): int
     ensures 'A' <= c <= 'Z' ==> to_int(c) == c as int
     ensures c < 'A' || c > 'Z' ==> to_int(c) == 0
 {
     if 'A' <= c <= 'Z' then c as int else 0
 }
-
+// pure-end
 method upper_sum(s: string) returns (res: int)
     // post-conditions-start
     ensures res == upper_sum_rec(s)

@@ -46,7 +46,7 @@ function sum(s: seq<int>, p: seq<bool>) : int
 {
   if |s| == 0 then 0 else (if p[0] then s[0] else 0) + sum(s[1..], p[1..])
 }
-
+// pure-end
 lemma sum_prop(s: seq<int>, p: seq<bool>)
   requires |s| > 0
   requires |p| == |s|
@@ -57,3 +57,4 @@ lemma sum_prop(s: seq<int>, p: seq<bool>)
       assert (p[1..][..|p[1..]| - 1]) == p[1..|p| - 1];
   }
 }
+// pure-end

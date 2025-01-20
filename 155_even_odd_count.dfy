@@ -29,9 +29,10 @@ function odd_count(n: nat): nat {
   if n == 0 then 0
   else odd_count(n / 10) + n % 2
 }
-
+// pure-end
 function even_count(n: nat): nat
 {
   if n == 0 then 0
   else even_count(n / 10) + (1 - n % 2)
 }
+// pure-end

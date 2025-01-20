@@ -52,7 +52,7 @@ function natToString(n: nat): stringNat {
     case 5 => "5" case 6 => "6" case 7 => "7" case 8 => "8" case 9 => "9"
     case _ => natToString(n / 10) + natToString(n % 10)
 }
-
+// pure-end
 function stringToNat(s: stringNat): nat
   decreases |s|
 {
@@ -63,12 +63,12 @@ function stringToNat(s: stringNat): nat
   else
       stringToNat(s[..|s|-1])*10 + stringToNat(s[|s|-1..|s|])
 }
-
+// pure-end
 lemma natToStringThenStringToNatIdem(n: nat)
   ensures stringToNat(natToString(n)) == n
 {
 }
-
+// pure-end
 method reverse(str: string) returns (rev: string)
     // post-conditions-start
     ensures |rev| == |str|

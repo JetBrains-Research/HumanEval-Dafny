@@ -5,7 +5,7 @@ function fibfib(n: nat): nat
   else if n == 2 then 1
   else fibfib(n - 1) + fibfib(n - 2) + fibfib(n - 3)
 }
-
+// pure-end
 method ComputeFibFib(n: nat) returns (result: nat)
   // post-conditions-start
   ensures result == fibfib(n)

@@ -3,13 +3,13 @@ function factorial(n: nat): nat
 {
   if n == 0 then 1 else n * factorial(n - 1)
 }
-
+// pure-end
 function special_factorial_rec(n: nat): nat
   decreases n
 {
   if n == 0 then 1 else factorial(n) * special_factorial_rec(n - 1)
 }
-
+// pure-end
 method special_factorial(n: nat) returns (result: nat)
   // pre-conditions-start
   requires n > 0

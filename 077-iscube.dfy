@@ -36,7 +36,8 @@ method is_cube(n: nat) returns (r: bool)
 }
 
 function cube(n: int): int { n * n * n }
-
+// pure-end
 lemma cube_of_larger_is_larger()
     ensures forall smaller : int, larger : int :: smaller <= larger ==> cube(smaller) <= cube(larger)
 {}
+// pure-end

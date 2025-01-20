@@ -2,7 +2,7 @@ function popcount(n: nat): nat {
   if n == 0 then 0
   else popcount(n / 2) + n % 2
 }
-
+// pure-end
 method sort_array(s: seq<nat>) returns (sorted: seq<nat>)
   // post-conditions-start
   ensures forall i, j :: 0 <= i < j < |sorted| ==> popcount(sorted[i]) <= popcount(sorted[j])

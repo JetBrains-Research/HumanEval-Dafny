@@ -63,11 +63,11 @@ function count7_r(x: nat): nat {
   var lst := if x % 10 == 7 then 1 else 0;
   if x < 10 then lst else lst + count7_r(x / 10)
 }
-
+// pure-end
 function sum(s: seq<int>) : int {
   if |s| == 0 then 0 else s[0] + sum(s[1..])
 }
-
+// pure-end
 lemma sum_prop(s: seq<int>)
   requires |s| > 0
   ensures sum(s) == sum(s[..|s| - 1]) + s[ |s| - 1 ]
@@ -76,3 +76,4 @@ lemma sum_prop(s: seq<int>)
     assert (s[1..][..|s[1..]| - 1]) == s[1..|s| - 1];
   }
 }
+// pure-end

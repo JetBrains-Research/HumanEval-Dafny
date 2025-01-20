@@ -1,8 +1,8 @@
- function IsPrimeHexDigit(c: char): bool
+function IsPrimeHexDigit(c: char): bool
 {
   c == '2' || c == '3' || c == '5' || c == '7' || c == 'B' || c == 'D'
 }
-
+// pure-end
 function count_prime_hex_digits_rec(num: seq<char>) : (count : int)
   // post-conditions-start
   ensures 0 <= count <= |num|
@@ -13,7 +13,7 @@ function count_prime_hex_digits_rec(num: seq<char>) : (count : int)
   else (if IsPrimeHexDigit(num[0]) then 1 else 0) + count_prime_hex_digits_rec(num[1..])
   // impl-end
 }
-
+// pure-end
 lemma count_prop(s: seq<char>)
     requires |s| > 0
     ensures count_prime_hex_digits_rec(s) == count_prime_hex_digits_rec(s[..|s| - 1]) + (
@@ -24,7 +24,7 @@ lemma count_prop(s: seq<char>)
         assert (s[1..][..|s[1..]| - 1]) == s[1..|s| - 1];
     }
 }
-
+// pure-end
 method count_prime_hex_digits(s: seq<char>) returns (count : int)
     // post-conditions-start
     ensures count == count_prime_hex_digits_rec(s)

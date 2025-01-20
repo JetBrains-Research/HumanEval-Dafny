@@ -15,7 +15,7 @@ function PlanetFromString(name: string): Option<Planet>
   case "Neptune" => Some(Neptune)
   case _ => None
 }
-
+// pure-end
 function PlanetIndex(p: Planet): int
 {
   match p
@@ -28,7 +28,7 @@ function PlanetIndex(p: Planet): int
   case Uranus => 6
   case Neptune => 7
 }
-
+// pure-end
 function GetPlanetsBetween(planet1: string, planet2: string): seq<string>
   // post-conditions-start
   ensures |GetPlanetsBetween(planet1, planet2)| <= 6
@@ -50,7 +50,7 @@ function GetPlanetsBetween(planet1: string, planet2: string): seq<string>
       []
   // impl-end
 }
-
+// pure-end
 function GetPlanetsBetweenIndices(start: int, end: int): seq<string>
   // pre-conditions-start
   requires 0 <= start <= 7 && 0 <= end <= 7
@@ -75,7 +75,7 @@ function GetPlanetsBetweenIndices(start: int, end: int): seq<string>
     case 7 => ["Neptune"]
   // impl-end
 }
-
+// pure-end
 method bf(start: int, end: int) returns (planets: seq<string>)
     // pre-conditions-start
     requires 0 <= start <= 7 && 0 <= end <= 7
@@ -83,8 +83,8 @@ method bf(start: int, end: int) returns (planets: seq<string>)
     // post-conditions-start
     ensures |planets| <= (if start <= end then end - start + 1 else 0)
     // post-conditions-end
-    {
-        // impl-start
-        return GetPlanetsBetweenIndices(start, end);
-        // impl-end
-    }
+{
+    // impl-start
+    return GetPlanetsBetweenIndices(start, end);
+    // impl-end
+}

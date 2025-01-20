@@ -11,7 +11,7 @@ function rot_sym(c: char): char
   ((alph + 2 * 2) % 26 + 'a' as int) as char
   // impl-end
 }
-
+// pure-end
 method encrypt(s: string) returns (r: string)
   // pre-conditions-start
   requires forall i :: 0 <= i < |s| ==> 'a' <= s[i] <= 'z'
@@ -35,10 +35,4 @@ method encrypt(s: string) returns (r: string)
     i := i + 1;
   }
   // impl-end
-}
-
-method Main() {
-    var s := "asdfghjkl";
-    var r := encrypt(s);
-    assert r == "ewhjklnop";
 }

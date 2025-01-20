@@ -6,13 +6,13 @@ function abs(x: int): int
 {
   if x >= 0 then x else -x
 }
-
+// pure-end
 function sum_abs(s: seq<int>) : int
   ensures sum_abs(s) >= 0
 {
   if |s| == 0 then 0 else abs(s[0]) + sum_abs(s[1..])
 }
-
+// pure-end
 lemma sum_prop(s: seq<int>)
   requires |s| > 0
   ensures sum_abs(s) == sum_abs(s[..|s| - 1]) + abs(s[|s| - 1])
@@ -21,7 +21,7 @@ lemma sum_prop(s: seq<int>)
     assert (s[1..][..|s[1..]| - 1]) == s[1..|s| - 1];
   }
 }
-
+// pure-end
 method prod_signs(numbers: seq<int>) returns (s: int)
   ensures abs(s) == sum_abs(numbers)
   ensures |set i | 0 <= i < |numbers| && numbers[i] < 0| % 2 == 1 ==> s <= 0

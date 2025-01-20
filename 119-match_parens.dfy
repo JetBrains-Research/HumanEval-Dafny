@@ -4,7 +4,7 @@ function CalcBal(s: seq<int>, i: int, j: int, acc: int) : int
     if i == j then acc
     else (if s[j - 1] == 0 then 1 else -1) + CalcBal(s, i, j - 1, acc)
 }
-
+// pure-end
 method checkFixed(s1: seq<int>, s2: seq<int>) returns (b: bool) 
     // pre-conditions-start
     requires forall i :: 0 <= i < |s1| ==> s1[i] == 0 || s1[i] == 1

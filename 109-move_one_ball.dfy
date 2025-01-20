@@ -1,7 +1,7 @@
 function is_sorted(a: seq<int>) : bool {
   forall i, j :: 0 <= i < j < |a| ==> a[i] <= a[j]
 }
-
+// pure-end
 method move_one_ball(a: seq<int>) returns (can: bool)
   // pre-conditions-start
   requires |a| > 0

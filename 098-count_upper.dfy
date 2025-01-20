@@ -26,3 +26,4 @@ method count_upper(s: string) returns (cnt: int)
 function is_upper_vowel(c: char) : bool {
   c == 'A' || c == 'E' || c == 'U' || c == 'I' || c == 'O'
 }
+// pure-end

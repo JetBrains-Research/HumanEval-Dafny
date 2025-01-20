@@ -5,7 +5,7 @@ function abs(val : real): real
   else
     val
 }
-
+// pure-end
 method has_close_elements(numbers: seq<real>, threshold: real) returns (flag : bool)
   // pre-conditions-start
   requires threshold > 0.0

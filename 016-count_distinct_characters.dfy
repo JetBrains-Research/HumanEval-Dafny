@@ -5,12 +5,12 @@ function contains_char(s: string, c: char): bool
 {
   if |s| == 0 then false else s[0] == c || s[0] == upper_char(c) || contains_char(s[1..], c)
 }
-
+// pure-end
 function upper_char(c: char) : (C: char)
   requires 'a' <= c <= 'z'
   ensures 'A' <= C <= 'Z'
 { c - 'a' + 'A' }
-
+// pure-end
 method count_distinct_characters(s: string) returns (count: int)
   // pre-conditions-start
   requires forall i :: 0 <= i < |s| ==> 'a' <= s[i] <= 'z' || 'A' <= s[i] <= 'Z'

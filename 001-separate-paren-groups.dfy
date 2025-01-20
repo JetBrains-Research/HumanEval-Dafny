@@ -11,17 +11,17 @@ function ParenthesesDepth(s: string, i: int, j: int): int
     else
         ParenthesesDepth(s, i+1, j)
 }
-
+// pure-end
 function InnerDepthsPositive(s: string) : bool
 {
     forall i :: 0 < i < |s| ==> ParenthesesDepth(s, 0, i) > 0
 }
-
+// pure-end
 function InnerDepthsNonnegative(s: string) : bool
 {
     forall i :: 0 < i < |s| ==> ParenthesesDepth(s, 0, i) >= 0
 }
-
+// pure-end
 lemma ParenthesesDepthSum(s: string, i: int, j: int, k: int)
     decreases j - i
     requires 0 <= i <= j <= k <= |s|
@@ -41,13 +41,13 @@ lemma ParenthesesSuffixEq(s: string, i: int, j: int)
         ParenthesesSuffixEq(s, i+1, j);
     }
 }
-
+// pure-end
 lemma ParenthesesPrefixEq(s: string, i: int, j: int)
     decreases j -i
     requires 0 <= i <= j <= |s|
     ensures ParenthesesDepth(s, i, j) == ParenthesesDepth(s[i..], 0, j-i)
 { }
-
+// pure-end
 lemma ParenthesesSubstring(s: string, i: int, j: int)
     decreases j - i
     requires 0 <= i <= j <= |s|
@@ -58,7 +58,7 @@ lemma ParenthesesSubstring(s: string, i: int, j: int)
     assert ParenthesesDepth(s[..j], i, j) == ParenthesesDepth(s[i..j], 0, j-i)
         by { ParenthesesPrefixEq(s[..j], i, j); }
 }
-
+// pure-end
 lemma ParenthesesCommonSegment(s: string, t: string, i: int, j: int)
     requires 0 <= i <= j <= |s|
     requires 0 <= i <= j <= |t|
@@ -68,7 +68,7 @@ lemma ParenthesesCommonSegment(s: string, t: string, i: int, j: int)
     ParenthesesSubstring(s, i, j);
     ParenthesesSubstring(t, i, j);
 }
-
+// pure-end
 lemma ParenthesesDepthAppend(s: string, c: char)
     ensures ParenthesesDepth(s + [c], 0, |s|+1) == ParenthesesDepth(s, 0, |s|) + ParenthesesDepth([c], 0, 1)
 {
@@ -76,7 +76,7 @@ lemma ParenthesesDepthAppend(s: string, c: char)
     ParenthesesSubstring(s + [c], |s|, |s| + 1);
     ParenthesesDepthSum(s + [c], 0, |s|, |s| + 1);
 }
-
+// pure-end
 lemma InnerDepthsPositiveAppendDecompose(s: string, c: char)
     requires InnerDepthsPositive(s)
     requires ParenthesesDepth(s, 0, |s|) > 0
@@ -90,7 +90,7 @@ lemma InnerDepthsPositiveAppendDecompose(s: string, c: char)
         }
     }
 }
-
+// pure-end
 method separate_paren_groups(paren_string: string) returns (res : seq<string>)
     // pre-conditions-start
     requires ParenthesesDepth(paren_string, 0, |paren_string|) == 0

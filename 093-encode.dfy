@@ -46,14 +46,15 @@ function swap_case(c: char): char
     'a' + (c - 'A')
   // impl-end
 }
-
+// pure-end
 function rot2(c: char): char
   requires is_vowel(c)
 {
     (c as int + 2) as char
 }
-
+// pure-end
 function is_vowel(c: char) : bool {
     (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
     || (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')
 }
+// pure-end

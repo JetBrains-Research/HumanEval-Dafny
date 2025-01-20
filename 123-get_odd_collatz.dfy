@@ -5,13 +5,13 @@ function iterate_to_odd(n: nat): nat
 {
   if (n / 2) % 2 == 1 then n / 2 else iterate_to_odd(n / 2)
 }
-
+// pure-end
 function next_odd_collatz(n: nat): nat
   requires n > 0
 {
   if n % 2 == 0 then iterate_to_odd(n) else iterate_to_odd(3 * n + 1)
 }
-
+// pure-end
 method next_odd_collatz_iter(n: nat) returns (next: nat)
   // pre-conditions-start
   requires n > 0

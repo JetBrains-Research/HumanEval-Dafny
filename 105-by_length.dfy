@@ -128,3 +128,4 @@ function NumberToName(n: int): string
   case 8 => "Eight"
   case 9 => "Nine"
 }
+// pure-end

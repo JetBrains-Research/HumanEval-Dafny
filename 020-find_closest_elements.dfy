@@ -4,13 +4,13 @@ function dist(a: real, b: real) : (d : real)
 {
     if a < b then b - a else a - b
 }
+// pure-end
 
-
-// distinct elements
 function des(s: seq<real>, a: int, b: int) : bool {
+    // distinct elements
     0 <= a < |s| && 0 <= b < |s| && a != b
 }
-
+// pure-end
 method find_closest_elements(s: seq<real>) returns (l : real, h : real)
     // pre-conditions-start
     requires |s| >= 2

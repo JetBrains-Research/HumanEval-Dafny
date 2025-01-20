@@ -4,14 +4,14 @@ function factorial_spec(n : int) : int
 {
   if n == 0 then 1 else n * factorial_spec(n - 1)
 }
-
+// pure-end
 function sum_spec(n : int) : int
   requires n >= 0
   decreases n
 {
   if n == 0 then 1 else n + sum_spec(n - 1)
 }
-
+// pure-end
 method f(n : int) returns (result : seq<int>)
   // pre-conditions-start
   requires n >= 1

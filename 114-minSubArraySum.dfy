@@ -3,7 +3,7 @@ function Sum(a: seq<int>, s: int, t: int): int
 {
   if s == t then 0 else Sum(a, s, t-1) + a[t-1]
 }
-
+// pure-end
 method minSubArraySum(a: seq<int>) returns (s: int)
   // post-conditions-start
   ensures forall p,q :: 0 <= p <= q <= |a| ==> Sum(a, p, q) >= s

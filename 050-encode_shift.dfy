@@ -10,7 +10,7 @@ function encode_char(c: char): char
   ((c as int - 'a' as int + 5) % 26 + 'a' as int) as char
   // impl-end
 }
-
+// pure-end
 function decode_char(c: char): char
   // pre-conditions-start
   requires 'a' <= c <= 'z'
@@ -24,7 +24,7 @@ function decode_char(c: char): char
   ((c as int - 'a' as int - 5) % 26 + 'a' as int) as char
   // impl-end
 }
-
+// pure-end
 method encode_shift(s: string) returns (t: string)
   // pre-conditions-start
   requires forall i :: 0 <= i < |s| ==> 'a' <= s[i] <= 'z'

@@ -8,7 +8,7 @@ function last_digit(n: int): int
   if n < 0 then (-n) % 10 else n % 10
   // impl-end
 }
-
+// pure-end
 method multiply(a: int, b: int) returns (c: int)
   // pre-conditions-start
   requires a >= 0

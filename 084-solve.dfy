@@ -20,3 +20,4 @@ method solve(n: nat) returns (r: nat)
 function popcount(n: nat): nat {
   if n == 0 then 0 else n % 2 + popcount(n / 2)
 }
+// pure-end

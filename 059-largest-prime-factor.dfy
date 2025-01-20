@@ -29,7 +29,7 @@ function is_prime_pred(k: int) : bool
 {
   forall i :: 2 <= i < k ==> k % i != 0
 }
-
+// pure-end
 method largest_prime_factor(n: int) returns (largest: int)
   // pre-conditions-start
   requires n >= 2

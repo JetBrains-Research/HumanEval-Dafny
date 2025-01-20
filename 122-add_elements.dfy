@@ -5,7 +5,7 @@ function select_at_most_two_digits_rec(arr: seq<int>): seq<int>
   else if 0 <= arr[0] < 100 then [arr[0]] + select_at_most_two_digits_rec(arr[1..])
   else select_at_most_two_digits_rec(arr[1..])
 }
-
+// pure-end
 lemma select_prop(s: seq<int>)
   requires |s| > 0 && |s| <= 100
   ensures select_at_most_two_digits_rec(s) == select_at_most_two_digits_rec(s[..|s| - 1]) + if 0 <= s[|s| - 1] < 100 then [s[|s| - 1]] else []
@@ -14,7 +14,7 @@ lemma select_prop(s: seq<int>)
     assert (s[1..][..|s[1..]| - 1]) == s[1..|s| - 1];
   }
 }
-
+// pure-end
 method select_at_most_two_digits(arr: seq<int>) returns (result: seq<int>)
   // pre-conditions-start
   requires |arr| > 0 && |arr| <= 100
@@ -55,7 +55,7 @@ method select_at_most_two_digits(arr: seq<int>) returns (result: seq<int>)
 function sum(s: seq<int>) : int {
   if |s| == 0 then 0 else s[0] + sum(s[1..])
 }
-
+// pure-end
 lemma sum_prop(s: seq<int>)
   requires |s| > 0
   ensures sum(s) == sum(s[..|s| - 1]) + s[ |s| - 1 ]
@@ -64,7 +64,7 @@ lemma sum_prop(s: seq<int>)
     assert (s[1..][..|s[1..]| - 1]) == s[1..|s| - 1];
   }
 }
-
+// pure-end
 method SumElementsWithAtMostTwoDigits(arr: seq<int>, k: int) returns (s: int)
   // pre-conditions-start
   requires |arr| > 0 && |arr| <= 100

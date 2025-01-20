@@ -7,7 +7,7 @@ function getVal(mx : Option<string>) : string
         case Some(n) => n
     }
 }
-
+// pure-end
 method longest(strings: seq<string>) returns (result : Option<string>)
   // post-conditions-start
   ensures result == None <==> |strings| == 0

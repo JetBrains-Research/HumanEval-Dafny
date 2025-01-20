@@ -3,17 +3,17 @@ function affine(x: real, shift: real, scale: real) : real
 {
     (x + shift) / scale
 }
-
+// pure-end
 lemma affine_zero(x: real, shift: real, scale: real)
     requires x == -shift
     requires scale > 0.0
     ensures affine(x, shift, scale) == 0.0 {}
-
+// pure-end
 lemma affine_unit(x: real, shift: real, scale: real)
     requires x == scale - shift
     requires scale > 0.0
     ensures affine(x, shift, scale) == 1.0 {}
-
+// pure-end
 
 function affine_seq(s: seq<real>, r: seq<real>, shift: real, scale: real) : bool
   requires scale > 0.0
@@ -21,13 +21,13 @@ function affine_seq(s: seq<real>, r: seq<real>, shift: real, scale: real) : bool
 {
   forall i :: 0 <= i < |s| ==> r[i] == affine(s[i], shift, scale)
 }
-
+// pure-end
 
 lemma div_unit(x: real, scale: real)
     requires 0.0 <= x <= scale
     requires scale > 0.0
     ensures x / scale <= 1.0 {}
-
+// pure-end
 method rescale_to_unit(s: seq<real>) returns (r : seq<real>)
   // pre-conditions-start
   requires |s| >= 2

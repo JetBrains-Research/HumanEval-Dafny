@@ -27,7 +27,7 @@ class Extension {
         else (if 'a' <= s[0] <= 'z' then 1 else 0) + CountLowerCase(s[1..])
     }
 }
-
+// pure-end
 method Strongest_Extension(className: string, extensions: seq<string>) returns (result: string)
     // pre-conditions-start
     requires |extensions| > 0

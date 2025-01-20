@@ -20,3 +20,4 @@ method filter_by_prefix(xs: seq<string>, p: string) returns (filtered: seq<strin
 function starts_with(s: string, p: string): bool {
   |p| == 0 || (|s| != 0 && |s| >= |p| && s[0] == p[0] && starts_with(s[1..], p[1..]))
 }
+// pure-end

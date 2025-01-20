@@ -4,7 +4,7 @@ function modp_rec(n: int, p: int): int
 {
     if n == 0 then 1 % p else (modp_rec(n - 1, p) * 2) % p
 }
-
+// pure-end
 method modp(n: int, p: int) returns (r: int)
   // pre-conditions-start
   requires p > 0

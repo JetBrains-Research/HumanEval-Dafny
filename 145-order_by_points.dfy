@@ -3,11 +3,11 @@ function digits_sum_pos(n: int): int
 {
   if n < 10 then n else digits_sum_pos(n / 10) + n % 10
 }
-
+// pure-end
 function digits_sum(n: int): int {
   if n < 0 then digits_sum_pos(-n) else digits_sum_pos(n)
 }
-
+// pure-end
 method order_by_points(s: seq<int>) returns (sorted: seq<int>)
   // post-conditions-start
   ensures forall i, j :: 0 <= i < j < |sorted| ==> digits_sum(sorted[i]) <= digits_sum(sorted[j])

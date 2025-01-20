@@ -29,7 +29,7 @@ function count_rec(a: seq<int>, x: int): int {
   if |a| == 0 then 0
   else count_rec(a[1..], x) + (if a[0] == x then 1 else 0)
 }
-
+// pure-end
 lemma count_prop(s: seq<int>, x: int)
     requires |s| > 0
     ensures count_rec(s, x) == count_rec(s[..|s| - 1], x) + if s[|s| - 1] == x then 1 else 0
@@ -38,7 +38,7 @@ lemma count_prop(s: seq<int>, x: int)
         assert (s[1..][..|s[1..]| - 1]) == s[1..|s| - 1];
     }
 }
-
+// pure-end
 method count(a: seq<int>, x: int) returns (cnt: int)
   // post-conditions-start
   ensures cnt == |set i | 0 <= i < |a| && a[i] == x|

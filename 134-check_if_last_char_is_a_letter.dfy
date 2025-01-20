@@ -11,3 +11,4 @@ method check_if_last_char_is_a_letter(s: string) returns (b: bool)
 function is_alpha(c: char) : bool {
     'a' <= c <= 'z' || 'A' <= c <= 'Z'
 }
+// pure-end

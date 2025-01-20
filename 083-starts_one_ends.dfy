@@ -22,3 +22,4 @@ function Pow(base: nat, exponent: nat): nat
 {
     if exponent == 0 then 1 else base * Pow(base, exponent-1)
 }
+// pure-end

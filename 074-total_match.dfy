@@ -24,7 +24,7 @@ function sum_chars_rec(list: seq<string>): nat
   if |list| == 0 then 0
   else |list[0]| + sum_chars_rec(list[1..])
 }
-
+// pure-end
 lemma sum_prop(s: seq<string>)
     requires |s| > 0
     ensures sum_chars_rec(s) == sum_chars_rec(s[..|s| - 1]) + |s[ |s| - 1 ]|
@@ -33,7 +33,7 @@ lemma sum_prop(s: seq<string>)
         assert (s[1..][..|s[1..]| - 1]) == s[1..|s| - 1];
     }
 }
-
+// pure-end
 method SumChars(list: seq<string>) returns (sum: nat)
   // post-conditions-start
   ensures sum == sum_chars_rec(list)

@@ -17,7 +17,7 @@ function comparison(a : string, b : string, i : int): bool
         else
             false
 }
-
+// pure-end
 method sort_strings(list: seq<string>) returns (sorted: seq<string>)
     ensures |sorted| == |list|
     ensures multiset(sorted) == multiset(list)

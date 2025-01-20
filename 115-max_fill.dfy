@@ -74,11 +74,11 @@ function gen_seq(grid: seq<seq<nat>>, capacity: nat, len: nat): seq<int>
 {
   seq(len, j requires 0 <= j < len => (sum(grid[j]) + capacity - 1) / capacity)
 }
-
+// pure-end
 function sum(s: seq<int>) : int {
     if |s| == 0 then 0 else s[0] + sum(s[1..])
 }
-
+// pure-end
 lemma sum_prop(s: seq<int>)
     requires |s| > 0
     ensures sum(s) == sum(s[..|s| - 1]) + s[ |s| - 1 ]
@@ -87,3 +87,4 @@ lemma sum_prop(s: seq<int>)
         assert (s[1..][..|s[1..]| - 1]) == s[1..|s| - 1];
     }
 }
+// pure-end

@@ -52,11 +52,11 @@ method will_it_fly(s: seq<int>, w: int) returns (result: bool)
 function is_palindrome_pred(s : seq<int>) : bool {
     forall k :: 0 <= k < |s| ==> s[k] == s[|s| - 1 - k]
 }
-
+// pure-end
 function sum(s: seq<int>) : int {
     if |s| == 0 then 0 else s[0] + sum(s[1..])
 }
-
+// pure-end
 lemma sum_prop(s: seq<int>)
     requires |s| > 0
     ensures sum(s) == sum(s[..|s| - 1]) + s[ |s| - 1 ]
@@ -65,3 +65,4 @@ lemma sum_prop(s: seq<int>)
         assert (s[1..][..|s[1..]| - 1]) == s[1..|s| - 1];
     }
 }
+// pure-end

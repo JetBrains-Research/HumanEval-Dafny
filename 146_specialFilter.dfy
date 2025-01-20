@@ -4,7 +4,7 @@ function first_digit(n: int): int
 {
   if n < 10 then n else first_digit(n / 10)
 }
-
+// pure-end
 function last_digit(n: int): int
   requires n >= 0
   ensures 0 <= last_digit(n) < 10
@@ -12,7 +12,7 @@ function last_digit(n: int): int
 {
   n % 10
 }
-
+// pure-end
 method specialFilter(s: seq<int>) returns (r: seq<int>)
   // post-conditions-start
   ensures forall i :: 0 <= i < |r| ==> r[i] > 10

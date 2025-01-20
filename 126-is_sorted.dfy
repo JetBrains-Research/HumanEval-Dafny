@@ -79,3 +79,4 @@ method count_sorted(a: seq<int>, x: int, pos: int) returns (count: int)
 function count_set(a: seq<int>, x: int): int {
   |set i | 0 <= i < |a| && a[i] == x|
 }
+// pure-end

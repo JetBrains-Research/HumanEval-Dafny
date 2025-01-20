@@ -3,17 +3,17 @@ function IsPrime(n: nat) : bool
   n > 1 &&
   forall k :: 2 <= k < n ==> n % k != 0
 }
-
+// pure-end
 function min(a: int, b: int): int
 {
   if a <= b then a else b
 }
-
+// pure-end
 function max(a: int, b: int): int
 {
   if a >= b then a else b
 }
-
+// pure-end
 method Intersection(start1: int, end1: int, start2: int, end2: int) returns (result: string)
   // pre-conditions-start
   requires start1 <= end1 && start2 <= end2

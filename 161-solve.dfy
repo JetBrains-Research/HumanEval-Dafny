@@ -59,10 +59,11 @@ method reverse(s: string) returns (rev: string)
 function is_alpha(c: char) : bool {
   'a' <= c <= 'z' || 'A' <= c <= 'Z'
 }
-
+// pure-end
 function flip_case(c: char): (flipped: char)
   requires is_alpha(c)
   ensures is_alpha(flipped)
 {
   if 'a' <= c <= 'z' then c - 'a' + 'A' else c - 'A' + 'a'
 }
+// pure-end

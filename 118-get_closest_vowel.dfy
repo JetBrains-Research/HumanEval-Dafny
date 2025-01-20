@@ -3,12 +3,12 @@ function IsVowel(c: char) : bool
   c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
   c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'
 }
-
+// pure-end
 function IsConsonant(c: char) : bool
 {
   ('A' <= c <= 'Z' || 'a' <= c <= 'z') && !IsVowel(c)
 }
-
+// pure-end
 method get_closest_vowel(word: string) returns (result: string)
   // pre-conditions-start
   requires forall i :: 0 <= i < |word| ==> ('A' <= word[i] <= 'Z' || 'a' <= word[i] <= 'z')

@@ -1,7 +1,7 @@
 function sum(s: seq<real>) : real {
   if |s| == 0 then 0.0 else s[0] + sum(s[1..])
 }
-
+// pure-end
 lemma sum_prop(s: seq<real>)
   requires |s| > 0
   ensures sum(s) == sum(s[..|s| - 1]) + s[ |s| - 1 ]
@@ -10,19 +10,19 @@ lemma sum_prop(s: seq<real>)
     assert (s[1..][..|s[1..]| - 1]) == s[1..|s| - 1];
   }
 }
-
+// pure-end
 function abs(x: real) : real
   ensures abs(x) >= 0.0
 {
   if x >= 0.0 then x else -x
 }
-
+// pure-end
 function mean(s: seq<real>) : real
   requires |s| > 0
 {
   sum(s) / |s| as real
 }
-
+// pure-end
 method mean_absolute_derivation(numbers: seq<real>) returns (derivation: real)
   // pre-conditions-start
   requires |numbers| > 0

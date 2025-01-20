@@ -60,7 +60,7 @@ method skjkasdkd(lst: seq<nat>) returns (dsum: nat)
 function digits_sum(x: nat): nat {
   if x == 0 then 0 else x % 10 + digits_sum(x / 10)
 }
-
+// pure-end
 function max_seq(lst: seq<int>): (max: int)
   // pre-conditions-start
   requires |lst| > 0
@@ -84,7 +84,7 @@ lemma max_prop(s: seq<int>)
 {
   assert (s[1..][..|s[1..]| - 1]) == s[1..|s| - 1];
 }
-
+// pure-end
 function filter_primes(lst: seq<int>): (primes: seq<int>)
   // post-conditions-start
   ensures forall i :: 0 <= i < |primes| ==> is_prime(primes[i])
@@ -99,7 +99,7 @@ function filter_primes(lst: seq<int>): (primes: seq<int>)
       (if is_prime(lst[0]) then [lst[0]] else []) + tail
   // impl-end
 }
-
+// pure-end
 lemma primes_prop(s: seq<int>)
     requires |s| > 0
     ensures filter_primes(s) == filter_primes(s[..|s| - 1]) + (
@@ -110,14 +110,15 @@ lemma primes_prop(s: seq<int>)
         assert (s[1..][..|s[1..]| - 1]) == s[1..|s| - 1];
     }
 }
-
+// pure-end
 function max(a: int, b: int): int
   ensures max(a, b) == a || max(a, b) == b
   ensures max(a, b) >= a && max(a, b) >= b
 {
   if a > b then a else b
 }
-
+// pure-end
 function is_prime(k: int) : bool {
   k != 1 && forall i :: 2 <= i < k ==> k % i != 0
 }
+// pure-end

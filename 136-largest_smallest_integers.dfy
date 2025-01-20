@@ -6,7 +6,7 @@ function get_value(o: Option<int>): int
 {
   o.value
 }
-
+// pure-end
 method largest_smallest_integers(arr: seq<int>) returns (a: Option<int>, b: Option<int>)
   // post-conditions-start
   ensures a.None? ==> forall i :: 0 <= i < |arr| ==> arr[i] >= 0

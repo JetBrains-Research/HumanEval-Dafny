@@ -1,0 +1,4 @@
+You have to write 1 function in dafny, using the given helper functions
+The description is as follows:
+brackets is a string of "<" and ">".
+return True if every opening bracket has a corresponding closing bracket.

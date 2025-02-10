@@ -10,8 +10,8 @@ method correct_bracketing(s: seq<int>) returns (b: bool)
     requires forall i :: 0 <= i < |s| ==> s[i] == 0 || s[i] == 1
     // pre-conditions-end
     // post-conditions-start
-    ensures (forall i :: 0 <= i <= |s| ==> CalcBal(s, 0, i) >= 0) ==> b
-    ensures b ==> (forall i :: 0 <= i <= |s| ==> CalcBal(s, 0, i) >= 0)
+    ensures (forall i :: 0 <= i <= |s| ==> CalcBal(s, 0, i) >= 0) && (CalcBal(s, 0, |s|) == 0) ==> b
+    ensures b ==> (forall i :: 0 <= i <= |s| ==> CalcBal(s, 0, i) >= 0) && (CalcBal(s, 0, |s|) == 0)
     // post-conditions-end
 {
     // impl-start
@@ -35,6 +35,9 @@ method correct_bracketing(s: seq<int>) returns (b: bool)
             b := false;
         }
         i := i + 1;
+    }
+    if depth > 0 {
+        b := false;
     }
     // impl-end
 }

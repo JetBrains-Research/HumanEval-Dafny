@@ -1,8 +1,8 @@
 function fib4_rec(n: nat): nat
   decreases n
 {
-  if n == 0 || n == 1 || n == 2 then 0
-  else if n == 3 then 1
+  if n == 0 || n == 1 || n == 3 then 0
+  else if n == 2 then 2
   else fib4_rec(n - 1) + fib4_rec(n - 2) + fib4_rec(n - 3) + fib4_rec(n - 4)
 }
 // pure-end
@@ -12,15 +12,15 @@ method fib4(n: nat) returns (result: nat)
   // post-conditions-end
 {
   // impl-start
-  if n == 0 || n == 1 || n == 2 {
+  if n == 0 || n == 1 || n == 3 {
     return 0;
   }
 
-  if n == 3 {
-    return 1;
+  if n == 2 {
+    return 2;
   }
 
-  var a, b, c, d := 0, 0, 0, 1;
+  var a, b, c, d := 0, 0, 2, 0;
   var i := 4;
 
   while i <= n

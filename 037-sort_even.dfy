@@ -1,4 +1,4 @@
-method sorted_even(a: seq<int>) returns (sorted: seq<int>)
+method sort_even(a: seq<int>) returns (sorted: seq<int>)
   // pre-conditions-start
   requires |a| > 0
   // pre-conditions-end

@@ -4,7 +4,7 @@ function IsPrime(n: int) : bool
   forall k :: 2 <= k < n ==> n % k != 0
 }
 // pure-end
-method PrimeLength(s: string) returns (p : bool)
+method prime_length(s: string) returns (p : bool)
   // post-conditions-start
   ensures p <==> IsPrime(|s|)
   // post-conditions-end

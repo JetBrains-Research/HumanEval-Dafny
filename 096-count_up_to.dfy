@@ -3,7 +3,7 @@ function IsPrime(n: int) : bool
   n > 1 && forall k :: 2 <= k < n ==> n % k != 0
 }
 // pure-end
-method CountUpTo(n: int) returns (primes: seq<int>)
+method count_up_to(n: int) returns (primes: seq<int>)
   // pre-conditions-start
   requires n >= 0
   // pre-conditions-end

@@ -10,7 +10,7 @@ function IsUpperCase(s: string) : bool
 // pure-end
 type DictCase = map<string, string>
 
-method CheckDictCase(dict: DictCase) returns (result: bool)
+method check_dict_case(dict: DictCase) returns (result: bool)
   // post-conditions-start
   ensures dict == map[] ==> !result
   ensures result ==> (forall k :: k in dict ==> IsLowerCase(k)) || (forall k :: k in dict ==> IsUpperCase(k))

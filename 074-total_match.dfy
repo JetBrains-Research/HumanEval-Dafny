@@ -1,4 +1,4 @@
-method TotalMatch(list1: seq<string>, list2: seq<string>) returns (result: seq<string>)
+method total_match(list1: seq<string>, list2: seq<string>) returns (result: seq<string>)
   // post-conditions-start
   ensures |result| == |list1| || |result| == |list2|
   ensures result == list1 || result == list2

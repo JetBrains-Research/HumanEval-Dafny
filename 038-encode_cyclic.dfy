@@ -1,4 +1,4 @@
-method encode_cyclic(s: seq<int>) returns (res: seq<int>) 
+method encode_cyclic(s: string) returns (res: string)
     // post-conditions-start
     ensures |s| == |res|
     ensures forall i :: 0 <= i < |s| - |s| % 3 ==> (i % 3 == 0 ==> res[i] == s[i + 1])
@@ -29,7 +29,7 @@ method encode_cyclic(s: seq<int>) returns (res: seq<int>)
     // impl-end
 }
 
-method decode_cyclic(s: seq<int>) returns (res: seq<int>)
+method decode_cyclic(s: string) returns (res: string)
     // post-conditions-start
     ensures |s| == |res|
     ensures forall i :: |s| - |s| % 3 <= i < |s| ==> (res[i] == s[i])

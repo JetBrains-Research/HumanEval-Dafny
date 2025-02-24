@@ -23,13 +23,13 @@ function mean(s: seq<real>) : real
   sum(s) / |s| as real
 }
 // pure-end
-method mean_absolute_derivation(numbers: seq<real>) returns (derivation: real)
+method mean_absolute_deviation(numbers: seq<real>) returns (deviation: real)
   // pre-conditions-start
   requires |numbers| > 0
   // pre-conditions-end
   // post-conditions-start
   ensures var m := mean(numbers);
-    derivation == mean(seq(|numbers|, i requires 0 <= i < |numbers| => abs(numbers[i] - m)))
+    deviation == mean(seq(|numbers|, i requires 0 <= i < |numbers| => abs(numbers[i] - m)))
   // post-conditions-end
 {
   // impl-start
@@ -78,6 +78,6 @@ method mean_absolute_derivation(numbers: seq<real>) returns (derivation: real)
   }
 
   assert pref_seq[..|pref_seq|] == pref_seq; // assert-line
-  derivation := t / |numbers| as real;
+  deviation := t / |numbers| as real;
   // impl-end
 }

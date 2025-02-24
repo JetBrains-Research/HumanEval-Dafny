@@ -1,7 +1,7 @@
-method vowel_count(s: string) returns (count: int)
+method vowels_count(s: string) returns (count: int)
   // post-conditions-start
   ensures count >= 0
-  ensures count == |(set i | 0 <= i < |s| && is_vowel(s[i]))| + if |s| > 0 && s[|s| - 1] == 'y' then 1 else 0
+  ensures count == |(set i | 0 <= i < |s| && is_vowel(s[i]))| + if |s| > 0 && (s[|s| - 1] == 'y' || s[|s| - 1] == 'Y') then 1 else 0
   // post-conditions-end
 {
     // impl-start
@@ -23,7 +23,7 @@ method vowel_count(s: string) returns (count: int)
         }
         i := i + 1;
     }
-    count := count + if |s| > 0 && s[|s| - 1] == 'y' then 1 else 0;
+    count := count + if |s| > 0 && (s[|s| - 1] == 'y' || s[|s| - 1] == 'Y') then 1 else 0;
     // impl-end
 }
 

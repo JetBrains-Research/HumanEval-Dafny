@@ -1,6 +1,6 @@
 method encode(s: string) returns (t: string)
   // pre-conditions-start
-  requires forall i :: 0 <= i < |s| ==> 'a' <= s[i] <= 'z' || 'A' <= s[i] <= 'Z'
+  requires forall i :: 0 <= i < |s| ==> 'a' <= s[i] <= 'z' || 'A' <= s[i] <= 'Z' || s[i] == ' '
   // pre-conditions-end
   // post-conditions-start
   ensures |s| == |t|
@@ -31,16 +31,19 @@ method encode(s: string) returns (t: string)
 
 function swap_case(c: char): char
   // pre-conditions-start
-  requires 'a' <= c <= 'z' || 'A' <= c <= 'Z'
+  requires 'a' <= c <= 'z' || 'A' <= c <= 'Z' || c == ' '
   // pre-conditions-end
   // post-conditions-start
   ensures 'a' <= c <= 'z' ==> 'A' <= swap_case(c) <= 'Z'
   ensures 'A' <= c <= 'Z' ==> 'a' <= swap_case(c) <= 'z'
+  ensures c == ' ' ==> swap_case(c) == ' '
   ensures is_vowel(swap_case(c)) == is_vowel(c)
   // post-conditions-end
 {
   // impl-start
-  if 'a' <= c <= 'z' then
+  if c == ' ' then
+    ' '
+  else if 'a' <= c <= 'z' then
     'A' + (c - 'a')
   else
     'a' + (c - 'A')

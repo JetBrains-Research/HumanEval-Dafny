@@ -3,7 +3,7 @@ method monotonic(xs: seq<int>) returns (result: bool)
   requires |xs| > 0
   // pre-conditions-end
   // post-conditions-start
-  ensures result <==> (forall i, j :: 0 <= i < j < |xs| ==> xs[i] < xs[j]) || (forall i, j :: 0 <= i < j < |xs| ==> xs[i] > xs[j])
+  ensures result <==> (forall i, j :: 0 <= i < j < |xs| ==> xs[i] <= xs[j]) || (forall i, j :: 0 <= i < j < |xs| ==> xs[i] >= xs[j])
   // post-conditions-end
 {
     // impl-start
@@ -18,14 +18,14 @@ method monotonic(xs: seq<int>) returns (result: bool)
     while i < |xs|
         // invariants-start
         invariant 1 <= i <= |xs|
-        invariant increasing <==> (forall j, k :: 0 <= j < k < i ==> xs[j] < xs[k])
-        invariant decreasing <==> (forall j, k :: 0 <= j < k < i ==> xs[j] > xs[k])
+        invariant increasing <==> (forall j, k :: 0 <= j < k < i ==> xs[j] <= xs[k])
+        invariant decreasing <==> (forall j, k :: 0 <= j < k < i ==> xs[j] >= xs[k])
         // invariants-end
     {
-        if xs[i - 1] >= xs[i] {
+        if xs[i - 1] > xs[i] {
             increasing := false;
         }
-        if xs[i - 1] <= xs[i] {
+        if xs[i - 1] < xs[i] {
             decreasing := false;
         }
         i := i + 1;

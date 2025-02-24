@@ -10,7 +10,7 @@ function Happy(s: string) : bool
     forall i :: 0 < i < |s| - 1 ==> ThreeDistinct(s, i)
 }
 // pure-end
-method IsHappy(s: string) returns (happy : bool)
+method is_happy(s: string) returns (happy : bool)
     // post-conditions-start
     ensures happy <==> Happy(s)
     // post-conditions-end

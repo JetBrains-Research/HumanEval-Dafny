@@ -1,6 +1,6 @@
 
 
-method truncate(x : real) returns (d : real)
+method truncate_number(x : real) returns (d : real)
     // pre-conditions-start
     requires x >= 0.0
     // pre-conditions-end

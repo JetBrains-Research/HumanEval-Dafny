@@ -1,4 +1,4 @@
-method PluckSmallestEven(nodes: seq<int>) returns (result: seq<int>)
+method pluck(nodes: seq<int>) returns (result: seq<int>)
   // pre-conditions-start
   requires |nodes| <= 10000
   requires forall i :: 0 <= i < |nodes| ==> nodes[i] >= 0

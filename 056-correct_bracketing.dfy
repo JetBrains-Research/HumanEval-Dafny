@@ -1,13 +1,13 @@
-function CalcBal(s: seq<int>, i: int, j: int) : int 
+function CalcBal(s: string, i: int, j: int) : int
     requires 0 <= i <= j <= |s|
 {
     if i == j then 0
-    else (if s[j - 1] == 0 then 1 else -1) + CalcBal(s, i, j - 1)
+    else (if s[j - 1] == '<' then 1 else -1) + CalcBal(s, i, j - 1)
 }
 // pure-end
-method correct_bracketing(s: seq<int>) returns (b: bool)
+method correct_bracketing(s: string) returns (b: bool)
     // pre-conditions-start
-    requires forall i :: 0 <= i < |s| ==> s[i] == 0 || s[i] == 1
+    requires forall i :: 0 <= i < |s| ==> s[i] == '<' || s[i] == '>'
     // pre-conditions-end
     // post-conditions-start
     ensures (forall i :: 0 <= i <= |s| ==> CalcBal(s, 0, i) >= 0) && (CalcBal(s, 0, |s|) == 0) ==> b
@@ -26,7 +26,7 @@ method correct_bracketing(s: seq<int>) returns (b: bool)
         invariant b ==> (forall j :: 0 <= j <= i ==> CalcBal(s, 0, j) >= 0)
         // invariants-end
     {
-        if s[i] == 0 {
+        if s[i] == '<' {
             depth := depth + 1;
         } else {
             depth := depth - 1;

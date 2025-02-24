@@ -1,4 +1,4 @@
-method CountNumbersStartingOrEndingWithOne(n: nat) returns (count: nat)
+method starts_one_ends(n: nat) returns (count: nat)
     // pre-conditions-start
     requires n > 0
     // pre-conditions-end

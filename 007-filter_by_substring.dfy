@@ -1,4 +1,4 @@
-
+//TODO: Better conditions
 method checkSubstring(s: string, sub: string) returns (result: bool)
 {
     // impl-start
@@ -9,7 +9,7 @@ method checkSubstring(s: string, sub: string) returns (result: bool)
     }
     else if (|s| >= |sub|)
     {
-        for i := 0 to |s| - |sub|
+        for i := 0 to (|s| - |sub| + 1)
         {
             if (s[i..i + |sub|] == sub)
             {

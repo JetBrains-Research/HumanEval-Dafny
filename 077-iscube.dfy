@@ -16,7 +16,7 @@ method cube_root(N: nat) returns (r: nat)
   // impl-end
 }
 
-method is_cube(n: nat) returns (r: bool)
+method iscube(n: nat) returns (r: bool)
   // pre-conditions-start
   // pre-conditions-end
   // post-conditions-start

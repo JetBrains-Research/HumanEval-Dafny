@@ -18,8 +18,8 @@ lemma psum_property(s: seq<int>, i: int)
 // pure-end
 method below_zero(ops: seq<int>) returns (res : bool)
     // post-conditions-start
-    ensures res ==> forall i : int :: 0 <= i <= |ops| ==> psum(ops[..i]) >= 0
-    ensures !res ==> exists i : int :: 0 <= i <= |ops| && psum(ops[..i]) < 0
+    ensures !res ==> forall i : int :: 0 <= i <= |ops| ==> psum(ops[..i]) >= 0
+    ensures res ==> exists i : int :: 0 <= i <= |ops| && psum(ops[..i]) < 0
     // post-conditions-end
     {
         // impl-start
@@ -37,9 +37,9 @@ method below_zero(ops: seq<int>) returns (res : bool)
             // assert-end
             balance := balance + ops[i];
             if (balance < 0) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
         // impl-end
     }

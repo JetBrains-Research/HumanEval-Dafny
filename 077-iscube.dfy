@@ -16,21 +16,34 @@ method cube_root(N: nat) returns (r: nat)
   // impl-end
 }
 
-method iscube(n: nat) returns (r: bool)
+method iscube(n: int) returns (r: bool)
   // pre-conditions-start
   // pre-conditions-end
   // post-conditions-start
-  ensures r ==> exists r :: 0 <= r <= n && n == cube(r)
-  ensures !r ==> forall r :: 0 <= r <= n ==> n != cube(r)
+  ensures r && n >= 0 ==> exists r :: 0 <= r <= n && n == cube(r)
+  ensures !r && n >= 0 ==> forall r :: 0 <= r <= n ==> n != cube(r)
+  ensures r && n < 0 ==> exists r :: 0 <= r <= -n && n == -cube(r)
+  ensures !r && n < 0 ==> forall r :: 0 <= r <= -n ==> n != -cube(r)
   // post-conditions-end
 {
     // impl-start
-    var root := cube_root(n);
-    if cube(root) == n {
-        r := true;
+    if n >= 0 {
+        var root := cube_root(n);
+        if cube(root) == n {
+            r := true;
+        } else {
+            cube_of_larger_is_larger();
+            r := false;
+        }
     } else {
-        cube_of_larger_is_larger();
-        r := false;
+        var pos_n := -n;
+        var root := cube_root(pos_n);
+        if cube(root) == pos_n {
+            r := true;
+        } else {
+            cube_of_larger_is_larger();
+            r := false;
+        }
     }
     // impl-end
 }

@@ -1,15 +1,15 @@
-function tri(n: nat): nat
+function tri_rec(n: nat): nat
   decreases if n % 2 == 0 then 0 else n
 {
   if n == 1 then 3
   else if n % 2 == 0 then 1 + n / 2
-  else tri(n - 1) + tri(n - 2) + tri(n + 1)
+  else tri_rec(n - 1) + tri_rec(n - 2) + tri_rec(n + 1)
 }
 // pure-end
-method Tribonacci(n: nat) returns (result: seq<nat>)
+method tri(n: nat) returns (result: seq<nat>)
   // post-conditions-start
   ensures |result| == n + 1
-  ensures forall i :: 0 <= i <= n ==> result[i] == tri(i)
+  ensures forall i :: 0 <= i <= n ==> result[i] == tri_rec(i)
   // post-conditions-end
 {
   // impl-start
@@ -22,15 +22,15 @@ method Tribonacci(n: nat) returns (result: seq<nat>)
       // invariants-start
       invariant 0 <= i <= n + 1
       invariant |result| == i
-      invariant forall j :: 0 <= j < i ==> result[j] == tri(j)
+      invariant forall j :: 0 <= j < i ==> result[j] == tri_rec(j)
       // invariants-end
     {
       if i % 2 == 0 {
         result := result + [1 + i / 2];
       } else {
-        assert result[i - 2] == tri(i - 2); // assert-line
-        assert result[i - 1] == tri(i - 1); // assert-line
-        assert (i + 3) / 2 == tri(i + 1); // assert-line
+        assert result[i - 2] == tri_rec(i - 2); // assert-line
+        assert result[i - 1] == tri_rec(i - 1); // assert-line
+        assert (i + 3) / 2 == tri_rec(i + 1); // assert-line
         result := result + [result[i - 2] + result[i - 1] + (i + 3) / 2];
       }
       i := i + 1;

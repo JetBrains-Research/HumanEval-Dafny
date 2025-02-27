@@ -2,13 +2,13 @@ function select_at_most_two_digits_rec(arr: seq<int>): seq<int>
   requires |arr| >= 0 && |arr| <= 100
 {
   if |arr| == 0 then []
-  else if 0 <= arr[0] < 100 then [arr[0]] + select_at_most_two_digits_rec(arr[1..])
+  else if -100 < arr[0] < 100 then [arr[0]] + select_at_most_two_digits_rec(arr[1..])
   else select_at_most_two_digits_rec(arr[1..])
 }
 // pure-end
 lemma select_prop(s: seq<int>)
   requires |s| > 0 && |s| <= 100
-  ensures select_at_most_two_digits_rec(s) == select_at_most_two_digits_rec(s[..|s| - 1]) + if 0 <= s[|s| - 1] < 100 then [s[|s| - 1]] else []
+  ensures select_at_most_two_digits_rec(s) == select_at_most_two_digits_rec(s[..|s| - 1]) + if -100 < s[|s| - 1] < 100 then [s[|s| - 1]] else []
 {
   if (|s| > 1) {
     assert (s[1..][..|s[1..]| - 1]) == s[1..|s| - 1];
@@ -20,7 +20,7 @@ method select_at_most_two_digits(arr: seq<int>) returns (result: seq<int>)
   requires |arr| > 0 && |arr| <= 100
   // pre-conditions-end
   // post-conditions-start
-  ensures forall i :: 0 <= i < |result| ==> 0 <= result[i] < 100
+  ensures forall i :: 0 <= i < |result| ==> -100 < result[i] < 100
   ensures forall i :: 0 <= i < |result| ==> result[i] in arr
   ensures result == select_at_most_two_digits_rec(arr)
   // post-conditions-end
@@ -32,16 +32,16 @@ method select_at_most_two_digits(arr: seq<int>) returns (result: seq<int>)
     // invariants-start
     invariant 0 <= i <= |arr|
     invariant forall j :: 0 <= j < |result| ==> result[j] in arr
-    invariant forall j :: 0 <= j < |result| ==> 0 <= result[j] < 100
+    invariant forall j :: 0 <= j < |result| ==> -100 < result[j] < 100
     invariant |result| <= i
     invariant result == select_at_most_two_digits_rec(arr[..i])
     // invariants-end
   {
-    if 0 <= arr[i] < 100 {
+    if -100 < arr[i] < 100 {
       result := result + [arr[i]];
     }
     // assert-start
-    assert select_at_most_two_digits_rec(arr[..i + 1]) == select_at_most_two_digits_rec(arr[..i]) + if 0 <= arr[i] < 100 then [arr[i]] else [] by {
+    assert select_at_most_two_digits_rec(arr[..i + 1]) == select_at_most_two_digits_rec(arr[..i]) + if -100 < arr[i] < 100 then [arr[i]] else [] by {
       assert arr[..i+1][..i] == arr[..i];
       select_prop(arr[..i + 1]);
     }
@@ -65,7 +65,7 @@ lemma sum_prop(s: seq<int>)
   }
 }
 // pure-end
-method SumElementsWithAtMostTwoDigits(arr: seq<int>, k: int) returns (s: int)
+method add_elements(arr: seq<int>, k: int) returns (s: int)
   // pre-conditions-start
   requires |arr| > 0 && |arr| <= 100
   requires 1 <= k <= |arr|

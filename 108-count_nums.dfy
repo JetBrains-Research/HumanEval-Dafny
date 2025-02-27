@@ -27,7 +27,7 @@ method count_nums(s: seq<int>) returns (cnt: nat)
 function digits_sum(x: int): int
   decreases abs(x)
 {
-  if abs(x) < 10 then x else x % 10 + digits_sum(x / 10)
+  if abs(x) < 10 then x else abs(x) % 10 + digits_sum(if x > 0 then x / 10 else -(-x / 10))
 }
 // pure-end
 function abs(x: int): int

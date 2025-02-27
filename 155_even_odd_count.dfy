@@ -1,21 +1,22 @@
-method even_odd_count(n: nat) returns (even: nat, odd: nat)
-  // pre-conditions-start
-  requires n > 0
-  // pre-conditions-end
+method even_odd_count(n: int) returns (even: nat, odd: nat)
   // post-conditions-start
-  ensures even == even_count(n)
-  ensures odd == odd_count(n)
+  ensures n == 0 ==> even == 1
+  ensures n != 0 ==> even == even_count(abs(n))
+  ensures odd == odd_count(abs(n))
   // post-conditions-end
 {
   // impl-start
-  var num := n;
+  if n == 0 {
+    return 1, 0;
+  }
+  var num := abs(n);
 
   even := 0;
   odd := 0;
   while num > 0
     // invariants-start
-    invariant even + even_count(num) == even_count(n)
-    invariant odd + odd_count(num) == odd_count(n)
+    invariant even + even_count(num) == even_count(abs(n))
+    invariant odd + odd_count(num) == odd_count(abs(n))
     // invariants-end
   {
     even := even + (1 - num % 2);
@@ -36,3 +37,11 @@ function even_count(n: nat): nat
   else even_count(n / 10) + (1 - n % 2)
 }
 // pure-end
+
+function abs(x: int): nat
+  ensures abs(x) >= 0
+  ensures abs(x) == x || abs(x) == -x
+{
+  (if x >= 0 then x else -x) as nat
+}
+//pure-end

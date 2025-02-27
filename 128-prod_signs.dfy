@@ -1,3 +1,15 @@
+datatype Option<T> = None | Some(T)
+
+
+function getVal(mx : Option<int>) : int
+    requires mx != None
+{
+    match mx {
+        case Some(n) => n
+    }
+}
+// pure-end
+
 function abs(x: int): int
   ensures abs(x) >= 0
   ensures abs(x) == x || abs(x) == -x
@@ -22,20 +34,29 @@ lemma sum_prop(s: seq<int>)
   }
 }
 // pure-end
-method prod_signs(numbers: seq<int>) returns (s: int)
-  ensures abs(s) == sum_abs(numbers)
-  ensures |set i | 0 <= i < |numbers| && numbers[i] < 0| % 2 == 1 ==> s <= 0
-  ensures |set i | 0 <= i < |numbers| && numbers[i] < 0| % 2 == 0 ==> s >= 0
+method prod_signs(numbers: seq<int>) returns (so: Option<int>)
+  ensures so == None <==> |numbers| == 0
+  ensures |numbers| > 0 && !(0 in numbers) ==> abs(getVal(so)) == sum_abs(numbers)
+  ensures 0 in numbers <==> so == Some(0)
+  ensures |numbers| > 0 ==> |set i | 0 <= i < |numbers| && numbers[i] < 0| % 2 == 1 ==> getVal(so) <= 0
+  ensures |numbers| > 0 ==> |set i | 0 <= i < |numbers| && numbers[i] < 0| % 2 == 0 ==> getVal(so) >= 0
 {
   // impl-start
-  s := 0;
+  if |numbers| == 0 {
+    return None;
+  }
+  var s := 0;
   var i := 0;
   while (i < |numbers|)
     // invariants-start
     invariant 0 <= i <= |numbers|
     invariant s == sum_abs(numbers[..i])
+    invariant !(0 in numbers[..i])
     // invariants-end
   {
+    if numbers[i] == 0 {
+        return Some(0);
+    }
     s := s + abs(numbers[i]);
     // assert-start
     assert sum_abs(numbers[..i + 1]) == sum_abs(numbers[..i]) + abs(numbers[i]) by {
@@ -69,5 +90,6 @@ method prod_signs(numbers: seq<int>) returns (s: int)
   if (cnt % 2 == 1) {
     s := -s;
   }
+  so := Some(s);
   // impl-end
 }

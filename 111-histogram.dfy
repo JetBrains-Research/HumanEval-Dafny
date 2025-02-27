@@ -1,10 +1,10 @@
-type BiggestMap = map<int, int>
+type BiggestMap = map<char, int>
 
-method count(a: seq<int>) returns (biggest: BiggestMap)
+method histogram(a: string) returns (biggest: BiggestMap)
   // post-conditions-start
   ensures forall i :: 0 <= i < |a| && a[i] in biggest ==>
     biggest[a[i]] == |set j | 0 <= j < |a| && a[j] == a[i]|
-  ensures forall i, j :: 0 <= i < |a| && 0 <= j < |a| && a[i] in biggest ==>
+  ensures forall i, j :: 0 <= i < |a| && 0 <= j < |a| && a[j] != ' ' && a[i] in biggest ==>
     biggest[a[i]] >= |set k | 0 <= k < |a| && a[k] == a[j]|
   ensures forall i, j :: 0 <= i < |a| && 0 <= j < |a| && a[i] in biggest && a[j] in biggest ==>
     biggest[a[i]] == biggest[a[j]]
@@ -46,18 +46,20 @@ method count(a: seq<int>) returns (biggest: BiggestMap)
     // invariants-start
     invariant 0 <= i <= |a|
     invariant forall j :: 0 <= j < |a| ==> a[j] in cnt
-    invariant forall j :: 0 <= j < i ==> a[j] in cnt && maxCount >= cnt[a[j]]
+    invariant forall j :: 0 <= j < i ==> a[j] != ' ' ==> a[j] in cnt && maxCount >= cnt[a[j]]
     invariant exists j :: 0 <= j < i && a[j] in cnt && cnt[a[j]] == maxCount
-    invariant forall j :: 0 <= j < i ==> cnt[a[j]] == maxCount ==> a[j] in biggest
+    invariant forall j :: 0 <= j < i ==> (a[j] != ' ' && cnt[a[j]] == maxCount) ==> a[j] in biggest
     invariant forall x :: x in biggest ==> x in cnt && cnt[x] == maxCount
     invariant forall x :: x in biggest ==> biggest[x] == cnt[x]
     // invariants-end
   {
-    if cnt[a[i]] > maxCount {
-      maxCount := cnt[a[i]];
-      biggest := map[a[i] := maxCount];
-    } else if cnt[a[i]] == maxCount {
-      biggest := biggest[a[i] := maxCount];
+    if a[i] != ' ' {
+        if cnt[a[i]] > maxCount {
+          maxCount := cnt[a[i]];
+          biggest := map[a[i] := maxCount];
+        } else if cnt[a[i]] == maxCount {
+          biggest := biggest[a[i] := maxCount];
+        }
     }
     i := i + 1;
   }

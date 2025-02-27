@@ -1,4 +1,4 @@
-method SortReverseAndName(arr: seq<int>) returns (result: seq<string>)
+method by_length(arr: seq<int>) returns (result: seq<string>)
   // post-conditions-start
   ensures |result| <= |arr|
   ensures forall i :: 0 <= i < |result| ==>

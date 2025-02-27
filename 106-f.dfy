@@ -1,15 +1,15 @@
 function factorial_spec(n : int) : int
-  requires n >= 0
+  requires n > 0
   decreases n
 {
-  if n == 0 then 1 else n * factorial_spec(n - 1)
+  if n == 1 then 1 else n * factorial_spec(n - 1)
 }
 // pure-end
 function sum_spec(n : int) : int
-  requires n >= 0
+  requires n > 0
   decreases n
 {
-  if n == 0 then 1 else n + sum_spec(n - 1)
+  if n == 1 then 1 else n + sum_spec(n - 1)
 }
 // pure-end
 method f(n : int) returns (result : seq<int>)
@@ -18,27 +18,27 @@ method f(n : int) returns (result : seq<int>)
   // pre-conditions-end
   // post-conditions-start
   ensures |result| == n
-  ensures forall i : int :: i >= 0 && i < |result| && i % 2 == 0 ==> result[i] == factorial_spec(i)
-  ensures forall i : int :: i >= 0 && i < |result| && i % 2 != 0 ==> result[i] == sum_spec(i)
+  ensures forall i : int :: i > 0 && i <= |result| && i % 2 == 0 ==> result[i-1] == factorial_spec(i)
+  ensures forall i : int :: i > 0 && i <= |result| && i % 2 != 0 ==> result[i-1] == sum_spec(i)
   // post-conditions-end
 {
   // impl-start
   result := [];
-  var i := 0;
-  while i < n
+  var i := 1;
+  while i <= n
     // invariants-start
-    invariant i >= 0 && i <= n
-    invariant |result| == i
-    invariant forall i : int :: i >= 0 && i < |result| && i % 2 == 0 ==> result[i] == factorial_spec(i)
-    invariant forall i : int :: i >= 0 && i < |result| && i % 2 != 0 ==> result[i] == sum_spec(i)
+    invariant i > 0 && i <= n + 1
+    invariant |result| == i - 1
+    invariant forall i : int :: i > 0 && i <= |result| && i % 2 == 0 ==> result[i-1] == factorial_spec(i)
+    invariant forall i : int :: i > 0 && i <= |result| && i % 2 != 0 ==> result[i-1] == sum_spec(i)
     // invariants-end
   {
     if i % 2 == 0 {
       var x := 1;
-      var j := 0;
+      var j := 1;
       while j < i
         // invariants-start
-        invariant j >= 0 && j <= i
+        invariant j > 0 && j <= i
         invariant x == factorial_spec(j)
         // invariants-end
       {
@@ -48,10 +48,10 @@ method f(n : int) returns (result : seq<int>)
       result := result + [x];
     } else {
       var x := 1;
-      var j := 0;
+      var j := 1;
       while j < i
         // invariants-start
-        invariant j >= 0 && j <= i
+        invariant j > 0 && j <= i
         invariant x == sum_spec(j)
         // invariants-end
       {

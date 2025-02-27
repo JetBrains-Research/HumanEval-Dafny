@@ -20,7 +20,7 @@ function ceil(f: real) : (c : int)
 function square_seq(lst: seq<real>) : (sq : seq<int>)
         ensures |sq| == |lst|
     {
-        seq(|lst|, i requires 0 <= i < |lst| => ceil(lst[i]) * ceil(lst[i]))
+        seq(|lst|, i requires 0 <= i < |lst| => ceil(lst[i] - 0.0001) * ceil(lst[i] - 0.0001))
     }
 // pure-end
 method sum_squares(lst: seq<real>) returns (r : int)

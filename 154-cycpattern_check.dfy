@@ -9,7 +9,7 @@ function RotateString(s: string, n: nat): string
   s[n..] + s[..n]
 }
 // pure-end
-method CycpatternCheck(word: string, pattern: string) returns (result: bool)
+method cycpattern_check(word: string, pattern: string) returns (result: bool)
   // post-conditions-start
   ensures result ==> exists i :: 0 <= i <= |pattern| && IsSubstring(word, RotateString(pattern, i))
   ensures !result ==> forall i :: 0 <= i <= |pattern| ==> !IsSubstring(word, RotateString(pattern, i))

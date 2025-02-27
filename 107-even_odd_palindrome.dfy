@@ -5,8 +5,8 @@ function is_palindrome(n: nat) : bool {
 // pure-end
 method even_odd_palindrome(n: nat) returns (even: nat, odd: nat)
   // post-conditions-start
-  ensures even == |set i | 0 <= i <= n && i % 2 == 0 && is_palindrome(i)|
-  ensures odd == |set i | 0 <= i <= n && i % 2 == 1 && is_palindrome(i)|
+  ensures even == |set i | 1 <= i <= n && i % 2 == 0 && is_palindrome(i)|
+  ensures odd == |set i | 1 <= i <= n && i % 2 == 1 && is_palindrome(i)|
 {
   // impl-start
   even := 0;
@@ -14,12 +14,12 @@ method even_odd_palindrome(n: nat) returns (even: nat, odd: nat)
   ghost var even_pal := {};
   ghost var odd_pal := {};
 
-  var i := 0;
+  var i := 1;
   while i <= n
     // invariants-start
-    invariant 0 <= i <= n + 1
-    invariant even_pal == set j | 0 <= j < i && j % 2 == 0 && is_palindrome(j)
-    invariant odd_pal == set j | 0 <= j < i && j % 2 == 1 && is_palindrome(j)
+    invariant 1 <= i <= n + 1
+    invariant even_pal == set j | 1 <= j < i && j % 2 == 0 && is_palindrome(j)
+    invariant odd_pal == set j | 1 <= j < i && j % 2 == 1 && is_palindrome(j)
 
     invariant even == |even_pal|
     invariant odd == |odd_pal|
@@ -36,8 +36,8 @@ method even_odd_palindrome(n: nat) returns (even: nat, odd: nat)
     }
     i := i + 1;
   }
-  assert even_pal == set i | 0 <= i <= n && i % 2 == 0 && is_palindrome(i);
-  assert odd_pal == set i | 0 <= i <= n && i % 2 == 1 && is_palindrome(i);
+  assert even_pal == set i | 1 <= i <= n && i % 2 == 0 && is_palindrome(i);
+  assert odd_pal == set i | 1 <= i <= n && i % 2 == 1 && is_palindrome(i);
 }
 
 type stringNat = s: string |

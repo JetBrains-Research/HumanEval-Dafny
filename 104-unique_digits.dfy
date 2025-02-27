@@ -4,7 +4,7 @@ function HasNoEvenDigit(n: int) : bool
   n >= 0 && ((n < 10 && n % 2 == 1) || (n % 2 == 1 && HasNoEvenDigit(n / 10)))
 }
 // pure-end
-method UniqueDigits(x: seq<int>) returns (result: seq<int>)
+method unique_digits(x: seq<int>) returns (result: seq<int>)
   // post-conditions-start
   ensures forall i :: 0 <= i < |result| ==> HasNoEvenDigit(result[i])
   ensures forall i, j :: 0 <= i < j < |result| ==> result[i] <= result[j]

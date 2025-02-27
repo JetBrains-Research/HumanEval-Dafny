@@ -1,4 +1,4 @@
-method CalculateTriangleArea(a: real, h: real) returns (area: real)
+method triangle_area(a: real, h: real) returns (area: real)
   // pre-conditions-start
   requires h >= 0.0 && a >= 0.0
   // pre-conditions-end

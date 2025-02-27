@@ -1,23 +1,23 @@
-method Compare(scores: array<int>, guesses: array<int>) returns (result: array<int>)
+method compare(scores: seq<int>, guesses: seq<int>) returns (result: seq<int>)
   // pre-conditions-start
-  requires scores.Length == guesses.Length
+  requires |scores| == |guesses|
   // pre-conditions-end
   // post-conditions-start
-  ensures result.Length == scores.Length
-  ensures forall i :: 0 <= i < result.Length ==> result[i] == abs(scores[i] - guesses[i])
+  ensures |result| == |scores|
+  ensures forall i :: 0 <= i < |result| ==> result[i] == abs(scores[i] - guesses[i])
   // post-conditions-end
 {
   // impl-start
-  result := new int[scores.Length];
+  result := [];
   var i := 0;
-  while i < scores.Length
+  while i < |scores|
     // invariants-start
-    invariant 0 <= i <= scores.Length
-    invariant result.Length == scores.Length
+    invariant 0 <= i <= |scores|
+    invariant |result| == i
     invariant forall k :: 0 <= k < i ==> result[k] == abs(scores[k] - guesses[k])
     // invariants-end
   {
-    result[i] := abs(scores[i] - guesses[i]);
+    result := result + [abs(scores[i] - guesses[i])];
     i := i + 1;
   }
   // impl-end

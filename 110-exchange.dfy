@@ -11,7 +11,7 @@ function CountEvens(lst: seq<int>): nat
   // impl-end
 }
 // pure-end
-method Exchange(lst1: seq<int>, lst2: seq<int>) returns (result: string)
+method exchange(lst1: seq<int>, lst2: seq<int>) returns (result: string)
   // pre-conditions-start
   requires |lst1| > 0 && |lst2| > 0
   // pre-conditions-end

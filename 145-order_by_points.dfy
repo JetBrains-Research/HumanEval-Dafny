@@ -1,11 +1,14 @@
-function digits_sum_pos(n: int): int
-  requires n >= 0
+function digits_sum(x: int): int
+  decreases abs(x)
 {
-  if n < 10 then n else digits_sum_pos(n / 10) + n % 10
+  if abs(x) < 10 then x else abs(x) % 10 + digits_sum(if x > 0 then x / 10 else -(-x / 10))
 }
 // pure-end
-function digits_sum(n: int): int {
-  if n < 0 then digits_sum_pos(-n) else digits_sum_pos(n)
+function abs(x: int): int
+  ensures abs(x) >= 0
+  ensures abs(x) == x || abs(x) == -x
+{
+  if x >= 0 then x else -x
 }
 // pure-end
 method order_by_points(s: seq<int>) returns (sorted: seq<int>)

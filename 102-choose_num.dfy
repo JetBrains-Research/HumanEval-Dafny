@@ -6,12 +6,16 @@ method choose_num(x : int, y : int) returns (num : int)
   ensures num == -1 || (num >= x && num <= y)
   ensures num == -1 || num % 2 == 0
   ensures num == -1 || (forall i : int :: x <= i <= y && i % 2 == 0 ==> num >= i)
-  ensures num == -1 <==> x >= y
+  ensures num == -1 <==> (x > y || (x == y && x % 2 == 1))
   // post-conditions-end
 {
   // impl-start
   num := -1;
-  if x >= y {
+  if (x > y || (x == y && x % 2 == 1)) {
+    return;
+  }
+  if x == y {
+    num := x;
     return;
   }
   if x % 2 == 0 {

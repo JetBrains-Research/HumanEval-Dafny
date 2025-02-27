@@ -1,19 +1,21 @@
-function CalcBal(s: seq<int>, i: int, j: int, acc: int) : int 
+function CalcBal(s: string, i: int, j: int, acc: int) : int
+    requires forall i :: 0 <= i < |s| ==> s[i] == '(' || s[i] == ')'
     requires 0 <= i <= j <= |s|
 {
     if i == j then acc
-    else (if s[j - 1] == 0 then 1 else -1) + CalcBal(s, i, j - 1, acc)
+    else (if s[j - 1] == '(' then 1 else -1) + CalcBal(s, i, j - 1, acc)
 }
 // pure-end
-method checkFixed(s1: seq<int>, s2: seq<int>) returns (b: bool) 
+method match_parens(s1: string, s2: string) returns (b: string)
     // pre-conditions-start
-    requires forall i :: 0 <= i < |s1| ==> s1[i] == 0 || s1[i] == 1
-    requires forall i :: 0 <= i < |s2| ==> s2[i] == 0 || s2[i] == 1
+    requires forall i :: 0 <= i < |s1| ==> s1[i] == '(' || s1[i] == ')'
+    requires forall i :: 0 <= i < |s2| ==> s2[i] == '(' || s2[i] == ')'
     // pre-conditions-end
     // post-conditions-start
-    ensures b ==> forall i :: 0 <= i <= |s1| ==> CalcBal(s1, 0, i, 0) >= 0
-    ensures b ==> forall i :: 0 <= i <= |s2| ==> CalcBal(s1, 0, |s1|, 0) + CalcBal(s2, 0, i, 0) >= 0
-    ensures !b ==> (exists i :: 0 <= i <= |s1| && CalcBal(s1, 0, i, 0) < 0) || (exists i :: 0 <= i <= |s2| && CalcBal(s1, 0, |s1|, 0) + CalcBal(s2, 0, i, 0) < 0)
+    ensures (b == "Yes") || (b == "No")
+    ensures (b == "Yes") ==> forall i :: 0 <= i <= |s1| ==> CalcBal(s1, 0, i, 0) >= 0
+    ensures (b == "Yes") ==> forall i :: 0 <= i <= |s2| ==> CalcBal(s1, 0, |s1|, 0) + CalcBal(s2, 0, i, 0) >= 0
+    ensures (b == "No") ==> (exists i :: 0 <= i <= |s1| && CalcBal(s1, 0, i, 0) < 0) || (exists i :: 0 <= i <= |s2| && CalcBal(s1, 0, |s1|, 0) + CalcBal(s2, 0, i, 0) < 0)
     // post-conditions-end
 {
     // impl-start
@@ -26,7 +28,7 @@ method checkFixed(s1: seq<int>, s2: seq<int>) returns (b: bool)
         invariant forall j :: 0 <= j < i ==> CalcBal(s1, 0, j, 0) >= 0
         // invariants-end
     {
-        if s1[i] == 0 {
+        if s1[i] == '(' {
             bal := bal + 1;
         } else {
             bal := bal - 1;
@@ -35,7 +37,7 @@ method checkFixed(s1: seq<int>, s2: seq<int>) returns (b: bool)
             // assert-start
             assert CalcBal(s1, 0, i + 1, 0) < 0;
             // assert-end
-            return false;
+            return "No";
         }
         i := i + 1;
     }
@@ -48,7 +50,7 @@ method checkFixed(s1: seq<int>, s2: seq<int>) returns (b: bool)
         invariant forall j :: 0 <= j < i ==> CalcBal(s1, 0, |s1|, 0) + CalcBal(s2, 0, j, 0) >= 0
         // invariants-end
     {
-        if s2[i] == 0 {
+        if s2[i] == '(' {
             bal := bal + 1;
         } else {
             bal := bal - 1;
@@ -58,10 +60,10 @@ method checkFixed(s1: seq<int>, s2: seq<int>) returns (b: bool)
             assert CalcBal(s1, 0, |s1|, 0) + CalcBal(s2, 0, i + 1, 0) < 0;
             assert exists i :: 0 <= i <= |s2| && CalcBal(s1, 0, |s1|, 0) + CalcBal(s2, 0, i, 0) < 0;
             // assert-end
-            return false;
+            return "No";
         }
         i := i + 1;
     }
-    return true;
+    return "Yes";
     // impl-end
 }

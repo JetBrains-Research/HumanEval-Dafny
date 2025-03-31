@@ -166,3 +166,6 @@ Current status:
 - [ ] 161. solve
 - [ ] 162. string_to_md5 - needs hash
 - [x] 163. generate_integers
+
+## There is also a similar benchmark of HumanEval translated to [Nagini](https://github.com/JetBrains-Research/HumanEval-Nagini)
+
